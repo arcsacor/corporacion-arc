@@ -1,12 +1,14 @@
 /* ============================================================
    CORPORACION ARC S.A. — leads.js
-   Versión: 2.0 | Mayo 2026
-   Envío nativo compatible con Netlify Forms
+   Versión: 4.0 | Mayo 2026
+   Captacion de leads -> Google Sheets via Apps Script
    ============================================================ */
 
 'use strict';
 
 const LEADS = {
+
+  SCRIPT_URL: 'https://script.google.com/macros/s/AKfycbxhxReE4_b354I8lXVo-hgwCL6lNsdOGAsVeA_oNUDMbRetMMWBHzclovP1txjJssQ8mA/exec',
 
   config: {
     maxSubmits: 3,
@@ -44,14 +46,14 @@ const LEADS = {
     const btn = form.querySelector('.form-submit');
     const msgEl = form.querySelector('.form-message');
 
-    // 1. Honeypot
+    // 1. Honeypot anti-bot
     const honeypot = form.querySelector('.form-honeypot input');
     if (honeypot && honeypot.value.trim() !== '') {
       this.showSuccess(form, msgEl, btn);
       return;
     }
 
-    // 2. Tiempo mínimo anti-bot
+    // 2. Tiempo minimo anti-bot
     const fillTime = Date.now() - parseInt(form.dataset.loadTime || 0);
     if (fillTime < this.config.minFillTimeMs) {
       this.showSuccess(form, msgEl, btn);
@@ -66,57 +68,54 @@ const LEADS = {
       return;
     }
 
-    // 4. Validar
+    // 4. Validar campos
     if (!this.validateForm(form)) return;
 
-    // 5. Enviar
+    // 5. Preparar datos
     btn.disabled = true;
     btn.textContent = '...';
 
+    const formData = new FormData(form);
+    const fields = Array.from(formData.entries());
+
+    // Mapear campos especificos por division
+    const data = {
+      division: formData.get('division') || form.getAttribute('name') || 'General',
+      nombre:   formData.get('nombre') || '',
+      correo:   formData.get('correo') || '',
+      telefono: formData.get('telefono') || '',
+      mensaje:  formData.get('mensaje') || '',
+      campo1:   '',
+      campo2:   '',
+      campo3:   ''
+    };
+
+    // Campos adicionales segun division
+    const extras = fields.filter(([k]) =>
+      !['division','nombre','correo','telefono','mensaje','form-name','bot-field'].includes(k)
+    );
+    if (extras[0]) data.campo1 = `${extras[0][0]}: ${extras[0][1]}`;
+    if (extras[1]) data.campo2 = `${extras[1][0]}: ${extras[1][1]}`;
+    if (extras[2]) data.campo3 = `${extras[2][0]}: ${extras[2][1]}`;
+
+    // 6. Enviar a Google Sheets
     try {
-      // Construir datos como URLEncoded — formato que Netlify Forms acepta
-      const formData = new FormData(form);
-      const encoded = new URLSearchParams();
-
-      for (const [key, value] of formData.entries()) {
-        encoded.append(key, value);
-      }
-
-      // Obtener el nombre del formulario
-      const formName = form.getAttribute('name');
-      if (!encoded.has('form-name')) {
-        encoded.append('form-name', formName);
-      }
-
-      const response = await fetch(window.location.pathname, {
+      const response = await fetch(this.SCRIPT_URL, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: encoded.toString()
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
       });
 
-      if (response.ok) {
-        this.submitLog.push(Date.now());
-        this.showSuccess(form, msgEl, btn);
-      } else {
-        // Si falla el fetch, intentar envío nativo como fallback
-        this.submitNative(form, btn, msgEl);
-      }
+      // no-cors siempre retorna opaque — asumimos exito si no hay error
+      this.submitLog.push(Date.now());
+      this.showSuccess(form, msgEl, btn);
 
     } catch (err) {
-      // Fallback: envío nativo del formulario
-      this.submitNative(form, btn, msgEl);
-    }
-  },
-
-  // Envío nativo — fallback garantizado
-  submitNative(form, btn, msgEl) {
-    if (btn) {
+      this.showError(msgEl, 'Hubo un error al enviar. Por favor intenta de nuevo.');
       btn.disabled = false;
       btn.textContent = 'Enviar Solicitud';
     }
-    this.showError(msgEl, 'Hubo un error. Por favor intenta de nuevo.');
   },
 
   validateForm(form) {
@@ -184,7 +183,6 @@ const LEADS = {
   }
 };
 
-// Estilos de validación
 (function addValidationStyles() {
   const style = document.createElement('style');
   style.textContent = `.field-error { border-color: #ff5050 !important; box-shadow: 0 0 0 3px rgba(255,80,80,0.12) !important; }`;
