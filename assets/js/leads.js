@@ -95,10 +95,10 @@ const LEADS = {
     try {
       const formData = new FormData(form);
 
-      const response = await fetch(form.action || window.location.href, {
+      const response = await fetch('/', {
         method: 'POST',
-        body: formData,
-        headers: { 'Accept': 'application/json' }
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData).toString()
       });
 
       if (response.ok) {
