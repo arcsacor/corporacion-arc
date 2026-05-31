@@ -1,0 +1,280 @@
+/* ============================================================
+   CORPORACION ARC S.A. — responsive.css
+   Versión: 1.0 | Mayo 2026
+   Reglas para tablet y móvil
+   ============================================================ */
+
+/* ── TABLET — 1024px ─────────────────────────────────────── */
+@media (max-width: 1024px) {
+
+  :root {
+    --section-pad: 80px 24px;
+  }
+
+  .footer__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+
+  .leads-form {
+    padding: 40px 32px;
+  }
+
+  .timeline::before {
+    left: 20px;
+  }
+
+  .timeline__item,
+  .timeline__item:nth-child(even) {
+    justify-content: flex-start;
+    padding-right: 0;
+    padding-left: 56px;
+  }
+
+  .timeline__dot {
+    left: 20px;
+  }
+}
+
+/* ── MÓVIL — 768px ───────────────────────────────────────── */
+@media (max-width: 768px) {
+
+  :root {
+    --section-pad: 64px 20px;
+  }
+
+  /* Topbar */
+  .topbar {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 10px 16px;
+    font-size: 0.75rem;
+  }
+
+  /* Navbar */
+  .navbar {
+    padding: 0 20px;
+    height: 64px;
+  }
+
+  .navbar__menu {
+    display: none;
+    position: absolute;
+    top: 64px;
+    left: 0;
+    right: 0;
+    background-color: var(--color-primary);
+    flex-direction: column;
+    padding: 24px 20px;
+    gap: 4px;
+    border-bottom: 1px solid rgba(0,212,255,0.15);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+  }
+
+  .navbar__menu.open {
+    display: flex;
+  }
+
+  .navbar__link {
+    width: 100%;
+    padding: 14px 16px;
+    font-size: 0.9rem;
+  }
+
+  .navbar__lang {
+    margin-left: 0;
+    padding-left: 0;
+    border-left: none;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 16px;
+    margin-top: 8px;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .navbar__hamburger {
+    display: flex;
+  }
+
+  .navbar__hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .navbar__hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .navbar__hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+
+  /* Hero */
+  .hero {
+    min-height: 100svh;
+  }
+
+  .hero__cta {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero__cta .btn {
+    width: 100%;
+    max-width: 320px;
+    justify-content: center;
+  }
+
+  /* Cards */
+  .cards-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .service-card {
+    padding: 32px 24px;
+  }
+
+  /* Parallax — desactivado en móvil por rendimiento */
+  .parallax-card__img {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    height: 240px;
+    transform: none !important;
+  }
+
+  .parallax-card {
+    height: auto;
+  }
+
+  /* Timeline */
+  .timeline::before {
+    left: 16px;
+  }
+
+  .timeline__item,
+  .timeline__item:nth-child(even) {
+    padding-left: 48px;
+    padding-right: 0;
+    justify-content: flex-start;
+  }
+
+  .timeline__dot {
+    left: 16px;
+    width: 12px;
+    height: 12px;
+  }
+
+  .timeline__content {
+    max-width: 100%;
+    padding: 20px;
+  }
+
+  /* Formulario */
+  .leads-form {
+    padding: 32px 20px;
+    border-radius: 12px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-group--full {
+    grid-column: 1;
+  }
+
+  /* Footer */
+  .footer__grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .footer__bottom {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+
+  .footer__brand-text {
+    max-width: 100%;
+  }
+}
+
+/* ── MÓVIL PEQUEÑO — 480px ───────────────────────────────── */
+@media (max-width: 480px) {
+
+  :root {
+    --section-pad: 48px 16px;
+  }
+
+  .container {
+    padding: 0 16px;
+  }
+
+  .topbar {
+    font-size: 0.7rem;
+    gap: 8px;
+  }
+
+  .hero__title {
+    font-size: 2.8rem;
+  }
+
+  .btn {
+    padding: 12px 24px;
+    font-size: 0.9rem;
+  }
+
+  .leads-form {
+    padding: 24px 16px;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .footer__brand-logo {
+    font-size: 1.6rem;
+  }
+}
+
+/* ── PREFERENCIA SISTEMA — SIN ANIMACIONES ───────────────── */
+@media (prefers-reduced-motion: reduce) {
+
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .logos-inner {
+    animation: none;
+  }
+
+  .hero__scroll {
+    animation: none;
+  }
+
+  .parallax-card__img {
+    transform: none !important;
+  }
+}
+
+/* ── IMPRESION ────────────────────────────────────────────── */
+@media print {
+
+  .topbar,
+  .navbar,
+  .hero__scroll,
+  .curtain,
+  .leads-form,
+  .footer__social {
+    display: none !important;
+  }
+
+  body {
+    color: #000;
+    background: #fff;
+  }
+}
