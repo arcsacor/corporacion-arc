@@ -9,6 +9,7 @@
   <meta property="og:description" content="Cuatro divisiones. Un solo aliado estratégico para tu empresa.">
   <meta property="og:type" content="website">
   <meta name="theme-color" content="#0A1628">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='12' fill='%230A1628'/><text y='72' x='8' font-size='68' font-family='Arial Black' font-weight='900' fill='%2300D4FF'>A</text></svg>">
   <title>Corporación ARC S.A. — Soluciones Empresariales</title>
 
   <!-- Fonts -->
@@ -392,6 +393,57 @@
   </footer>
 
   <!-- ══ SCRIPTS ════════════════════════════════════════════ -->
+  <!-- Registro de formularios de sub-páginas para Netlify Forms -->
+  <div style="display:none" aria-hidden="true">
+    <form name="leads-automotriz" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="text" name="bot-field">
+      <input type="hidden" name="division">
+      <input type="text" name="nombre">
+      <input type="email" name="correo">
+      <input type="tel" name="telefono">
+      <select name="vehiculo"><option>-</option></select>
+      <select name="problema"><option>-</option></select>
+      <select name="urgencia"><option>-</option></select>
+      <textarea name="mensaje"></textarea>
+    </form>
+    <form name="leads-print" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="text" name="bot-field">
+      <input type="hidden" name="division">
+      <input type="text" name="nombre">
+      <input type="email" name="correo">
+      <input type="tel" name="telefono">
+      <select name="material"><option>-</option></select>
+      <select name="cantidad"><option>-</option></select>
+      <input type="date" name="fecha">
+      <textarea name="mensaje"></textarea>
+    </form>
+    <form name="leads-logistics" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="text" name="bot-field">
+      <input type="hidden" name="division">
+      <input type="text" name="nombre">
+      <input type="email" name="correo">
+      <input type="tel" name="telefono">
+      <select name="carga"><option>-</option></select>
+      <input type="text" name="origen">
+      <input type="text" name="destino">
+      <input type="date" name="fecha">
+      <select name="tonelaje"><option>-</option></select>
+      <textarea name="mensaje"></textarea>
+    </form>
+    <form name="leads-talent" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="text" name="bot-field">
+      <input type="hidden" name="division">
+      <input type="text" name="nombre">
+      <input type="email" name="correo">
+      <input type="tel" name="telefono">
+      <input type="text" name="empresa">
+      <input type="text" name="puesto">
+      <select name="plazas"><option>-</option></select>
+      <select name="modalidad"><option>-</option></select>
+      <select name="urgencia"><option>-</option></select>
+      <textarea name="mensaje"></textarea>
+    </form>
+  </div>
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script src="assets/js/main.js"></script>
   <script src="assets/js/i18n.js"></script>
