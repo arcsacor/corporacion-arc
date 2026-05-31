@@ -84,10 +84,26 @@
 
   // Entrada: revelar página al cargar
   window.addEventListener('load', () => {
+    curtain.classList.remove('entering');
     curtain.classList.add('leaving');
     setTimeout(() => {
       curtain.style.display = 'none';
     }, 600);
+  });
+
+  // Detectar navegacion hacia atras del navegador
+  window.addEventListener('pageshow', (e) => {
+    curtain.style.display = 'none';
+    curtain.classList.remove('entering');
+    curtain.classList.remove('leaving');
+    curtain.style.transform = 'translateY(100%)';
+  });
+
+  // Por si el navegador restaura pagina desde cache
+  window.addEventListener('popstate', () => {
+    curtain.style.display = 'none';
+    curtain.classList.remove('entering');
+    curtain.style.transform = 'translateY(100%)';
   });
 
   // Salida: cubrir antes de navegar
