@@ -1,0 +1,13 @@
+# ============================================================
+# CORPORACION ARC S.A. — robots.txt
+# Control de indexación para buscadores
+# ============================================================
+
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /assets/js/
+Disallow: /assets/css/
+
+# Sitemap (activar cuando el dominio esté en producción)
+# Sitemap: https://corporacionarc.com/sitemap.xml
