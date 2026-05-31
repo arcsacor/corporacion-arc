@@ -9,7 +9,7 @@
 const TRANSLATIONS = {
   es: {
     /* Topbar */
-    topbar_whatsapp: 'WhatsApp: +502 0000-0000',
+    topbar_whatsapp: 'WhatsApp: +502 5668-9708',
 
     /* Navbar */
     nav_automotriz:  'Automotriz',
@@ -103,7 +103,7 @@ const TRANSLATIONS = {
 
   en: {
     /* Topbar */
-    topbar_whatsapp: 'WhatsApp: +502 0000-0000',
+    topbar_whatsapp: 'WhatsApp: +502 5668-9708',
 
     /* Navbar */
     nav_automotriz:  'Automotive',
