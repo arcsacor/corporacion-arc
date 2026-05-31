@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Corporación ARC S.A. — Soluciones empresariales integrales en Guatemala. Automotriz, Print, Logistics y Talent.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Corporación ARC S.A.">
+  <meta property="og:description" content="Cuatro divisiones. Un solo aliado estratégico para tu empresa.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#0A1628">
+  <title>Corporación ARC S.A. — Soluciones Empresariales</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+
+  <!-- ══ TELÓN — EFECTO #3 ══════════════════════════════════ -->
+  <div class="curtain" aria-hidden="true"></div>
+
+  <!-- ══ BARRA SUPERIOR ════════════════════════════════════ -->
+  <div class="topbar">
+    <a href="https://wa.me/50200000000" target="_blank" rel="noopener" class="topbar__link">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+        <path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.532 5.858L.057 23.571a.75.75 0 00.921.921l5.713-1.475A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.705 9.705 0 01-4.95-1.355l-.355-.211-3.688.951.972-3.585-.232-.369A9.718 9.718 0 012.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/>
+      </svg>
+      <span data-i18n="topbar_whatsapp">WhatsApp: +502 0000-0000</span>
+    </a>
+  </div>
+
+  <!-- ══ NAVEGACIÓN ════════════════════════════════════════ -->
+  <nav class="navbar" role="navigation" aria-label="Navegación principal">
+    <a href="index.html" class="navbar__logo" data-curtain>
+      ARC<span>.</span>
+    </a>
+
+    <ul class="navbar__menu" id="navMenu" role="list">
+      <li><a href="acr-automotriz.html" class="navbar__link" data-i18n="nav_automotriz" data-curtain>Automotriz</a></li>
+      <li><a href="acr-print.html"      class="navbar__link" data-i18n="nav_print"      data-curtain>Print</a></li>
+      <li><a href="acr-logistics.html"  class="navbar__link" data-i18n="nav_logistics"  data-curtain>Logistics</a></li>
+      <li><a href="acr-talent.html"     class="navbar__link" data-i18n="nav_talent"     data-curtain>Talent</a></li>
+      <li><a href="#nosotros"           class="navbar__link" data-i18n="nav_nosotros">Nosotros</a></li>
+      <li><a href="#contacto"           class="navbar__link" data-i18n="nav_contacto">Contacto</a></li>
+
+      <li class="navbar__lang" role="group" aria-label="Seleccionar idioma">
+        <button data-lang="es" class="active" aria-label="Español">ES</button>
+        <button data-lang="en" aria-label="English">EN</button>
+      </li>
+    </ul>
+
+    <button class="navbar__hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="navMenu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- ══ HERO ══════════════════════════════════════════════ -->
+  <section class="hero" id="inicio" aria-label="Inicio">
+    <div class="hero__bg"></div>
+
+    <div class="hero__content">
+      <p class="hero__eyebrow" data-i18n="hero_eyebrow">Corporación ARC S.A.</p>
+      <h1 class="hero__title" data-i18n="hero_title">Soluciones que<br>mueven negocios</h1>
+      <p class="hero__subtitle" data-i18n="hero_subtitle">Cuatro divisiones. Un solo aliado estratégico para tu empresa.</p>
+      <div class="hero__cta">
+        <a href="#servicios" class="btn btn--primary magnetic" data-i18n="hero_cta1">Conoce nuestros servicios</a>
+        <a href="#contacto"  class="btn btn--outline magnetic" data-i18n="hero_cta2">Solicitar cotización</a>
+      </div>
+    </div>
+
+    <div class="hero__scroll" aria-hidden="true">
+      <span data-i18n="hero_scroll">Scroll</span>
+    </div>
+  </section>
+
+  <!-- ══ SERVICIOS — CARDS CON EFECTO #1 ═══════════════════ -->
+  <section class="section" id="servicios" aria-label="Nuestras divisiones">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up" data-i18n="services_title">Nuestras Divisiones</h2>
+      <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100" data-i18n="services_subtitle">
+        Soluciones especializadas para cada necesidad de tu negocio.
+      </p>
+
+      <div class="cards-grid">
+
+        <!-- Card 1 — Automotriz -->
+        <article class="service-card" data-aos="fade-up" data-aos-delay="0">
+          <span class="card__icon" aria-hidden="true">🔧</span>
+          <h3 class="card__title" data-i18n="card1_title">ARC Automotriz</h3>
+          <p class="card__text" data-i18n="card1_text">
+            Taller mecánico especializado con diagnóstico computarizado, mantenimiento preventivo y correctivo para flotas y vehículos particulares.
+          </p>
+          <a href="acr-automotriz.html" class="card__link" data-i18n="card1_link" data-curtain>
+            Ver servicios →
+          </a>
+        </article>
+
+        <!-- Card 2 — Print -->
+        <article class="service-card" data-aos="fade-up" data-aos-delay="100">
+          <span class="card__icon" aria-hidden="true">🖨️</span>
+          <h3 class="card__title" data-i18n="card2_title">ARC Print</h3>
+          <p class="card__text" data-i18n="card2_text">
+            Impresión y sublimado de alta calidad en textiles, materiales promocionales y señalización corporativa con entrega express.
+          </p>
+          <a href="acr-print.html" class="card__link" data-i18n="card2_link" data-curtain>
+            Ver servicios →
+          </a>
+        </article>
+
+        <!-- Card 3 — Logistics -->
+        <article class="service-card" data-aos="fade-up" data-aos-delay="200">
+          <span class="card__icon" aria-hidden="true">🚛</span>
+          <h3 class="card__title" data-i18n="card3_title">ARC Logistics</h3>
+          <p class="card__text" data-i18n="card3_text">
+            Alquiler de camiones y soluciones de transporte para carga local y nacional. Flota moderna con seguimiento en tiempo real.
+          </p>
+          <a href="acr-logistics.html" class="card__link" data-i18n="card3_link" data-curtain>
+            Ver servicios →
+          </a>
+        </article>
+
+        <!-- Card 4 — Talent -->
+        <article class="service-card" data-aos="fade-up" data-aos-delay="300">
+          <span class="card__icon" aria-hidden="true">🤝</span>
+          <h3 class="card__title" data-i18n="card4_title">ARC Talent</h3>
+          <p class="card__text" data-i18n="card4_text">
+            Outsourcing de recursos humanos y reclutamiento especializado. Encontramos el talento que tu empresa necesita.
+          </p>
+          <a href="acr-talent.html" class="card__link" data-i18n="card4_link" data-curtain>
+            Ver servicios →
+          </a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ QUIÉNES SOMOS — TIMELINE ═══════════════════════════ -->
+  <section class="section section--dark" id="nosotros" aria-label="Quiénes somos">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up" data-i18n="about_title">Quiénes Somos</h2>
+      <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100" data-i18n="about_subtitle">
+        Una corporación con historia, visión y compromiso con Guatemala.
+      </p>
+
+      <div class="timeline">
+
+        <div class="timeline__item" data-aos="fade-right">
+          <div class="timeline__dot"></div>
+          <div class="timeline__content">
+            <div class="timeline__year" data-i18n="timeline1_year">2010</div>
+            <p class="timeline__text" data-i18n="timeline1_text">
+              Fundación de Corporación ARC S.A. con la apertura del taller automotriz en Ciudad de Guatemala.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline__item" data-aos="fade-left">
+          <div class="timeline__dot"></div>
+          <div class="timeline__content">
+            <div class="timeline__year" data-i18n="timeline2_year">2014</div>
+            <p class="timeline__text" data-i18n="timeline2_text">
+              Expansión con la división ARC Print, atendiendo la demanda de impresión corporativa en la región.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline__item" data-aos="fade-right">
+          <div class="timeline__dot"></div>
+          <div class="timeline__content">
+            <div class="timeline__year" data-i18n="timeline3_year">2018</div>
+            <p class="timeline__text" data-i18n="timeline3_text">
+              Lanzamiento de ARC Logistics con una flota inicial de 10 unidades para transporte de carga.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline__item" data-aos="fade-left">
+          <div class="timeline__dot"></div>
+          <div class="timeline__content">
+            <div class="timeline__year" data-i18n="timeline4_year">2022</div>
+            <p class="timeline__text" data-i18n="timeline4_text">
+              Consolidación del grupo con ARC Talent, completando el ecosistema de servicios empresariales.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline__item" data-aos="fade-right">
+          <div class="timeline__dot"></div>
+          <div class="timeline__content">
+            <div class="timeline__year" data-i18n="timeline5_year">Hoy</div>
+            <p class="timeline__text" data-i18n="timeline5_text">
+              Más de 200 clientes activos, 4 divisiones y presencia en todo el territorio nacional.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ ALIADOS — CARRUSEL LOGOS ═══════════════════════════ -->
+  <section class="section" id="aliados" aria-label="Nuestros aliados">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up" data-i18n="clients_title">Nuestros Aliados</h2>
+      <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100" data-i18n="clients_subtitle">
+        Empresas que confían en Corporación ARC S.A.
+      </p>
+    </div>
+
+    <div class="logos-track" aria-hidden="true">
+      <div class="logos-inner">
+        <span class="logo-item">EMPRESA UNO</span>
+        <span class="logo-item">GRUPO DOS</span>
+        <span class="logo-item">CORPORACION TRES</span>
+        <span class="logo-item">INDUSTRIAS CUATRO</span>
+        <span class="logo-item">SERVICIOS CINCO</span>
+        <span class="logo-item">HOLDING SEIS</span>
+        <span class="logo-item">EMPRESA SIETE</span>
+        <span class="logo-item">GRUPO OCHO</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FORMULARIO DE LEADS ════════════════════════════════ -->
+  <section class="section section--mid" id="contacto" aria-label="Formulario de contacto">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up" data-i18n="form_title">Solicita tu Cotización</h2>
+      <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100" data-i18n="form_subtitle">
+        Completa el formulario y te contactamos en menos de 24 horas.
+      </p>
+
+      <div data-aos="fade-up" data-aos-delay="200">
+        <form
+          class="leads-form leads-form-el"
+          name="contacto-general"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          novalidate
+        >
+          <!-- Netlify hidden field -->
+          <input type="hidden" name="form-name" value="contacto-general">
+
+          <!-- Honeypot anti-spam -->
+          <div class="form-honeypot" aria-hidden="true">
+            <input type="text" name="bot-field" tabindex="-1" autocomplete="off">
+          </div>
+
+          <div class="form-grid">
+
+            <div class="form-group">
+              <label for="nombre" data-i18n="label_nombre">Nombre completo</label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                data-i18n="placeholder_nombre"
+                placeholder="Tu nombre completo"
+                required
+                autocomplete="name"
+                maxlength="100"
+              >
+            </div>
+
+            <div class="form-group">
+              <label for="correo" data-i18n="label_correo">Correo electrónico</label>
+              <input
+                type="email"
+                id="correo"
+                name="correo"
+                data-i18n="placeholder_correo"
+                placeholder="correo@empresa.com"
+                required
+                autocomplete="email"
+                maxlength="150"
+              >
+            </div>
+
+            <div class="form-group">
+              <label for="telefono" data-i18n="label_telefono">Teléfono</label>
+              <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                data-i18n="placeholder_telefono"
+                placeholder="+502 0000-0000"
+                required
+                autocomplete="tel"
+                maxlength="20"
+              >
+            </div>
+
+            <div class="form-group">
+              <label for="division" data-i18n="label_division">División de interés</label>
+              <select id="division" name="division" required>
+                <option value="" data-i18n="option_select">Selecciona una división</option>
+                <option value="automotriz" data-i18n="option_auto">ARC Automotriz — Taller Mecánico</option>
+                <option value="print"      data-i18n="option_print">ARC Print — Impresión y Sublimado</option>
+                <option value="logistics"  data-i18n="option_logistics">ARC Logistics — Transporte y Camiones</option>
+                <option value="talent"     data-i18n="option_talent">ARC Talent — Outsourcing RH</option>
+              </select>
+            </div>
+
+            <div class="form-group form-group--full">
+              <label for="mensaje" data-i18n="label_mensaje">Mensaje</label>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                data-i18n="placeholder_mensaje"
+                placeholder="Cuéntanos cómo podemos ayudarte..."
+                required
+                maxlength="1000"
+                rows="5"
+              ></textarea>
+            </div>
+
+          </div>
+
+          <button type="submit" class="btn btn--primary form-submit magnetic" data-i18n="btn_enviar">
+            Enviar Solicitud
+          </button>
+
+          <div class="form-message" role="alert" aria-live="polite"></div>
+
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ═════════════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer__grid">
+
+      <div>
+        <div class="footer__brand-logo">ARC<span>.</span></div>
+        <p class="footer__brand-text" data-i18n="footer_desc">
+          Soluciones empresariales integrales con más de una década de experiencia en Guatemala.
+        </p>
+      </div>
+
+      <div>
+        <h4 class="footer__heading" data-i18n="footer_servicios">Servicios</h4>
+        <ul class="footer__links">
+          <li><a href="acr-automotriz.html" data-curtain data-i18n="nav_automotriz">Automotriz</a></li>
+          <li><a href="acr-print.html"      data-curtain data-i18n="nav_print">Print</a></li>
+          <li><a href="acr-logistics.html"  data-curtain data-i18n="nav_logistics">Logistics</a></li>
+          <li><a href="acr-talent.html"     data-curtain data-i18n="nav_talent">Talent</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer__heading" data-i18n="footer_empresa">Empresa</h4>
+        <ul class="footer__links">
+          <li><a href="#nosotros" data-i18n="footer_nosotros">Nosotros</a></li>
+          <li><a href="#contacto" data-i18n="footer_contacto">Contacto</a></li>
+          <li><a href="#" data-i18n="footer_privacidad">Privacidad</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer__heading" data-i18n="footer_contacto">Contacto</h4>
+        <ul class="footer__links">
+          <li><a href="https://wa.me/50200000000" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="mailto:contacto@corporacionarc.com">contacto@corporacionarc.com</a></li>
+          <li><a href="#">Guatemala, C.A.</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer__bottom">
+      <span data-i18n="footer_copy">© 2026 Corporación ARC S.A. Todos los derechos reservados.</span>
+      <div class="footer__social" aria-label="Redes sociales">
+        <a href="#" aria-label="Facebook"  rel="noopener">f</a>
+        <a href="#" aria-label="Instagram" rel="noopener">ig</a>
+        <a href="#" aria-label="LinkedIn"  rel="noopener">in</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ══ SCRIPTS ════════════════════════════════════════════ -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/leads.js"></script>
+
+</body>
+</html>
