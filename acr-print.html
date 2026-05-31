@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ARC Print — Impresión y sublimado de alta calidad en Guatemala. Textiles, materiales promocionales y señalización corporativa.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="ARC Print — Corporación ARC S.A.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#0A1628">
+  <title>ARC Print — Corporación ARC S.A.</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+
+  <style>
+    .hero--print {
+      background: linear-gradient(135deg, #0A1628 0%, #1a0a28 60%, #2a0a3a 100%);
+    }
+    .hero--print .hero__bg::after {
+      background: radial-gradient(ellipse at 60% 50%, rgba(180, 0, 255, 0.12) 0%, transparent 60%);
+    }
+    .division-accent { color: #C851FF; }
+    .btn--division {
+      background-color: #C851FF;
+      color: #0A1628;
+    }
+    .btn--division:hover {
+      background-color: #dd80ff;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 40px rgba(200, 81, 255, 0.25);
+    }
+    .service-detail {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .detail-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(200,81,255,0.15);
+      border-radius: 8px;
+      padding: 32px 28px;
+      transition: border-color 0.3s ease, transform 0.3s ease;
+    }
+    .detail-card:hover {
+      border-color: #C851FF;
+      transform: translateY(-4px);
+    }
+    .detail-card__icon {
+      font-size: 2rem;
+      margin-bottom: 16px;
+      display: block;
+    }
+    .detail-card__title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.4rem;
+      letter-spacing: 0.04em;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+    .detail-card__text {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.7;
+    }
+    .leads-form--division {
+      background: linear-gradient(135deg, #0A1628 0%, #1a0a28 100%);
+      border-color: rgba(200,81,255,0.2);
+    }
+    .leads-form--division input:focus,
+    .leads-form--division select:focus,
+    .leads-form--division textarea:focus {
+      border-color: #C851FF;
+      box-shadow: 0 0 0 3px rgba(200,81,255,0.12);
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255,255,255,0.5);
+      font-size: 0.85rem;
+      margin-bottom: 32px;
+      transition: color 0.3s ease;
+    }
+    .back-link:hover { color: #C851FF; }
+  </style>
+</head>
+<body>
+
+  <div class="curtain" aria-hidden="true"></div>
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <a href="https://wa.me/50256689708" target="_blank" rel="noopener" class="topbar__link">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+        <path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.532 5.858L.057 23.571a.75.75 0 00.921.921l5.713-1.475A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.705 9.705 0 01-4.95-1.355l-.355-.211-3.688.951.972-3.585-.232-.369A9.718 9.718 0 012.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/>
+      </svg>
+      WhatsApp: +502 5668-9708
+    </a>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" role="navigation" aria-label="Navegación principal">
+    <a href="index.html" class="navbar__logo" data-curtain>ARC<span>.</span></a>
+    <ul class="navbar__menu" id="navMenu" role="list">
+      <li><a href="acr-automotriz.html" class="navbar__link" data-curtain>Automotriz</a></li>
+      <li><a href="acr-print.html"      class="navbar__link active">Print</a></li>
+      <li><a href="acr-logistics.html"  class="navbar__link" data-curtain>Logistics</a></li>
+      <li><a href="acr-talent.html"     class="navbar__link" data-curtain>Talent</a></li>
+      <li><a href="index.html#nosotros" class="navbar__link" data-curtain>Nosotros</a></li>
+      <li><a href="#contacto"           class="navbar__link">Contacto</a></li>
+      <li class="navbar__lang" role="group" aria-label="Idioma">
+        <button data-lang="es" class="active">ES</button>
+        <button data-lang="en">EN</button>
+      </li>
+    </ul>
+    <button class="navbar__hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="navMenu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero hero--print" aria-label="ARC Print">
+    <div class="hero__bg"></div>
+    <div class="hero__content">
+      <p class="hero__eyebrow division-accent">ARC Print</p>
+      <h1 class="hero__title">Tu marca impresa<br>con precisión</h1>
+      <p class="hero__subtitle">Impresión y sublimado de alta calidad en textiles, materiales promocionales y señalización corporativa con entrega express.</p>
+      <div class="hero__cta">
+        <a href="#contacto" class="btn btn--division magnetic">Solicitar cotización</a>
+        <a href="index.html" class="btn btn--outline magnetic" data-curtain>← Volver al inicio</a>
+      </div>
+    </div>
+    <div class="hero__scroll" aria-hidden="true"><span>Scroll</span></div>
+  </section>
+
+  <!-- SERVICIOS DETALLE -->
+  <section class="section section--dark" id="servicios" aria-label="Servicios de ARC Print">
+    <div class="container">
+      <a href="index.html" class="back-link" data-curtain>← Corporación ARC S.A.</a>
+      <h2 class="section-title" data-aos="fade-up">Nuestros <span class="division-accent">Productos</span></h2>
+      <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+        Producimos desde una unidad hasta pedidos corporativos de gran volumen.
+      </p>
+
+      <div class="service-detail">
+
+        <div class="detail-card" data-aos="fade-up" data-aos-delay="0">
+          <span class="detail-card__icon">👕</span>
+          <h3 class="detail-card__title">Sublimado en Textiles</h3>
+          <p class="detail-card__text">Camisas, polos, uniformes y ropa deportiva con sublimación full-color. Colores vibrantes y durabilidad garantizada al lavado.</p>
+        </div>
+
+        <div class="detail-card" data-aos="fade-up" data-aos-delay="100">
+          <span class="detail-card__icon">🖼️</span>
+          <h3 class="detail-card__title">Impresión de Gran Formato</h3>
+          <p class="detail-card__text">Banners, lonas, vallas y backing para eventos. Alta resolución hasta 1440 DPI con materiales resistentes a intemperie.</p>
+        </div>
+
+        <div class="detail-card" data-aos="fade-up" data-aos-delay="200">
+          <span class="detail-card__icon">🏷️</span>
+          <h3 class="detail-card__title">Señalización Corporativa</h3>
+          <p class="detail-card__text">Rótulos, señales de seguridad, letreros de oficina y branding de espacios. Acabados en vinil, acrílico y aluminio.</p>
+        </div>
+
+        <div class="detail-card" data-aos="fade-up" data-aos-delay="300">
+          <span class="detail-card__icon">🎁</span>
+          <h3 class="detail-card__title">Artículos Promocionales</h3>
+          <p class="detail-card__text">Tazas, mouse pads, gorras, bolsas y más. Personalización con logo corporativo para eventos, regalos y campañas de marketing.</p>
+        </div>
+
+        <div class="detail-card" data-aos="fade-up" data-aos-delay="400">
+          <span class="detail-card__icon">📋</span>
+          <h3 class="detail-card__title">Papelería Corporativa</h3>
+          <p class="detail-card__text">Tarjetas de presentación, membretes, folders, brochures y catálogos. Impresión offset y digital con acabados premium.</p>
+        </div>
+
+        <div class="detail-card" data-aos="fade-up" data-aos-delay="500">
+          <span class="detail-card__icon">🚀</span>
+          <h3 class="detail-card__title">Entrega Express</h3>
+          <p class="detail-card__text">Producción y entrega en 24-48 horas para pedidos urgentes. Servicio de mensajería a domicilio en Ciudad de Guatemala.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FORMULARIO DE LEADS — PRINT -->
+  <section class="section section--mid" id="contacto" aria-label="Cotización ARC Print">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">Solicita tu <span class="division-accent">Cotización</span></h2>
+      <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+        Cuéntanos tu proyecto y te enviamos precio y tiempo de entrega en menos de 2 horas.
+      </p>
+
+      <div data-aos="fade-up" data-aos-delay="200">
+        <form
+          class="leads-form leads-form-el leads-form--division"
+          name="leads-print"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          novalidate
+        >
+          <input type="hidden" name="form-name" value="leads-print">
+          <input type="hidden" name="division" value="ARC Print">
+
+          <div class="form-honeypot" aria-hidden="true">
+            <input type="text" name="bot-field" tabindex="-1" autocomplete="off">
+          </div>
+
+          <div class="form-grid">
+
+            <div class="form-group">
+              <label for="nombre">Nombre completo</label>
+              <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required autocomplete="name" maxlength="100">
+            </div>
+
+            <div class="form-group">
+              <label for="correo">Correo electrónico</label>
+              <input type="email" id="correo" name="correo" placeholder="correo@empresa.com" required autocomplete="email" maxlength="150">
+            </div>
+
+            <div class="form-group">
+              <label for="telefono">Teléfono</label>
+              <input type="tel" id="telefono" name="telefono" placeholder="+502 0000-0000" required autocomplete="tel" maxlength="20">
+            </div>
+
+            <div class="form-group">
+              <label for="material">Tipo de material</label>
+              <select id="material" name="material" required>
+                <option value="">Selecciona el producto</option>
+                <option value="textil">Textil / Ropa</option>
+                <option value="banner">Banner / Lona</option>
+                <option value="señalizacion">Señalización</option>
+                <option value="promocional">Artículo promocional</option>
+                <option value="papeleria">Papelería corporativa</option>
+                <option value="otro">Otro</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="cantidad">Cantidad aproximada</label>
+              <select id="cantidad" name="cantidad" required>
+                <option value="">Selecciona cantidad</option>
+                <option value="1-10">1 a 10 unidades</option>
+                <option value="11-50">11 a 50 unidades</option>
+                <option value="51-200">51 a 200 unidades</option>
+                <option value="200+">Más de 200 unidades</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="fecha">Fecha requerida</label>
+              <input type="date" id="fecha" name="fecha" required>
+            </div>
+
+            <div class="form-group form-group--full">
+              <label for="mensaje">Descripción del proyecto</label>
+              <textarea id="mensaje" name="mensaje" placeholder="Descríbenos tu proyecto: colores, medidas, diseño, cantidad exacta, uso final..." required maxlength="1000" rows="4"></textarea>
+            </div>
+
+          </div>
+
+          <button type="submit" class="btn btn--division form-submit magnetic">
+            Solicitar Cotización
+          </button>
+
+          <div class="form-message" role="alert" aria-live="polite"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer__grid">
+      <div>
+        <div class="footer__brand-logo">ARC<span style="color:#00D4FF">.</span></div>
+        <p class="footer__brand-text">Soluciones empresariales integrales con más de una década de experiencia en Guatemala.</p>
+      </div>
+      <div>
+        <h4 class="footer__heading">Servicios</h4>
+        <ul class="footer__links">
+          <li><a href="acr-automotriz.html" data-curtain>Automotriz</a></li>
+          <li><a href="acr-print.html">Print</a></li>
+          <li><a href="acr-logistics.html" data-curtain>Logistics</a></li>
+          <li><a href="acr-talent.html" data-curtain>Talent</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer__heading">Empresa</h4>
+        <ul class="footer__links">
+          <li><a href="index.html#nosotros" data-curtain>Nosotros</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+          <li><a href="#">Privacidad</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer__heading">Contacto</h4>
+        <ul class="footer__links">
+          <li><a href="https://wa.me/50256689708" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="mailto:print@corporacionarc.com">print@corporacionarc.com</a></li>
+          <li><a href="#">Guatemala, C.A.</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2026 Corporación ARC S.A. Todos los derechos reservados.</span>
+      <div class="footer__social" aria-label="Redes sociales">
+        <a href="#" aria-label="Facebook" rel="noopener">f</a>
+        <a href="#" aria-label="Instagram" rel="noopener">ig</a>
+        <a href="#" aria-label="LinkedIn" rel="noopener">in</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/leads.js"></script>
+
+</body>
+</html>
