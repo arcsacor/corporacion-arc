@@ -1,0 +1,13 @@
+# ============================================================
+# CORPORACION ARC S.A. — _redirects
+# Reglas de redirección y seguridad de URLs
+# ============================================================
+
+# Forzar HTTPS
+http://sparkly-peony-34eec5.netlify.app/* https://sparkly-peony-34eec5.netlify.app/:splat 301!
+
+# Páginas de error
+/404    /index.html   200
+
+# Proteger admin — solo acceso directo
+/admin  /admin/index.html  200
