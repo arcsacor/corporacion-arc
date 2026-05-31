@@ -112,29 +112,11 @@ const LEADS = {
 
   // Envío nativo — fallback garantizado
   submitNative(form, btn, msgEl) {
-    try {
-      // Mostrar mensaje antes de redirigir
-      if (msgEl) {
-        msgEl.className = 'form-message success';
-        msgEl.textContent = '¡Mensaje enviado! Te contactaremos en menos de 24 horas.';
-      }
-
-      // Quitar el listener para permitir envío nativo
-      const clone = form.cloneNode(true);
-      clone.removeAttribute('novalidate');
-      form.parentNode.replaceChild(clone, form);
-
-      setTimeout(() => {
-        clone.submit();
-      }, 800);
-
-    } catch (e) {
-      if (btn) {
-        btn.disabled = false;
-        btn.textContent = 'Enviar Solicitud';
-      }
-      this.showError(msgEl, 'Hubo un error. Por favor intenta de nuevo.');
+    if (btn) {
+      btn.disabled = false;
+      btn.textContent = 'Enviar Solicitud';
     }
+    this.showError(msgEl, 'Hubo un error. Por favor intenta de nuevo.');
   },
 
   validateForm(form) {
