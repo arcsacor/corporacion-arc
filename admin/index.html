@@ -3,158 +3,424 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="noindex, nofollow">
-  <title>Admin — Corporación ARC S.A.</title>
+  <meta name="description" content="Corporación ARC S.A. — Soluciones empresariales integrales en Guatemala. Automotriz, Print, Logistics y Talent.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Corporación ARC S.A.">
+  <meta property="og:description" content="Cuatro divisiones. Un solo aliado estratégico para tu empresa.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#0A1628">
+  <link rel="icon" href="assets/images/favicon.png">
+  <title>Corporación ARC S.A. — Soluciones Empresariales</title>
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Inter', sans-serif;
-      background: linear-gradient(135deg, #0A1628 0%, #1B3A6B 100%);
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
-    }
-    .card {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(0,212,255,0.2);
-      border-radius: 16px;
-      padding: 48px 40px;
-      width: 100%;
-      max-width: 420px;
-      backdrop-filter: blur(10px);
-    }
-    .logo {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 2.5rem;
-      color: #fff;
-      letter-spacing: 0.12em;
-      text-align: center;
-      margin-bottom: 8px;
-    }
-    .logo span { color: #00D4FF; }
-    .subtitle {
-      text-align: center;
-      color: rgba(255,255,255,0.4);
-      font-size: 0.8rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      margin-bottom: 40px;
-    }
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      margin-bottom: 20px;
-    }
-    label {
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.5);
-    }
-    input {
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(0,212,255,0.2);
-      border-radius: 8px;
-      padding: 14px 16px;
-      color: #fff;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.95rem;
-      outline: none;
-      transition: all 0.3s;
-      width: 100%;
-    }
-    input:focus {
-      border-color: #00D4FF;
-      background: rgba(0,212,255,0.06);
-      box-shadow: 0 0 0 3px rgba(0,212,255,0.1);
-    }
-    input::placeholder { color: rgba(255,255,255,0.2); }
-    .btn {
-      width: 100%;
-      background: #00D4FF;
-      color: #0A1628;
-      border: none;
-      border-radius: 8px;
-      padding: 16px;
-      font-family: 'Inter', sans-serif;
-      font-size: 1rem;
-      font-weight: 700;
-      cursor: pointer;
-      transition: all 0.3s;
-      margin-top: 8px;
-      letter-spacing: 0.05em;
-    }
-    .btn:hover { background: #45e3ff; transform: translateY(-2px); }
-    .btn:active { transform: translateY(0); }
-    .error {
-      background: rgba(255,80,80,0.1);
-      border: 1px solid #ff5050;
-      color: #ff5050;
-      border-radius: 8px;
-      padding: 12px 16px;
-      font-size: 0.85rem;
-      text-align: center;
-      margin-top: 16px;
-      display: none;
-    }
-    .error.show { display: block; }
-  </style>
+
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
 </head>
 <body>
-  <div class="card">
-    <div class="logo">ARC<span>.</span></div>
-    <p class="subtitle">Panel de Administración</p>
 
-    <div class="form-group">
-      <label for="usuario">Usuario</label>
-      <input type="text" id="usuario" placeholder="Ingresa tu usuario" autocomplete="username">
-    </div>
+  <!-- ══ TELÓN — EFECTO #3 ══════════════════════════════════ -->
+  <div class="curtain" aria-hidden="true"></div>
 
-    <div class="form-group">
-      <label for="password">Contraseña</label>
-      <input type="password" id="password" placeholder="Ingresa tu contraseña" autocomplete="current-password">
-    </div>
-
-    <button class="btn" onclick="login()">Ingresar</button>
-    <div class="error" id="errorMsg">Usuario o contraseña incorrectos</div>
+  <!-- ══ BARRA SUPERIOR ════════════════════════════════════ -->
+  <div class="topbar">
+    <a href="tel:+50222380241" class="topbar__link">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/>
+      </svg>
+      <span>Tel: +502 2238-0241</span>
+    </a>
+    <a href="https://wa.me/50254760773" target="_blank" rel="noopener" class="topbar__link">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+        <path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.532 5.858L.057 23.571a.75.75 0 00.921.921l5.713-1.475A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.705 9.705 0 01-4.95-1.355l-.355-.211-3.688.951.972-3.585-.232-.369A9.718 9.718 0 012.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/>
+      </svg>
+      <span data-i18n="topbar_whatsapp">WhatsApp: +502 5476-0773</span>
+    </a>
   </div>
 
-  <script>
-    // ── CREDENCIALES — CAMBIA ESTOS VALORES DIRECTAMENTE AQUÍ ──
-    const ADMIN_USER = 'EmpARCSA@25021992.1';
-    const ADMIN_PASS = 'ARCSA@300520.26';
-    // ────────────────────────────────────────────────────────────
+  <!-- ══ NAVEGACIÓN ════════════════════════════════════════ -->
+  <nav class="navbar" role="navigation" aria-label="Navegación principal">
+    <a href="index.html" class="navbar__logo" data-curtain>
+      <img src="assets/images/logo-arc.png" alt="Corporación ARC S.A." class="navbar__logo-img">
+    </a>
 
-    // Verificar si ya hay sesion activa
-    if (sessionStorage.getItem('arc_admin') === 'true') {
-      window.location.href = 'dashboard.html';
-    }
+    <ul class="navbar__menu" id="navMenu" role="list">
+      <li><a href="acr-automotriz.html" class="navbar__link" data-i18n="nav_automotriz" data-curtain>Automotriz</a></li>
+      <li><a href="acr-print.html"      class="navbar__link" data-i18n="nav_print"      data-curtain>Print</a></li>
+      <li><a href="acr-logistics.html"  class="navbar__link" data-i18n="nav_logistics"  data-curtain>Logistics</a></li>
+      <li><a href="acr-talent.html"     class="navbar__link" data-i18n="nav_talent"     data-curtain>Talent</a></li>
+      <li><a href="#nosotros"           class="navbar__link" data-i18n="nav_nosotros">Nosotros</a></li>
+      <li><a href="#contacto"           class="navbar__link" data-i18n="nav_contacto">Contacto</a></li>
 
-    function login() {
-      const user = document.getElementById('usuario').value.trim();
-      const pass = document.getElementById('password').value.trim();
-      const err  = document.getElementById('errorMsg');
+      <li class="navbar__lang" role="group" aria-label="Seleccionar idioma">
+        <button data-lang="es" class="active" aria-label="Español">ES</button>
+        <button data-lang="en" aria-label="English">EN</button>
+      </li>
+    </ul>
 
-      if (user === ADMIN_USER && pass === ADMIN_PASS) {
-        sessionStorage.setItem('arc_admin', 'true');
-        window.location.href = 'dashboard.html';
-      } else {
-        err.classList.add('show');
-        document.getElementById('password').value = '';
-        setTimeout(() => err.classList.remove('show'), 3000);
-      }
-    }
+    <button class="navbar__hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="navMenu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
 
-    // Login con Enter
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter') login();
-    });
-  </script>
+  <!-- ══ HERO ══════════════════════════════════════════════ -->
+  <section class="hero" id="inicio" aria-label="Inicio">
+    <div class="hero__bg"></div>
+
+    <div class="hero__content">
+      <p class="hero__eyebrow" data-i18n="hero_eyebrow">Corporación ARC S.A.</p>
+      <h1 class="hero__title" data-i18n="hero_title">Soluciones que<br>mueven negocios</h1>
+      <p class="hero__subtitle" data-i18n="hero_subtitle">Cuatro divisiones. Un solo aliado estratégico para tu empresa.</p>
+      <div class="hero__cta">
+        <a href="#servicios" class="btn btn--primary magnetic" data-i18n="hero_cta1">Conoce nuestros servicios</a>
+        <a href="#contacto"  class="btn btn--outline magnetic" data-i18n="hero_cta2">Solicitar cotización</a>
+      </div>
+    </div>
+
+    <div class="hero__scroll" aria-hidden="true">
+      <span data-i18n="hero_scroll">Scroll</span>
+    </div>
+  </section>
+
+  <!-- ══ SERVICIOS — CARDS CON LOGO + EFECTO #1 ════════════ -->
+  <section class="section" id="servicios" aria-label="Nuestras divisiones">
+    <div class="container">
+
+      <!-- Logo corporativo sobre los servicios -->
+      <div class="services-brand" data-aos="fade-up">
+        <img src="assets/images/logo-arc.png" alt="Corporación ARC S.A." class="services-brand__logo">
+        <p class="services-brand__tagline" data-i18n="services_subtitle">Soluciones especializadas para cada necesidad de tu negocio.</p>
+      </div>
+
+      <div class="cards-grid">
+
+        <!-- Card 1 — Taller D&D -->
+        <article class="service-card" data-aos="fade-up" data-aos-delay="0" onclick="window.location='acr-automotriz.html'" style="cursor:pointer">
+          <div class="card__logo-wrap">
+            <img src="assets/images/logo-taller-dd.png" alt="Taller D&D" class="card__logo-img card__logo-color">
+            <img src="assets/images/logo-taller-dd-blanco.png" alt="Taller D&D" class="card__logo-img card__logo-white">
+          </div>
+          <h3 class="card__title" data-i18n="card1_title">Taller D&D</h3>
+          <p class="card__text" data-i18n="card1_text">
+            Taller mecánico especializado con diagnóstico computarizado, mantenimiento preventivo y correctivo para flotas y vehículos particulares.
+          </p>
+          <a href="acr-automotriz.html" class="card__link" data-i18n="card1_link" data-curtain>
+            Ver servicios →
+          </a>
+        </article>
+
+        <!-- Card 2 — Sublipix -->
+        <article class="service-card" data-aos="fade-up" data-aos-delay="100" onclick="window.location='acr-print.html'" style="cursor:pointer">
+          <div class="card__logo-wrap">
+            <img src="assets/images/logo-sublipix.png" alt="Sublipix" class="card__logo-img card__logo-color">
+            <img src="assets/images/logo-sublipix-blanco.png" alt="Sublipix" class="card__logo-img card__logo-white">
+          </div>
+          <h3 class="card__title" data-i18n="card2_title">Sublipix</h3>
+          <p class="card__text" data-i18n="card2_text">
+            Impresión y sublimado de alta calidad en textiles, materiales promocionales y señalización corporativa con entrega express.
+          </p>
+          <a href="acr-print.html" class="card__link" data-i18n="card2_link" data-curtain>
+            Ver servicios →
+          </a>
+        </article>
+
+        <!-- Card 3 — ARC Logistics (logo pendiente) -->
+        <article class="service-card" data-aos="fade-up" data-aos-delay="200" onclick="window.location='acr-logistics.html'" style="cursor:pointer">
+          <div class="card__logo-wrap card__logo-wrap--icon">
+            <svg class="card__icon-svg" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+              <rect x="2" y="20" width="40" height="24" rx="3" fill="none" stroke="currentColor" stroke-width="3"/>
+              <path d="M42 28h12l8 10v6H42V28z" fill="none" stroke="currentColor" stroke-width="3"/>
+              <circle cx="14" cy="46" r="5" fill="none" stroke="currentColor" stroke-width="3"/>
+              <circle cx="50" cy="46" r="5" fill="none" stroke="currentColor" stroke-width="3"/>
+            </svg>
+          </div>
+          <h3 class="card__title" data-i18n="card3_title">ARC Logistics</h3>
+          <p class="card__text" data-i18n="card3_text">
+            Alquiler de camiones y soluciones de transporte para carga local y nacional. Flota moderna con seguimiento en tiempo real.
+          </p>
+          <a href="acr-logistics.html" class="card__link" data-i18n="card3_link" data-curtain>
+            Ver servicios →
+          </a>
+        </article>
+
+        <!-- Card 4 — Grupo Conecta -->
+        <article class="service-card" data-aos="fade-up" data-aos-delay="300" onclick="window.location='acr-talent.html'" style="cursor:pointer">
+          <div class="card__logo-wrap">
+            <img src="assets/images/logo-grupo-conecta.jpeg" alt="Grupo Conecta" class="card__logo-img card__logo-color">
+            <img src="assets/images/logo-grupo-conecta.jpeg" alt="Grupo Conecta" class="card__logo-img card__logo-white" style="filter:brightness(0) invert(1);">
+          </div>
+          <h3 class="card__title" data-i18n="card4_title">Grupo Conecta</h3>
+          <p class="card__text" data-i18n="card4_text">
+            Outsourcing de recursos humanos y reclutamiento especializado. Encontramos el talento que tu empresa necesita.
+          </p>
+          <a href="acr-talent.html" class="card__link" data-i18n="card4_link" data-curtain>
+            Ver servicios →
+          </a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ QUIÉNES SOMOS — TIMELINE ═══════════════════════════ -->
+  <section class="section section--timeline" id="nosotros" aria-label="Quiénes somos">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up" data-i18n="about_title">Quiénes Somos</h2>
+      <p class="section-subtitle section-subtitle--timeline" data-aos="fade-up" data-aos-delay="100" data-i18n="about_subtitle">
+        Una corporación con historia, visión y compromiso con Guatemala.
+      </p>
+
+      <div class="timeline">
+
+        <div class="timeline__item" data-aos="fade-right">
+          <div class="timeline__dot"></div>
+          <div class="timeline__content">
+            <div class="timeline__year" data-i18n="timeline1_year">2010</div>
+            <p class="timeline__text" data-i18n="timeline1_text">
+              Fundación de Corporación ARC S.A. con la apertura del taller automotriz en Ciudad de Guatemala.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline__item" data-aos="fade-left">
+          <div class="timeline__dot"></div>
+          <div class="timeline__content">
+            <div class="timeline__year" data-i18n="timeline2_year">2014</div>
+            <p class="timeline__text" data-i18n="timeline2_text">
+              Expansión con la división ARC Print, atendiendo la demanda de impresión corporativa en la región.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline__item" data-aos="fade-right">
+          <div class="timeline__dot"></div>
+          <div class="timeline__content">
+            <div class="timeline__year" data-i18n="timeline3_year">2018</div>
+            <p class="timeline__text" data-i18n="timeline3_text">
+              Lanzamiento de ARC Logistics con una flota inicial de 10 unidades para transporte de carga.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline__item" data-aos="fade-left">
+          <div class="timeline__dot"></div>
+          <div class="timeline__content">
+            <div class="timeline__year" data-i18n="timeline4_year">2022</div>
+            <p class="timeline__text" data-i18n="timeline4_text">
+              Consolidación del grupo con ARC Talent, completando el ecosistema de servicios empresariales.
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline__item" data-aos="fade-right">
+          <div class="timeline__dot"></div>
+          <div class="timeline__content">
+            <div class="timeline__year" data-i18n="timeline5_year">Hoy</div>
+            <p class="timeline__text" data-i18n="timeline5_text">
+              Más de 200 clientes activos, 4 divisiones y presencia en todo el territorio nacional.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FORMULARIO DE LEADS ════════════════════════════════ -->
+  <section class="section section--mid" id="contacto" aria-label="Formulario de contacto">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up" data-i18n="form_title">Solicita tu Cotización</h2>
+      <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100" data-i18n="form_subtitle">
+        Completa el formulario y te contactamos en menos de 24 horas.
+      </p>
+
+      <div data-aos="fade-up" data-aos-delay="200">
+        <form
+          class="leads-form leads-form-el"
+          name="contacto-general"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          novalidate
+        >
+          <input type="hidden" name="form-name" value="contacto-general">
+
+          <div class="form-honeypot" aria-hidden="true">
+            <input type="text" name="bot-field" tabindex="-1" autocomplete="off">
+          </div>
+
+          <div class="form-grid">
+
+            <div class="form-group">
+              <label for="nombre" data-i18n="label_nombre">Nombre completo</label>
+              <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required autocomplete="name" maxlength="100">
+            </div>
+
+            <div class="form-group">
+              <label for="correo" data-i18n="label_correo">Correo electrónico</label>
+              <input type="email" id="correo" name="correo" placeholder="correo@empresa.com" required autocomplete="email" maxlength="150">
+            </div>
+
+            <div class="form-group">
+              <label for="telefono" data-i18n="label_telefono">Teléfono</label>
+              <input type="tel" id="telefono" name="telefono" placeholder="+502 0000-0000" required autocomplete="tel" maxlength="20">
+            </div>
+
+            <div class="form-group">
+              <label for="division" data-i18n="label_division">División de interés</label>
+              <select id="division" name="division" required>
+                <option value="" data-i18n="option_select">Selecciona una división</option>
+                <option value="automotriz" data-i18n="option_auto">Taller D&D — Taller Mecánico</option>
+                <option value="print"      data-i18n="option_print">Sublipix — Impresión y Sublimado</option>
+                <option value="logistics"  data-i18n="option_logistics">ARC Logistics — Transporte y Camiones</option>
+                <option value="talent"     data-i18n="option_talent">Grupo Conecta — Outsourcing RH</option>
+              </select>
+            </div>
+
+            <div class="form-group form-group--full">
+              <label for="mensaje" data-i18n="label_mensaje">Mensaje</label>
+              <textarea id="mensaje" name="mensaje" placeholder="Cuéntanos cómo podemos ayudarte..." required maxlength="1000" rows="5"></textarea>
+            </div>
+
+          </div>
+
+          <button type="submit" class="btn btn--primary form-submit magnetic" data-i18n="btn_enviar">
+            Enviar Solicitud
+          </button>
+
+          <div class="form-message" role="alert" aria-live="polite"></div>
+
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ═════════════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer__grid">
+
+      <div>
+        <div class="footer__brand-logo">
+          <img src="assets/images/logo-arc.png" alt="Corporación ARC S.A." class="footer__logo-img">
+        </div>
+        <p class="footer__brand-text" data-i18n="footer_desc">
+          Soluciones empresariales integrales con más de una década de experiencia en Guatemala.
+        </p>
+      </div>
+
+      <div>
+        <h4 class="footer__heading" data-i18n="footer_servicios">Servicios</h4>
+        <ul class="footer__links">
+          <li><a href="acr-automotriz.html" data-curtain>Taller D&D</a></li>
+          <li><a href="acr-print.html"      data-curtain>Sublipix</a></li>
+          <li><a href="acr-logistics.html"  data-curtain>ARC Logistics</a></li>
+          <li><a href="acr-talent.html"     data-curtain>Grupo Conecta</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer__heading" data-i18n="footer_empresa">Empresa</h4>
+        <ul class="footer__links">
+          <li><a href="#nosotros" data-i18n="footer_nosotros">Nosotros</a></li>
+          <li><a href="#contacto" data-i18n="footer_contacto">Contacto</a></li>
+          <li><a href="privacidad.html" data-i18n="footer_privacidad">Privacidad</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer__heading">Contacto</h4>
+        <ul class="footer__links">
+          <li><a href="https://wa.me/50254760773" target="_blank" rel="noopener">WhatsApp: +502 5476-0773</a></li>
+          <li><a href="tel:+50222380241">Tel: +502 2238-0241</a></li>
+          <li><a href="mailto:contacto@corporacionarc.com">contacto@corporacionarc.com</a></li>
+          <li><a href="#" aria-label="Ubicación">Guatemala, C.A.</a></li>
+        </ul>
+
+        <h4 class="footer__heading footer__heading--horarios">Horarios de Atención</h4>
+        <ul class="footer__links footer__horarios">
+          <li>Lunes a Viernes: 08:00 – 17:00</li>
+          <li>Sábado: 08:00 – 13:00</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer__bottom">
+      <span data-i18n="footer_copy">© 2026 Corporación ARC S.A. Todos los derechos reservados.</span>
+      <div class="footer__social" aria-label="Redes sociales">
+        <a href="#" aria-label="Facebook"  rel="noopener">f</a>
+        <a href="#" aria-label="Instagram" rel="noopener">ig</a>
+        <a href="#" aria-label="LinkedIn"  rel="noopener">in</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ══ REGISTRO FORMULARIOS NETLIFY ══════════════════════ -->
+  <div style="display:none" aria-hidden="true">
+    <form name="leads-automotriz" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="text" name="bot-field">
+      <input type="hidden" name="division">
+      <input type="text" name="nombre">
+      <input type="email" name="correo">
+      <input type="tel" name="telefono">
+      <select name="vehiculo"><option>-</option></select>
+      <select name="problema"><option>-</option></select>
+      <select name="urgencia"><option>-</option></select>
+      <textarea name="mensaje"></textarea>
+    </form>
+    <form name="leads-print" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="text" name="bot-field">
+      <input type="hidden" name="division">
+      <input type="text" name="nombre">
+      <input type="email" name="correo">
+      <input type="tel" name="telefono">
+      <select name="material"><option>-</option></select>
+      <select name="cantidad"><option>-</option></select>
+      <input type="date" name="fecha">
+      <textarea name="mensaje"></textarea>
+    </form>
+    <form name="leads-logistics" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="text" name="bot-field">
+      <input type="hidden" name="division">
+      <input type="text" name="nombre">
+      <input type="email" name="correo">
+      <input type="tel" name="telefono">
+      <select name="carga"><option>-</option></select>
+      <input type="text" name="origen">
+      <input type="text" name="destino">
+      <input type="date" name="fecha">
+      <select name="tonelaje"><option>-</option></select>
+      <textarea name="mensaje"></textarea>
+    </form>
+    <form name="leads-talent" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="text" name="bot-field">
+      <input type="hidden" name="division">
+      <input type="text" name="nombre">
+      <input type="email" name="correo">
+      <input type="tel" name="telefono">
+      <input type="text" name="empresa">
+      <input type="text" name="puesto">
+      <select name="plazas"><option>-</option></select>
+      <select name="modalidad"><option>-</option></select>
+      <select name="urgencia"><option>-</option></select>
+      <textarea name="mensaje"></textarea>
+    </form>
+  </div>
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/leads.js"></script>
+
 </body>
 </html>
