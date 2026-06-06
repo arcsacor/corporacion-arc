@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
   <title>Mensaje enviado — Corporación ARC S.A.</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='12' fill='%230A1628'/><text y='72' x='8' font-size='68' font-family='Arial Black' font-weight='900' fill='%2300D4FF'>A</text></svg>">
+  <link rel="icon" href="assets/images/favicon.png">
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -27,6 +28,13 @@
       text-align: center;
       max-width: 520px;
       width: 100%;
+    }
+    .logo-img {
+      height: 64px;
+      width: auto;
+      object-fit: contain;
+      margin: 0 auto 40px;
+      display: block;
     }
     .icon { font-size: 4rem; margin-bottom: 24px; }
     .title {
@@ -55,24 +63,16 @@
       transition: background 0.3s;
     }
     .btn:hover { background-color: #45e3ff; }
-    .logo {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.5rem;
-      letter-spacing: 0.12em;
-      margin-bottom: 40px;
-      color: rgba(255,255,255,0.4);
-    }
-    .logo span { color: #00D4FF; }
   </style>
 </head>
 <body>
   <div class="card">
-    <div class="logo">ARC<span>.</span></div>
+    <img src="assets/images/logo-arc-blanco.png" alt="Corporación ARC S.A." class="logo-img">
     <div class="icon">✅</div>
     <h1 class="title">¡Mensaje Enviado!</h1>
     <p class="text">
       Gracias por contactar a Corporación ARC S.A.<br>
-      Un asesor se comunicará contigo en menos de 24 horas.
+      Un asesor se comunicará contigo en menos de 24 horas laborales.
     </p>
     <a href="index.html" class="btn">← Volver al inicio</a>
   </div>
