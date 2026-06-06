@@ -431,7 +431,7 @@ ul {
   width: 320px;
   max-windth: 80%
   object-fit: contain;
-  margin: 0 auto 16px;
+  margin: 0 auto 8px;
 }
 
 .services-brand__tagline {
