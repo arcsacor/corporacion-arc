@@ -13,7 +13,7 @@ const TRANSLATIONS = {
 
     /* Navbar */
     nav_automotriz:  'Automotriz',
-    nav_print:       'Sublipix',
+    nav_print:       'Impresión',
     nav_logistics:   'Logística',
     nav_talent:      'Talento',
     nav_nosotros:    'Nosotros',
