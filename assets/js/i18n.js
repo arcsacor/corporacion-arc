@@ -55,7 +55,7 @@ const TRANSLATIONS = {
     timeline1_text: 'Fundación de Corporación ARC S.A. con la apertura del taller automotriz en Ciudad de Guatemala.',
 
     timeline2_year: '2014',
-    timeline2_text: 'Expansión con la división Sunlipix, atendiendo la demanda de impresión corporativa en la región.',
+    timeline2_text: 'Expansión con la división Sublipix, atendiendo la demanda de impresión corporativa en la región.',
 
     timeline3_year: '2018',
     timeline3_text: 'Lanzamiento de ARC Logistics con una flota inicial de 10 unidades para transporte de carga.',
