@@ -8,7 +8,7 @@
   <meta property="og:title" content="ARC Logistics — Corporación ARC S.A.">
   <meta property="og:type" content="website">
   <meta name="theme-color" content="#0A1628">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='12' fill='%230A1628'/><text y='72' x='8' font-size='68' font-family='Arial Black' font-weight='900' fill='%2300D4FF'>A</text></svg>">
+  <link rel="icon" href="assets/images/favicon.png">
   <title>ARC Logistics — Corporación ARC S.A.</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -97,25 +97,33 @@
 
   <!-- TOPBAR -->
   <div class="topbar">
-    <a href="https://wa.me/50256689708" target="_blank" rel="noopener" class="topbar__link">
+    <a href="tel:+50222380241" class="topbar__link">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/>
+      </svg>
+      <span>Tel: +502 2238-0241</span>
+    </a>
+    <a href="https://wa.me/50254760773" target="_blank" rel="noopener" class="topbar__link">
       <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
         <path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.532 5.858L.057 23.571a.75.75 0 00.921.921l5.713-1.475A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.705 9.705 0 01-4.95-1.355l-.355-.211-3.688.951.972-3.585-.232-.369A9.718 9.718 0 012.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/>
       </svg>
-      WhatsApp: +502 5668-9708
+      <span>WhatsApp: +502 5476-0773</span>
     </a>
   </div>
 
   <!-- NAVBAR -->
   <nav class="navbar" role="navigation" aria-label="Navegación principal">
-    <a href="index.html" class="navbar__logo" data-curtain>ARC<span>.</span></a>
+    <a href="index.html" class="navbar__logo" data-curtain>
+      <img src="assets/images/logo-arc.png" alt="Corporación ARC S.A." class="navbar__logo-img">
+    </a>
     <ul class="navbar__menu" id="navMenu" role="list">
-      <li><a href="acr-automotriz.html" class="navbar__link" data-curtain>Automotriz</a></li>
-      <li><a href="acr-print.html"      class="navbar__link" data-curtain>Print</a></li>
-      <li><a href="acr-logistics.html"  class="navbar__link active">Logistics</a></li>
-      <li><a href="acr-talent.html"     class="navbar__link" data-curtain>Talent</a></li>
-      <li><a href="index.html#nosotros" class="navbar__link" data-curtain>Nosotros</a></li>
-      <li><a href="#contacto"           class="navbar__link">Contacto</a></li>
+      <li><a href="acr-automotriz.html" class="navbar__link" data-i18n="nav_automotriz" data-curtain>Automotriz</a></li>
+      <li><a href="acr-print.html"      class="navbar__link" data-i18n="nav_print" data-curtain>Impresión</a></li>
+      <li><a href="acr-logistics.html"  class="navbar__link active" data-i18n="nav_logistics">Logística</a></li>
+      <li><a href="acr-talent.html"     class="navbar__link" data-i18n="nav_talent" data-curtain>Talento</a></li>
+      <li><a href="index.html#nosotros" class="navbar__link" data-i18n="nav_nosotros" data-curtain>Nosotros</a></li>
+      <li><a href="#contacto"           class="navbar__link" data-i18n="nav_contacto">Contacto</a></li>
       <li class="navbar__lang" role="group" aria-label="Idioma">
         <button data-lang="es" class="active">ES</button>
         <button data-lang="en">EN</button>
@@ -130,7 +138,7 @@
   <section class="hero hero--logistics" aria-label="ARC Logistics">
     <div class="hero__bg"></div>
     <div class="hero__content">
-      <p class="hero__eyebrow division-accent">ARC Logistics</p>
+      <p class="hero__eyebrow division-accent">ARC Logistics — Corporación ARC S.A.</p>
       <h1 class="hero__title">Tu carga llega<br>a tiempo, siempre</h1>
       <p class="hero__subtitle">Alquiler de camiones y soluciones de transporte para carga local y nacional. Flota moderna con seguimiento en tiempo real.</p>
       <div class="hero__cta">
@@ -192,12 +200,12 @@
     </div>
   </section>
 
-  <!-- FORMULARIO DE LEADS — LOGISTICS -->
+  <!-- FORMULARIO DE LEADS -->
   <section class="section section--mid" id="contacto" aria-label="Cotización ARC Logistics">
     <div class="container">
       <h2 class="section-title" data-aos="fade-up">Solicita tu <span class="division-accent">Transporte</span></h2>
       <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
-        Completa el formulario y te confirmamos disponibilidad y precio en menos de 1 hora.
+        Completa el formulario y te confirmamos disponibilidad y precio en menos de 24 hora laborales.
       </p>
 
       <div data-aos="fade-up" data-aos-delay="200">
@@ -293,38 +301,53 @@
   <!-- FOOTER -->
   <footer class="footer" role="contentinfo">
     <div class="footer__grid">
+
       <div>
-        <div class="footer__brand-logo">ARC<span style="color:#00D4FF">.</span></div>
-        <p class="footer__brand-text">Soluciones empresariales integrales con más de una década de experiencia en Guatemala.</p>
+        <div class="footer__brand-logo">
+          <img src="assets/images/logo-arc.png" alt="Corporación ARC S.A." class="footer__logo-img">
+        </div>
+        <p class="footer__brand-text" data-i18n="footer_desc">Soluciones empresariales integrales con más de una década de experiencia en Guatemala.</p>
       </div>
+
       <div>
-        <h4 class="footer__heading">Servicios</h4>
+        <h4 class="footer__heading" data-i18n="footer_servicios">Servicios</h4>
         <ul class="footer__links">
-          <li><a href="acr-automotriz.html" data-curtain>Automotriz</a></li>
-          <li><a href="acr-print.html" data-curtain>Print</a></li>
-          <li><a href="acr-logistics.html">Logistics</a></li>
-          <li><a href="acr-talent.html" data-curtain>Talent</a></li>
+          <li><a href="acr-automotriz.html" data-curtain>Taller D&D</a></li>
+          <li><a href="acr-print.html" data-curtain>Sublipix</a></li>
+          <li><a href="acr-logistics.html">ARC Logistics</a></li>
+          <li><a href="acr-talent.html" data-curtain>Grupo Conecta</a></li>
         </ul>
       </div>
+
       <div>
-        <h4 class="footer__heading">Empresa</h4>
+        <h4 class="footer__heading" data-i18n="footer_empresa">Empresa</h4>
         <ul class="footer__links">
-          <li><a href="index.html#nosotros" data-curtain>Nosotros</a></li>
-          <li><a href="#contacto">Contacto</a></li>
-          <li><a href="#">Privacidad</a></li>
+          <li><a href="index.html#nosotros" data-curtain data-i18n="footer_nosotros">Nosotros</a></li>
+          <li><a href="#contacto" data-i18n="footer_contacto">Contacto</a></li>
+          <li><a href="privacidad.html" data-i18n="footer_privacidad">Privacidad</a></li>
         </ul>
       </div>
+
       <div>
         <h4 class="footer__heading">Contacto</h4>
         <ul class="footer__links">
-          <li><a href="https://wa.me/50256689708" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="https://wa.me/50254760773" target="_blank" rel="noopener">WhatsApp: +502 5476-0773</a></li>
+          <li><a href="tel:+50222380241">Tel: +502 2238-0241</a></li>
           <li><a href="mailto:logistics@corporacionarc.com">logistics@corporacionarc.com</a></li>
-          <li><a href="#">Guatemala, C.A.</a></li>
+          <li>Guatemala, C.A.</li>
+        </ul>
+
+        <h4 class="footer__heading footer__heading--horarios">Horarios de Atención</h4>
+        <ul class="footer__links footer__horarios">
+          <li>Lunes a Viernes: 08:00 – 17:00</li>
+          <li>Sábado: 08:00 – 13:00</li>
         </ul>
       </div>
+
     </div>
+
     <div class="footer__bottom">
-      <span>© 2026 Corporación ARC S.A. Todos los derechos reservados.</span>
+      <span data-i18n="footer_copy">© 2026 Corporación ARC S.A. Todos los derechos reservados.</span>
       <div class="footer__social" aria-label="Redes sociales">
         <a href="#" aria-label="Facebook" rel="noopener">f</a>
         <a href="#" aria-label="Instagram" rel="noopener">ig</a>
