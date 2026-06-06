@@ -60,7 +60,7 @@ const TRANSLATIONS = {
     timeline3_year: '2018',
     timeline3_text: 'Lanzamiento de ARC Logistics con una flota inicial de 10 unidades para transporte de carga.',
 
-    timeline4_year: '2022',
+    timeline4_year: '2026',
     timeline4_text: 'Consolidación con Grupo Conecta, completando el ecosistema de servicios empresariales.',
 
     timeline5_year: 'Hoy',
