@@ -13,9 +13,9 @@ const TRANSLATIONS = {
 
     /* Navbar */
     nav_automotriz:  'Automotriz',
-    nav_print:       'Print',
-    nav_logistics:   'Logistics',
-    nav_talent:      'Talent',
+    nav_print:       'Sublipix',
+    nav_logistics:   'Logística',
+    nav_talent:      'Talento',
     nav_nosotros:    'Nosotros',
     nav_contacto:    'Contacto',
 
@@ -32,15 +32,15 @@ const TRANSLATIONS = {
     services_subtitle: 'Soluciones especializadas para cada necesidad de tu negocio.',
 
     card1_title: 'Taller D&D',
-    card1_text:  'Taller mecánico especializado con diagnóstico computarizado, mantenimiento preventivo y correctivo para flotas y vehículos particulares.',
+    card1_text:  'Taller mecánico especializado con diagnóstico, mantenimiento preventivo y correctivo para flotas y vehículos particulares.',
     card1_link:  'Ver servicios →',
 
     card2_title: 'Sublipix',
-    card2_text:  'Impresión y sublimado de alta calidad en textiles, materiales promocionales y señalización corporativa con entrega express.',
+    card2_text:  'Impresión y sublimado de alta calidad en textiles, materiales promocionales y señalización corporativa.',
     card2_link:  'Ver servicios →',
 
     card3_title: 'ARC Logistics',
-    card3_text:  'Alquiler de camiones y soluciones de transporte para carga local y nacional. Flota moderna con seguimiento en tiempo real.',
+    card3_text:  'Soluciones de transporte para carga local y nacional. Flota moderna con seguimiento en tiempo real.',
     card3_link:  'Ver servicios →',
 
     card4_title: 'Grupo Conecta',
@@ -55,16 +55,16 @@ const TRANSLATIONS = {
     timeline1_text: 'Fundación de Corporación ARC S.A. con la apertura del taller automotriz en Ciudad de Guatemala.',
 
     timeline2_year: '2014',
-    timeline2_text: 'Expansión con la división ARC Print, atendiendo la demanda de impresión corporativa en la región.',
+    timeline2_text: 'Expansión con la división Sunlipix, atendiendo la demanda de impresión corporativa en la región.',
 
     timeline3_year: '2018',
     timeline3_text: 'Lanzamiento de ARC Logistics con una flota inicial de 10 unidades para transporte de carga.',
 
     timeline4_year: '2022',
-    timeline4_text: 'Consolidación del grupo con ARC Talent, completando el ecosistema de servicios empresariales.',
+    timeline4_text: 'Consolidación con Grupo Conecta, completando el ecosistema de servicios empresariales.',
 
     timeline5_year: 'Hoy',
-    timeline5_text: 'Más de 200 clientes activos, 4 divisiones y presencia en todo el territorio nacional.',
+    timeline5_text: 'Clientes satisfechos, 4 divisiones y presencia en todo el territorio nacional.',
 
     /* Formulario */
     form_title:       'Solicita tu Cotización',
