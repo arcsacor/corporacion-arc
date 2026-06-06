@@ -248,7 +248,7 @@ ul {
 }
 
 .navbar__logo-img {
-  height: 48px;
+  height: 72px;
   width: auto;
   object-fit: contain;
   display: block;
@@ -427,7 +427,7 @@ ul {
 }
 
 .services-brand__logo {
-  height: 100px;
+  height: 64px;
   width: auto;
   object-fit: contain;
   margin: 0 auto 16px;
