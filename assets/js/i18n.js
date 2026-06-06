@@ -68,7 +68,7 @@ const TRANSLATIONS = {
 
     /* Formulario */
     form_title:       'Solicita tu Cotización',
-    form_subtitle:    'Completa el formulario y te contactamos en menos de 24 horas.',
+    form_subtitle:    'Completa el formulario y te contactamos en menos de 24 horas laborales.',
     label_nombre:     'Nombre completo',
     label_correo:     'Correo electrónico',
     label_telefono:   'Teléfono',
