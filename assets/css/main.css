@@ -328,12 +328,20 @@ ul {
 .hero {
   position: relative;
   height: 100vh;
-  min-height: 600px;
+  min-height: 700px;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
   background-color: var(--color-primary);
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: 780px;
+    align-items: flex-start;
+    padding-top: 80px;
+  }
 }
 
 .hero__bg {
