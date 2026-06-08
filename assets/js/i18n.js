@@ -70,7 +70,7 @@ const TRANSLATIONS = {
     timeline6_text: '(pendiente)',
 
     timeline7_year: 'Hoy',
-    timeline7_text: 'Clientes satisfechos, 4 divisiones y presencia en todo el territorio nacional.',
+    timeline7_text: 'Clientes satisfechos, 6 servicios y presencia en todo el territorio nacional.',
 
     /* Formulario */
     form_title:       'Solicita tu Cotización',
