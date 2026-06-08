@@ -13,16 +13,16 @@ const TRANSLATIONS = {
 
     /* Navbar */
     nav_automotriz:  'Automotriz',
-    nav_print:       'Impresión',
+    nav_print:       'Sublimación',
     nav_logistics:   'Logística',
-    nav_talent:      'Talento',
+    nav_talent:      'Outsorcing',
     nav_nosotros:    'Nosotros',
     nav_contacto:    'Contacto',
 
     /* Hero */
     hero_eyebrow:    'Corporación ARC S.A.',
     hero_title:      'Soluciones que\nmueven negocios',
-    hero_subtitle:   'Cuatro divisiones. Un solo aliado estratégico para tu empresa.',
+    hero_subtitle:   'Multiples servicios. Un solo aliado estratégico para tu empresa.',
     hero_cta1:       'Conoce nuestros servicios',
     hero_cta2:       'Solicitar cotización',
     hero_scroll:     'Scroll',
@@ -51,20 +51,26 @@ const TRANSLATIONS = {
     about_title:    'Quiénes Somos',
     about_subtitle: 'Una corporación con historia, visión y compromiso con Guatemala.',
 
-    timeline1_year: '2010',
+    timeline1_year: '2018',
     timeline1_text: 'Fundación de Corporación ARC S.A. con la apertura del taller automotriz en Ciudad de Guatemala.',
 
-    timeline2_year: '2014',
-    timeline2_text: 'Expansión con la división Sublipix, atendiendo la demanda de impresión corporativa en la región.',
+    timeline2_year: '2020',
+    timeline2_text: 'Expansión con el servicio Sublipix, atendiendo la demanda de productos corporativos en la región.',
 
-    timeline3_year: '2018',
+    timeline3_year: '2022',
     timeline3_text: 'Lanzamiento de ARC Logistics con una flota inicial de 10 unidades para transporte de carga.',
 
-    timeline4_year: '2026',
+    timeline4_year: '2024',
     timeline4_text: 'Consolidación con Grupo Conecta, completando el ecosistema de servicios empresariales.',
 
-    timeline5_year: 'Hoy',
-    timeline5_text: 'Clientes satisfechos, 4 divisiones y presencia en todo el territorio nacional.',
+     timeline5_year: 'XXXX',
+    timeline5_text: '(pendiente)',
+
+     timeline6_year: 'XXXX',
+    timeline6_text: '(pendiente)',
+
+    timeline7_year: 'Hoy',
+    timeline7_text: 'Clientes satisfechos, 4 divisiones y presencia en todo el territorio nacional.',
 
     /* Formulario */
     form_title:       'Solicita tu Cotización',
@@ -141,13 +147,13 @@ const TRANSLATIONS = {
     about_title:    'About Us',
     about_subtitle: 'A corporation with history, vision and commitment to Guatemala.',
 
-    timeline1_year: '2010',
+    timeline1_year: '2018',
     timeline1_text: 'Corporación ARC S.A. founded with the opening of the auto shop in Guatemala City.',
 
     timeline2_year: '2014',
-    timeline2_text: 'Expansion with ARC Print division, addressing corporate printing demand in the region.',
+    timeline2_text: 'Expansion with the Sublipix service, to meet the demand for corporate products in the region..',
 
-    timeline3_year: '2018',
+    timeline3_year: '2022',
     timeline3_text: 'ARC Logistics launched with an initial fleet of 10 cargo transport units.',
 
     timeline4_year: '2022',
