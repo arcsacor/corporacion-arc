@@ -1,6 +1,6 @@
 /* ============================================================
    CORPORACION ARC S.A. — i18n.js
-   Versión: 2.0 | Junio 2026
+   Versión: 3.0 | Junio 2026
    Sistema bilingüe Español / Inglés
    ============================================================ */
 
@@ -8,92 +8,72 @@
 
 const TRANSLATIONS = {
   es: {
-    /* Topbar */
     topbar_whatsapp: 'WhatsApp: +502 5476-0773',
-
-    /* Navbar */
     nav_automotriz:  'Automotriz',
     nav_print:       'Sublimación',
     nav_logistics:   'Logística',
-    nav_talent:      'Outsorcing',
+    nav_talent:      'Outsourcing',
     nav_nosotros:    'Nosotros',
     nav_contacto:    'Contacto',
-
-    /* Hero */
     hero_eyebrow:    'Corporación ARC S.A.',
     hero_title:      'Soluciones que\nmueven negocios',
-    hero_subtitle:   'Multiples servicios. Un solo aliado estratégico para tu empresa.',
+    hero_subtitle:   'Múltiples servicios. Un solo aliado estratégico para tu empresa.',
     hero_cta1:       'Conoce nuestros servicios',
     hero_cta2:       'Solicitar cotización',
     hero_scroll:     'Scroll',
-
-    /* Servicios */
     services_title:    'Nuestras Divisiones',
     services_subtitle: 'Soluciones especializadas para cada necesidad de tu negocio.',
-
     card1_title: 'Taller D&D',
     card1_text:  'Taller mecánico especializado con diagnóstico, mantenimiento preventivo y correctivo para flotas y vehículos particulares.',
     card1_link:  'Ver servicios →',
-
     card2_title: 'Sublipix',
     card2_text:  'Impresión y sublimado de alta calidad en textiles, materiales promocionales y señalización corporativa.',
     card2_link:  'Ver servicios →',
-
     card3_title: 'ARC Logistics',
     card3_text:  'Soluciones de transporte para carga local y nacional. Flota moderna con seguimiento en tiempo real.',
     card3_link:  'Ver servicios →',
-
     card4_title: 'Grupo Conecta',
     card4_text:  'Outsourcing de recursos humanos y reclutamiento especializado. Encontramos el talento que tu empresa necesita.',
     card4_link:  'Ver servicios →',
-
-    /* Nosotros */
+    mision_title: 'Misión',
+    mision_text:  'Somos una Corporación que se dedica a proporcionar una amplia variedad de servicios a empresas, comercios y personas individuales.',
+    vision_title: 'Visión',
+    vision_text:  'Ser la Corporación de Servicios líder en el mercado nacional, implementando la mejora continua en nuestros procesos y contando con personal altamente calificado para brindar un servicio de excelencia a nuestros clientes.',
     about_title:    'Quiénes Somos',
     about_subtitle: 'Una corporación con historia, visión y compromiso con Guatemala.',
-
     timeline1_year: '2018',
-    timeline1_text: 'Fundación de Corporación ARC S.A. con la apertura del taller automotriz en Ciudad de Guatemala.',
-
+    timeline1_text: 'Fundación de Corporación ARC S.A. con la apertura del taller automotriz D&D en Ciudad de Guatemala.',
     timeline2_year: '2020',
     timeline2_text: 'Expansión con el servicio Sublipix, atendiendo la demanda de productos corporativos en la región.',
-
     timeline3_year: '2022',
     timeline3_text: 'Lanzamiento de ARC Logistics con una flota inicial de 10 unidades para transporte de carga.',
-
     timeline4_year: '2024',
     timeline4_text: 'Consolidación con Grupo Conecta, completando el ecosistema de servicios empresariales.',
-
-     timeline5_year: 'XXXX',
-    timeline5_text: '(pendiente)',
-
-     timeline6_year: 'XXXX',
-    timeline6_text: '(pendiente)',
-
+    timeline5_year: 'XXXX',
+    timeline5_text: 'Lanzamiento de Información vidrería (pendiente).',
+    timeline6_year: 'XXXX',
+    timeline6_text: 'Lanzamiento de Información Floresta (pendiente).',
     timeline7_year: 'Hoy',
     timeline7_text: 'Clientes satisfechos, 6 servicios y presencia en todo el territorio nacional.',
-
-    /* Formulario */
-    form_title:       'Solicita tu Cotización',
-    form_subtitle:    'Completa el formulario y te contactamos en menos de 24 horas laborales.',
-    label_nombre:     'Nombre completo',
-    label_correo:     'Correo electrónico',
-    label_telefono:   'Teléfono',
-    label_division:   'División de interés',
-    label_mensaje:    'Mensaje',
+    form_title:           'Solicita tu Cotización',
+    form_subtitle:        'Completa el formulario y te contactamos en menos de 24 horas laborales.',
+    label_nombre:         'Nombre completo',
+    label_correo:         'Correo electrónico',
+    label_telefono:       'Teléfono',
+    label_division:       'División de interés',
+    label_mensaje:        'Mensaje',
     placeholder_nombre:   'Tu nombre completo',
     placeholder_correo:   'correo@empresa.com',
     placeholder_telefono: '+502 0000-0000',
     placeholder_mensaje:  'Cuéntanos cómo podemos ayudarte...',
-    option_select:    'Selecciona una división',
-    option_auto:      'Taller D&D — Taller Mecánico',
-    option_print:     'Sublipix — Impresión y Sublimado',
-    option_logistics: 'ARC Logistics — Transporte y Camiones',
-    option_talent:    'Grupo Conecta — Outsourcing RH',
-    btn_enviar:       'Enviar Solicitud',
-    form_success:     '¡Mensaje enviado! Te contactaremos en menos de 24 horas.',
-    form_error:       'Hubo un error. Por favor intenta de nuevo.',
-
-    /* Footer */
+    option_select:        'Selecciona una división',
+    option_auto:          'Taller D&D — Taller Mecánico',
+    option_print:         'Sublipix — Impresión y Sublimado',
+    option_logistics:     'ARC Logistics — Transporte y Camiones',
+    option_talent:        'Grupo Conecta — Outsourcing RH',
+    btn_enviar:           'Enviar Solicitud',
+    form_success:         '¡Mensaje enviado! Te contactaremos en menos de 24 horas.',
+    form_error:           'Hubo un error. Por favor intenta de nuevo.',
     footer_desc:      'Soluciones empresariales integrales con más de una década de experiencia en Guatemala.',
     footer_servicios: 'Servicios',
     footer_empresa:   'Empresa',
@@ -104,86 +84,72 @@ const TRANSLATIONS = {
   },
 
   en: {
-    /* Topbar */
     topbar_whatsapp: 'WhatsApp: +502 5476-0773',
-
-    /* Navbar */
     nav_automotriz:  'Automotive',
     nav_print:       'Print',
     nav_logistics:   'Logistics',
-    nav_talent:      'Talent',
+    nav_talent:      'Outsourcing',
     nav_nosotros:    'About',
     nav_contacto:    'Contact',
-
-    /* Hero */
     hero_eyebrow:    'Corporación ARC S.A.',
     hero_title:      'Solutions that\ndrive business',
-    hero_subtitle:   'Four divisions. One strategic partner for your company.',
+    hero_subtitle:   'Multiple services. One strategic partner for your company.',
     hero_cta1:       'Explore our services',
     hero_cta2:       'Request a quote',
     hero_scroll:     'Scroll',
-
-    /* Servicios */
     services_title:    'Our Divisions',
     services_subtitle: 'Specialized solutions for every business need.',
-
     card1_title: 'Taller D&D',
     card1_text:  'Specialized auto shop with computerized diagnostics, preventive and corrective maintenance for fleets and private vehicles.',
     card1_link:  'View services →',
-
     card2_title: 'Sublipix',
-    card2_text:  'High quality printing and sublimation on textiles, promotional materials and corporate signage with express delivery.',
+    card2_text:  'High quality printing and sublimation on textiles, promotional materials and corporate signage.',
     card2_link:  'View services →',
-
     card3_title: 'ARC Logistics',
-    card3_text:  'Truck rental and transportation solutions for local and national cargo. Modern fleet with real-time tracking.',
+    card3_text:  'Transportation solutions for local and national cargo. Modern fleet with real-time tracking.',
     card3_link:  'View services →',
-
     card4_title: 'Grupo Conecta',
     card4_text:  'HR outsourcing and specialized recruitment. We find the talent your company needs.',
     card4_link:  'View services →',
-
-    /* Nosotros */
+    mision_title: 'Mission',
+    mision_text:  'We are a Corporation dedicated to providing a wide variety of services to businesses, shops and individuals.',
+    vision_title: 'Vision',
+    vision_text:  'To be the leading Services Corporation in the national market, implementing continuous improvement in our processes and having highly qualified staff to provide excellent service to our clients.',
     about_title:    'About Us',
     about_subtitle: 'A corporation with history, vision and commitment to Guatemala.',
-
     timeline1_year: '2018',
-    timeline1_text: 'Corporación ARC S.A. founded with the opening of the auto shop in Guatemala City.',
-
-    timeline2_year: '2014',
-    timeline2_text: 'Expansion with the Sublipix service, to meet the demand for corporate products in the region..',
-
+    timeline1_text: 'Corporación ARC S.A. founded with the opening of Taller D&D auto shop in Guatemala City.',
+    timeline2_year: '2020',
+    timeline2_text: 'Expansion with the Sublipix service, meeting the demand for corporate products in the region.',
     timeline3_year: '2022',
     timeline3_text: 'ARC Logistics launched with an initial fleet of 10 cargo transport units.',
-
-    timeline4_year: '2022',
-    timeline4_text: 'Group consolidated with ARC Talent, completing the business services ecosystem.',
-
-    timeline5_year: 'Today',
-    timeline5_text: 'Over 200 active clients, 4 divisions and presence throughout the national territory.',
-
-    /* Formulario */
-    form_title:       'Request a Quote',
-    form_subtitle:    'Fill out the form and we will contact you within 24 hours.',
-    label_nombre:     'Full name',
-    label_correo:     'Email address',
-    label_telefono:   'Phone number',
-    label_division:   'Division of interest',
-    label_mensaje:    'Message',
+    timeline4_year: '2024',
+    timeline4_text: 'Consolidation with Grupo Conecta, completing the business services ecosystem.',
+    timeline5_year: 'XXXX',
+    timeline5_text: 'Launch of glassware information (pending).',
+    timeline6_year: 'XXXX',
+    timeline6_text: 'Launch of Floresta information (pending).',
+    timeline7_year: 'Today',
+    timeline7_text: 'Satisfied clients, 6 services and presence throughout the national territory.',
+    form_title:           'Request a Quote',
+    form_subtitle:        'Fill out the form and we will contact you within 24 business hours.',
+    label_nombre:         'Full name',
+    label_correo:         'Email address',
+    label_telefono:       'Phone number',
+    label_division:       'Division of interest',
+    label_mensaje:        'Message',
     placeholder_nombre:   'Your full name',
     placeholder_correo:   'email@company.com',
     placeholder_telefono: '+502 0000-0000',
     placeholder_mensaje:  'Tell us how we can help you...',
-    option_select:    'Select a division',
-    option_auto:      'Taller D&D — Auto Shop',
-    option_print:     'Sublipix — Printing & Sublimation',
-    option_logistics: 'ARC Logistics — Transport & Trucks',
-    option_talent:    'Grupo Conecta — HR Outsourcing',
-    btn_enviar:       'Send Request',
-    form_success:     'Message sent! We will contact you within 24 hours.',
-    form_error:       'An error occurred. Please try again.',
-
-    /* Footer */
+    option_select:        'Select a division',
+    option_auto:          'Taller D&D — Auto Shop',
+    option_print:         'Sublipix — Printing & Sublimation',
+    option_logistics:     'ARC Logistics — Transport & Trucks',
+    option_talent:        'Grupo Conecta — HR Outsourcing',
+    btn_enviar:           'Send Request',
+    form_success:         'Message sent! We will contact you within 24 hours.',
+    form_error:           'An error occurred. Please try again.',
     footer_desc:      'Comprehensive business solutions with over a decade of experience in Guatemala.',
     footer_servicios: 'Services',
     footer_empresa:   'Company',
@@ -194,7 +160,6 @@ const TRANSLATIONS = {
   }
 };
 
-/* ── MOTOR DE TRADUCCIÓN ─────────────────────────────────── */
 const I18N = {
   current: 'es',
 
