@@ -1046,3 +1046,149 @@ ul {
     height: 52px;
   }
 }
+
+/* ── BOTÓN NAV ÚNETE AL EQUIPO ───────────────────────────── */
+.navbar__join {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: linear-gradient(135deg, var(--color-accent), #00a8cc);
+  color: var(--color-primary);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  white-space: nowrap;
+}
+
+.navbar__join:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0,212,255,0.4);
+  color: var(--color-primary);
+}
+
+.navbar__join::before {
+  content: '👤';
+  font-size: 0.85rem;
+}
+
+/* ── BANNER ÚNETE AL EQUIPO ──────────────────────────────── */
+.join-banner {
+  background: linear-gradient(135deg, #0A1628 0%, #0f2040 50%, #1B3A6B 100%);
+  padding: 72px 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.join-banner::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 320px; height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,212,255,0.08) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.join-banner::after {
+  content: '';
+  position: absolute;
+  bottom: -40px; left: -40px;
+  width: 240px; height: 240px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,212,255,0.05) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.join-banner__inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  position: relative;
+  z-index: 1;
+}
+
+.join-banner__logo {
+  height: 90px;
+  width: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3));
+}
+
+.join-banner__content {
+  flex: 1;
+}
+
+.join-banner__eyebrow {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 10px;
+  display: block;
+}
+
+.join-banner__title {
+  font-family: var(--font-title);
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  letter-spacing: 0.04em;
+  color: #ffffff;
+  line-height: 1.1;
+  margin-bottom: 12px;
+}
+
+.join-banner__text {
+  font-size: 0.92rem;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.7;
+  margin-bottom: 24px;
+  max-width: 480px;
+}
+
+.join-banner__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--color-accent);
+  color: var(--color-primary);
+  padding: 14px 32px;
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  letter-spacing: 0.02em;
+}
+
+.join-banner__btn:hover {
+  background: #ffffff;
+  color: var(--color-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(0,212,255,0.3);
+}
+
+@media (max-width: 768px) {
+  .join-banner__inner {
+    flex-direction: column;
+    text-align: center;
+    gap: 24px;
+  }
+  .join-banner__logo {
+    height: 70px;
+  }
+  .join-banner__text {
+    margin: 0 auto 24px;
+  }
+  .navbar__join {
+    display: none;
+  }
+}
