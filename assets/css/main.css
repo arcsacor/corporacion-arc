@@ -338,9 +338,7 @@ ul {
 
 @media (max-width: 768px) {
   .hero {
-    min-height: 780px;
-    align-items: flex-start;
-    padding-top: 80px;
+    align-items: center;
   }
 }
 
