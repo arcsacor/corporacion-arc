@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Únete al equipo de Corporación ARC S.A. — Postula a nuestras oportunidades laborales en Guatemala.">
+  <meta name="robots" content="index, follow">
+  <title>Trabaja con Nosotros — Corporación ARC S.A.</title>
+  <link rel="icon" href="assets/images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+  <style>
+    .postulacion-hero {
+      background: linear-gradient(135deg, #0A1628 0%, #1B3A6B 100%);
+      padding: 80px 24px 64px;
+      text-align: center;
+      color: #fff;
+    }
+    .postulacion-hero__logo {
+      height: 80px;
+      width: auto;
+      object-fit: contain;
+      margin: 0 auto 24px;
+      display: block;
+    }
+    .postulacion-hero__title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      letter-spacing: 0.05em;
+      margin-bottom: 12px;
+      color: #fff;
+    }
+    .postulacion-hero__sub {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.65);
+      max-width: 560px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+    .postulacion-section {
+      padding: 64px 24px 80px;
+      background: #F8F9FA;
+    }
+    .postulacion-form {
+      background: #fff;
+      border-radius: 16px;
+      padding: 48px 40px;
+      max-width: 760px;
+      margin: 0 auto;
+      box-shadow: 0 4px 40px rgba(0,0,0,0.08);
+      border: 1px solid rgba(0,0,0,0.06);
+    }
+    .form-section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.3rem;
+      letter-spacing: 0.06em;
+      color: #0A1628;
+      margin: 32px 0 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid rgba(0,212,255,0.3);
+    }
+    .form-section-title:first-of-type { margin-top: 0; }
+    .p-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .p-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .p-group--full { grid-column: 1 / -1; }
+    .p-group label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #666;
+    }
+    .p-group input,
+    .p-group select,
+    .p-group textarea {
+      background: #F8F9FA;
+      border: 1.5px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 12px 14px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.93rem;
+      color: #333;
+      outline: none;
+      transition: border-color 0.3s, box-shadow 0.3s;
+      width: 100%;
+    }
+    .p-group input:focus,
+    .p-group select:focus,
+    .p-group textarea:focus {
+      border-color: #00D4FF;
+      box-shadow: 0 0 0 3px rgba(0,212,255,0.1);
+      background: #fff;
+    }
+    .p-group input.error,
+    .p-group select.error {
+      border-color: #ff5050;
+      box-shadow: 0 0 0 3px rgba(255,80,80,0.1);
+    }
+    .p-group .field-error {
+      font-size: 0.78rem;
+      color: #ff5050;
+      margin-top: 2px;
+      display: none;
+    }
+    .p-group .field-error.show { display: block; }
+    .p-group textarea { resize: vertical; min-height: 100px; }
+    .consentimiento {
+      background: rgba(0,212,255,0.05);
+      border: 1px solid rgba(0,212,255,0.2);
+      border-radius: 10px;
+      padding: 20px 24px;
+      margin: 28px 0 0;
+    }
+    .consentimiento__texto {
+      font-size: 0.82rem;
+      color: #555;
+      line-height: 1.75;
+      margin-bottom: 16px;
+    }
+    .consentimiento__check {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      cursor: pointer;
+    }
+    .consentimiento__check input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      margin-top: 2px;
+      accent-color: #00D4FF;
+      cursor: pointer;
+    }
+    .consentimiento__check span {
+      font-size: 0.85rem;
+      color: #333;
+      line-height: 1.6;
+      font-weight: 500;
+    }
+    .btn-postular {
+      width: 100%;
+      background: #0A1628;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      padding: 18px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-top: 28px;
+      transition: background 0.3s, transform 0.2s;
+      letter-spacing: 0.02em;
+    }
+    .btn-postular:hover {
+      background: #1B3A6B;
+      transform: translateY(-2px);
+    }
+    .btn-postular:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+      transform: none;
+    }
+    .form-msg {
+      text-align: center;
+      padding: 16px;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      margin-top: 20px;
+      display: none;
+    }
+    .form-msg.success {
+      background: rgba(0,200,81,0.08);
+      border: 1px solid #00C851;
+      color: #00843a;
+      display: block;
+    }
+    .form-msg.error {
+      background: rgba(255,80,80,0.08);
+      border: 1px solid #ff5050;
+      color: #cc0000;
+      display: block;
+    }
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255,255,255,0.6);
+      font-size: 0.85rem;
+      text-decoration: none;
+      margin-bottom: 32px;
+      transition: color 0.3s;
+    }
+    .back-btn:hover { color: #00D4FF; }
+    @media (max-width: 600px) {
+      .p-grid { grid-template-columns: 1fr; }
+      .p-group--full { grid-column: 1; }
+      .postulacion-form { padding: 32px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <a href="tel:+50222380241" class="topbar__link">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+      <span>Tel: +502 2238-0241</span>
+    </a>
+    <a href="https://wa.me/50254760773" target="_blank" rel="noopener" class="topbar__link">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.532 5.858L.057 23.571a.75.75 0 00.921.921l5.713-1.475A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.705 9.705 0 01-4.95-1.355l-.355-.211-3.688.951.972-3.585-.232-.369A9.718 9.718 0 012.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
+      <span>WhatsApp: +502 5476-0773</span>
+    </a>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" role="navigation">
+    <a href="index.html" class="navbar__logo">
+      <img src="assets/images/logo-arc.png" alt="Corporación ARC S.A." class="navbar__logo-img">
+    </a>
+    <ul class="navbar__menu" id="navMenu">
+      <li><a href="acr-automotriz.html" class="navbar__link">Automotriz</a></li>
+      <li><a href="acr-print.html" class="navbar__link">Sublimación</a></li>
+      <li><a href="acr-logistics.html" class="navbar__link">Logística</a></li>
+      <li><a href="acr-talent.html" class="navbar__link">Outsourcing</a></li>
+      <li><a href="index.html#nosotros" class="navbar__link">Nosotros</a></li>
+      <li><a href="index.html#contacto" class="navbar__link">Contacto</a></li>
+    </ul>
+    <button class="navbar__hamburger" id="hamburger" aria-label="Abrir menú">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- HERO -->
+  <div class="postulacion-hero">
+    <img src="assets/images/logo-grupo-conecta.png" alt="Grupo Conecta" class="postulacion-hero__logo">
+    <h1 class="postulacion-hero__title">Trabaja con Nosotros</h1>
+    <p class="postulacion-hero__sub">
+      Forma parte del equipo de Corporación ARC S.A. Buscamos personas comprometidas, con actitud de servicio y ganas de crecer profesionalmente.
+    </p>
+  </div>
+
+  <!-- FORMULARIO -->
+  <section class="postulacion-section">
+    <div class="postulacion-form" data-aos="fade-up">
+
+      <a href="index.html" class="back-btn">← Regresar al inicio</a>
+
+      <h2 class="form-section-title">Datos Personales</h2>
+
+      <div class="p-grid">
+
+        <div class="p-group p-group--full">
+          <label for="nombre">Nombre Completo *</label>
+          <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" maxlength="150" required>
+          <span class="field-error" id="err-nombre">Ingresa tu nombre completo.</span>
+        </div>
+
+        <div class="p-group">
+          <label for="tel1">Teléfono Principal * (8 dígitos)</label>
+          <input type="tel" id="tel1" name="tel1" placeholder="Ej: 55551234" maxlength="8" pattern="[0-9]{8}" required>
+          <span class="field-error" id="err-tel1">Ingresa exactamente 8 dígitos sin espacios.</span>
+        </div>
+
+        <div class="p-group">
+          <label for="tel2">Teléfono Secundario (8 dígitos)</label>
+          <input type="tel" id="tel2" name="tel2" placeholder="Ej: 44449876" maxlength="8" pattern="[0-9]{8}">
+          <span class="field-error" id="err-tel2">Ingresa exactamente 8 dígitos sin espacios.</span>
+        </div>
+
+        <div class="p-group p-group--full">
+          <label for="correo">Correo Electrónico *</label>
+          <input type="email" id="correo" name="correo" placeholder="tucorreo@ejemplo.com" maxlength="150" required>
+          <span class="field-error" id="err-correo">Ingresa un correo válido o este correo ya está registrado.</span>
+        </div>
+
+        <div class="p-group p-group--full">
+          <label for="dpi">DPI * (formato: 0000 00000 0000)</label>
+          <input type="text" id="dpi" name="dpi" placeholder="0000 00000 0000" maxlength="15" required>
+          <span class="field-error" id="err-dpi">Ingresa un DPI válido de 13 dígitos o este DPI ya está registrado.</span>
+        </div>
+
+        <div class="p-group">
+          <label for="edad">Edad *</label>
+          <select id="edad" name="edad" required>
+            <option value="">Selecciona tu edad</option>
+            <!-- JS genera las opciones -->
+          </select>
+          <span class="field-error" id="err-edad">Selecciona tu edad.</span>
+        </div>
+
+        <div class="p-group">
+          <label for="zona">Zona donde Vive *</label>
+          <select id="zona" name="zona" required>
+            <option value="">Selecciona la zona</option>
+            <!-- JS genera las opciones -->
+          </select>
+          <span class="field-error" id="err-zona">Selecciona tu zona.</span>
+        </div>
+
+        <div class="p-group">
+          <label for="departamento">Departamento *</label>
+          <select id="departamento" name="departamento" required>
+            <option value="">Selecciona departamento</option>
+          </select>
+          <span class="field-error" id="err-departamento">Selecciona tu departamento.</span>
+        </div>
+
+        <div class="p-group">
+          <label for="municipio">Municipio *</label>
+          <select id="municipio" name="municipio" required>
+            <option value="">Selecciona municipio</option>
+          </select>
+          <span class="field-error" id="err-municipio">Selecciona tu municipio.</span>
+        </div>
+
+      </div>
+
+      <h2 class="form-section-title">Experiencia Laboral</h2>
+
+      <div class="p-grid">
+
+        <div class="p-group p-group--full">
+          <label for="ultimo_trabajo">Detalla tu último trabajo (empresa y puesto) *</label>
+          <textarea id="ultimo_trabajo" name="ultimo_trabajo" placeholder="Ej: Empresa XYZ — Puesto: Vendedor / Mecánico / Auxiliar contable..." required maxlength="500"></textarea>
+          <span class="field-error" id="err-ultimo_trabajo">Describe tu último trabajo.</span>
+        </div>
+
+        <div class="p-group p-group--full">
+          <label for="motivo_salida">Explica el motivo de tu salida de esa empresa *</label>
+          <textarea id="motivo_salida" name="motivo_salida" placeholder="Sé honesto, esta información es confidencial y solo la usa Corporación ARC S.A. para conocerte mejor..." required maxlength="500"></textarea>
+          <span class="field-error" id="err-motivo_salida">Explica el motivo de tu salida.</span>
+        </div>
+
+      </div>
+
+      <!-- CONSENTIMIENTO LEGAL -->
+      <div class="consentimiento">
+        <p class="consentimiento__texto">
+          <strong>Aviso de Privacidad y Consentimiento de Datos — Corporación ARC S.A.</strong><br><br>
+          De conformidad con la <strong>Constitución Política de la República de Guatemala</strong> (Artículos 23, 24 y 44) y el <strong>Decreto 57-2008 — Ley de Acceso a la Información Pública (LAIP)</strong>, al enviar este formulario usted:<br><br>
+          • Declara que la información proporcionada es <strong>verídica, completa y de su autoría</strong>.<br>
+          • <strong>Autoriza expresamente</strong> a Corporación ARC S.A. a recopilar, almacenar y utilizar sus datos personales con el único fin de evaluar su postulación laboral y mantener una base de datos de candidatos.<br>
+          • Comprende que sus datos serán tratados de forma confidencial y <strong>no serán vendidos, cedidos ni compartidos</strong> con terceros no relacionados con el proceso de selección.<br>
+          • Sabe que puede ejercer sus derechos de acceso, rectificación o supresión de datos escribiendo a <strong>contacto@corporacionarc.com</strong>.
+        </p>
+        <label class="consentimiento__check">
+          <input type="checkbox" id="consentimiento" required>
+          <span>He leído y acepto el aviso de privacidad. Confirmo que toda la información que proporciono es <strong>real y verdadera</strong>, y autorizo a Corporación ARC S.A. a utilizar mis datos para fines de reclutamiento.</span>
+        </label>
+        <span class="field-error" id="err-consentimiento" style="margin-top:10px;">Debes aceptar el aviso de privacidad para continuar.</span>
+      </div>
+
+      <button class="btn-postular" id="btnPostular" onclick="enviarPostulacion()">
+        Enviar mi Postulación
+      </button>
+
+      <div class="form-msg" id="formMsg"></div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer__grid">
+      <div>
+        <div class="footer__brand-logo">
+          <img src="assets/images/logo-arc.png" alt="Corporación ARC S.A." class="footer__logo-img">
+        </div>
+        <p class="footer__brand-text">Soluciones empresariales integrales con más de una década de experiencia en Guatemala.</p>
+      </div>
+      <div>
+        <h4 class="footer__heading">Servicios</h4>
+        <ul class="footer__links">
+          <li><a href="acr-automotriz.html">Taller D&D</a></li>
+          <li><a href="acr-print.html">Sublipix</a></li>
+          <li><a href="acr-logistics.html">ARC Logistics</a></li>
+          <li><a href="acr-talent.html">Grupo Conecta</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer__heading">Empresa</h4>
+        <ul class="footer__links">
+          <li><a href="index.html#nosotros">Nosotros</a></li>
+          <li><a href="index.html#contacto">Contacto</a></li>
+          <li><a href="privacidad.html">Privacidad</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer__heading">Contacto</h4>
+        <ul class="footer__links">
+          <li><a href="https://wa.me/50254760773" target="_blank" rel="noopener">WhatsApp: +502 5476-0773</a></li>
+          <li><a href="tel:+50222380241">Tel: +502 2238-0241</a></li>
+          <li><a href="mailto:contacto@corporacionarc.com">contacto@corporacionarc.com</a></li>
+        </ul>
+        <h4 class="footer__heading footer__heading--horarios">Horarios de Atención</h4>
+        <ul class="footer__links footer__horarios">
+          <li>Lunes a Viernes: 08:00 – 17:00</li>
+          <li>Sábado: 08:00 – 13:00</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2026 Corporación ARC S.A. Todos los derechos reservados.</span>
+    </div>
+  </footer>
+
+  <!-- BOTÓN FLOTANTE WHATSAPP -->
+  <a href="https://wa.me/50254760773" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Contactar por WhatsApp">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.532 5.858L.057 23.571a.75.75 0 00.921.921l5.713-1.475A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.705 9.705 0 01-4.95-1.355l-.355-.211-3.688.951.972-3.585-.232-.369A9.718 9.718 0 012.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
+  </a>
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script>
+    AOS.init({ duration: 600, once: true });
+
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxhxReE4_b354I8lXVo-hgwCL6lNsdOGAsVeA_oNUDMbRetMMWBHzclovP1txjJssQ8mA/exec';
+
+    // ── DATOS DE GUATEMALA ────────────────────────────────────
+    const MUNICIPIOS = {
+      'Guatemala': ['Guatemala','Santa Catarina Pinula','San José Pinula','San José del Golfo','Palencia','Chinautla','San Pedro Ayampuc','Mixco','San Pedro Sacatepéquez','San Juan Sacatepéquez','San Raymundo','Chuarrancho','Fraijanes','Amatitlán','Villa Nueva','Villa Canales','Petapa'],
+      'El Progreso': ['Guastatoya','Morazán','San Agustín Acasaguastlán','San Cristóbal Acasaguastlán','El Jícaro','Sansare','Sanarate','San Antonio La Paz'],
+      'Sacatepéquez': ['Antigua Guatemala','Jocotenango','Pastores','Sumpango','Santo Domingo Xenacoj','Santiago Sacatepéquez','San Bartolomé Milpas Altas','San Lucas Sacatepéquez','Santa Lucía Milpas Altas','Magdalena Milpas Altas','Santa María de Jesús','Ciudad Vieja','San Miguel Dueñas','Alotenango','San Antonio Aguas Calientes','Santa Catarina Barahona'],
+      'Chimaltenango': ['Chimaltenango','San José Poaquil','San Martín Jilotepeque','Comalapa','Santa Apolonia','Tecpán Guatemala','Patzún','Pochuta','Patzicía','Santa Cruz Balanyá','Acatenango','Yepocapa','San Andrés Itzapa','Parramos','Zaragoza','El Tejar'],
+      'Escuintla': ['Escuintla','Santa Lucía Cotzumalguapa','La Democracia','Siquinalá','Masagua','Tiquisate','La Gomera','Guanagazapa','San José','Iztapa','Palín','San Vicente Pacaya','Nueva Concepción'],
+      'Santa Rosa': ['Cuilapa','Barberena','Santa Rosa de Lima','Casillas','San Rafael Las Flores','Oratorio','San Juan Tecuaco','Chiquimulilla','Taxisco','Santa María Ixhuatán','Guazacapán','Santa Cruz Naranjo','Pueblo Nuevo Viñas','Nueva Santa Rosa'],
+      'Sololá': ['Sololá','San José Chacayá','Santa María Visitación','Santa Lucía Utatlán','Nahualá','Santa Catarina Ixtahuacán','Santa Clara La Laguna','Concepción','San Andrés Semetabaj','Panajachel','Santa Catarina Palopó','San Antonio Palopó','San Lucas Tolimán','Santa Cruz La Laguna','San Pablo La Laguna','San Marcos La Laguna','San Juan La Laguna','San Pedro La Laguna','Santiago Atitlán'],
+      'Totonicapán': ['Totonicapán','San Cristóbal Totonicapán','San Francisco El Alto','San Andrés Xecul','Momostenango','Santa María Chiquimula','Santa Lucía La Reforma','San Bartolo'],
+      'Quetzaltenango': ['Quetzaltenango','Salcajá','Olintepeque','San Carlos Sija','Sibilia','Cabricán','Cajolá','San Miguel Sigüilá','Ostuncalco','San Mateo','Concepción Chiquirichapa','San Martín Sacatepéquez','Almolonga','Cantel','Huitán','Zunil','Colomba','San Francisco La Unión','El Palmar','Coatepeque','Génova','Flores Costa Cuca','La Esperanza','Palestina de Los Altos'],
+      'Suchitepéquez': ['Mazatenango','Cuyotenango','San Francisco Zapotitlán','San Bernardino','San José El Ídolo','Santo Domingo Suchitepéquez','San Lorenzo','Samayac','San Pablo Jocopilas','San Antonio Suchitepéquez','San Miguel Panán','San Gabriel','Chicacao','Patulul','Santa Bárbara','San Juan Bautista','Santo Tomás La Unión','Zunilito','Pueblo Nuevo','Río Bravo'],
+      'Retalhuleu': ['Retalhuleu','San Sebastián','Santa Cruz Muluá','San Martín Zapotitlán','San Felipe','San Andrés Villa Seca','Champerico','Nuevo San Carlos','El Asintal'],
+      'San Marcos': ['San Marcos','San Pedro Sacatepéquez','San Antonio Sacatepéquez','Comitancillo','San Miguel Ixtahuacán','Concepción Tutuapa','Tacaná','Sibinal','Tajumulco','Tejutla','San Rafael Pie de La Cuesta','Nuevo Progreso','El Tumbador','El Rodeo','Malacatán','Catarina','Ayutla','Ocós','San Pablo','El Quetzal','La Reforma','Pajapita','Ixchiguán','San José Ojetenam','San Cristóbal Cucho','Sipacapa','Esquipulas Palo Gordo','Río Blanco','San Lorenzo'],
+      'Huehuetenango': ['Huehuetenango','Chiantla','Malacatancito','Cuilco','Nentón','San Pedro Necta','Jacaltenango','San Pedro Soloma','San Idelfonso Ixtahuacán','Santa Bárbara','La Libertad','La Democracia','San Miguel Acatán','San Rafael La Independencia','Todos Santos Cuchumatán','San Juan Atitán','Santa Eulalia','San Mateo Ixtatán','Colotenango','San Sebastián Huehuetenango','Tectitán','Concepción Huista','San Juan Ixcoy','San Antonio Huista','San Sebastián Coatán','Santa Cruz Barillas','Aguacatán','San Rafael Petzal','San Gaspar Ixchil','Santiago Chimaltenango','Santa Ana Huista'],
+      'Quiché': ['Santa Cruz del Quiché','Chiché','Chinique','Zacualpa','Chajul','Chichicastenango','Patzité','San Antonio Ilotenango','San Pedro Jocopilas','Cunén','San Juan Cotzal','Joyabaj','Nebaj','San Andrés Sajcabajá','Uspantán','Sacapulas','San Bartolomé Jocotenango','Canillá','Chicamán','Playa Grande Ixcán','Pachalum'],
+      'Baja Verapaz': ['Salamá','San Miguel Chicaj','Rabinal','Cubulco','Granados','Santa Cruz El Chol','San Jerónimo','Purulhá'],
+      'Alta Verapaz': ['Cobán','Santa Cruz Verapaz','San Cristóbal Verapaz','Tactic','Tamahú','Tucurú','Panzós','Senahú','San Pedro Carchá','San Juan Chamelco','Lanquín','Cahabón','Chisec','Chahal','Fray Bartolomé de Las Casas','Santa Catalina La Tinta','Raxruhá'],
+      'Petén': ['Flores','San José','San Benito','San Andrés','La Libertad','San Francisco','Santa Ana','Dolores','San Luis','Sayaxché','Melchor de Mencos','Poptún','Las Cruces','El Chal'],
+      'Izabal': ['Puerto Barrios','Livingston','El Estor','Morales','Los Amates'],
+      'Zacapa': ['Zacapa','Estanzuela','Río Hondo','Gualán','Teculután','Usumatlán','Cabañas','San Diego','La Unión','Huité'],
+      'Chiquimula': ['Chiquimula','San José La Arada','San Juan Ermita','Jocotán','Camotán','Olopa','Esquipulas','Concepción Las Minas','Quezaltepeque','San Jacinto','Ipala'],
+      'Jalapa': ['Jalapa','San Pedro Pinula','San Luis Jilotepeque','San Manuel Chaparrón','San Carlos Alzatate','Monjas','Mataquescuintla'],
+      'Jutiapa': ['Jutiapa','El Progreso','Santa Catarina Mita','Agua Blanca','Asunción Mita','Yupiltepeque','Atescatempa','Jerez','El Adelanto','Zapotitlán','Comapa','Jalpatagua','Conguaco','Moyuta','Pasaco','San José Acatempa','Quesada']
+    };
+
+    // Poblar edad
+    const edadSel = document.getElementById('edad');
+    for (let i = 18; i <= 50; i++) {
+      const o = document.createElement('option');
+      o.value = i; o.textContent = i + ' años';
+      edadSel.appendChild(o);
+    }
+
+    // Poblar zona
+    const zonaSel = document.getElementById('zona');
+    for (let i = 1; i <= 25; i++) {
+      const o = document.createElement('option');
+      o.value = i; o.textContent = 'Zona ' + i;
+      zonaSel.appendChild(o);
+    }
+
+    // Poblar departamentos
+    const deptSel = document.getElementById('departamento');
+    const munSel  = document.getElementById('municipio');
+    Object.keys(MUNICIPIOS).sort().forEach(dep => {
+      const o = document.createElement('option');
+      o.value = dep; o.textContent = dep;
+      deptSel.appendChild(o);
+    });
+
+    deptSel.addEventListener('change', function() {
+      munSel.innerHTML = '<option value="">Selecciona municipio</option>';
+      if (this.value && MUNICIPIOS[this.value]) {
+        MUNICIPIOS[this.value].forEach(m => {
+          const o = document.createElement('option');
+          o.value = m; o.textContent = m;
+          munSel.appendChild(o);
+        });
+      }
+    });
+
+    // Validaciones en tiempo real
+    document.getElementById('tel1').addEventListener('input', function() {
+      this.value = this.value.replace(/\D/g, '').slice(0, 8);
+    });
+    document.getElementById('tel2').addEventListener('input', function() {
+      this.value = this.value.replace(/\D/g, '').slice(0, 8);
+    });
+    document.getElementById('dpi').addEventListener('input', function() {
+      let val = this.value.replace(/\D/g, '').slice(0, 13);
+      let formatted = '';
+      if (val.length > 4)  formatted = val.slice(0,4) + ' ' + val.slice(4);
+      else                  formatted = val;
+      if (val.length > 9)  formatted = val.slice(0,4) + ' ' + val.slice(4,9) + ' ' + val.slice(9);
+      this.value = formatted;
+    });
+
+    function showError(id, show) {
+      const el = document.getElementById('err-' + id);
+      const inp = document.getElementById(id);
+      if (el) el.classList.toggle('show', show);
+      if (inp) inp.classList.toggle('error', show);
+    }
+
+    function validar() {
+      let ok = true;
+      const nombre = document.getElementById('nombre').value.trim();
+      const tel1   = document.getElementById('tel1').value.trim();
+      const tel2   = document.getElementById('tel2').value.trim();
+      const correo = document.getElementById('correo').value.trim();
+      const dpi    = document.getElementById('dpi').value.replace(/\s/g,'').trim();
+      const edad   = document.getElementById('edad').value;
+      const zona   = document.getElementById('zona').value;
+      const dept   = document.getElementById('departamento').value;
+      const mun    = document.getElementById('municipio').value;
+      const ult    = document.getElementById('ultimo_trabajo').value.trim();
+      const mot    = document.getElementById('motivo_salida').value.trim();
+      const cons   = document.getElementById('consentimiento').checked;
+
+      if (!nombre) { showError('nombre', true); ok = false; } else showError('nombre', false);
+      if (!/^\d{8}$/.test(tel1)) { showError('tel1', true); ok = false; } else showError('tel1', false);
+      if (tel2 && !/^\d{8}$/.test(tel2)) { showError('tel2', true); ok = false; } else showError('tel2', false);
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correo)) { showError('correo', true); ok = false; } else showError('correo', false);
+      if (dpi.length !== 13) { showError('dpi', true); ok = false; } else showError('dpi', false);
+      if (!edad) { showError('edad', true); ok = false; } else showError('edad', false);
+      if (!zona) { showError('zona', true); ok = false; } else showError('zona', false);
+      if (!dept) { showError('departamento', true); ok = false; } else showError('departamento', false);
+      if (!mun)  { showError('municipio', true); ok = false; } else showError('municipio', false);
+      if (!ult)  { showError('ultimo_trabajo', true); ok = false; } else showError('ultimo_trabajo', false);
+      if (!mot)  { showError('motivo_salida', true); ok = false; } else showError('motivo_salida', false);
+      if (!cons) { showError('consentimiento', true); ok = false; } else showError('consentimiento', false);
+
+      return ok;
+    }
+
+    async function enviarPostulacion() {
+      if (!validar()) return;
+
+      const btn = document.getElementById('btnPostular');
+      const msg = document.getElementById('formMsg');
+      btn.disabled = true;
+      btn.textContent = 'Enviando...';
+      msg.className = 'form-msg';
+
+      const datos = {
+        action:        'postulacion',
+        nombre:        document.getElementById('nombre').value.trim(),
+        tel1:          document.getElementById('tel1').value.trim(),
+        tel2:          document.getElementById('tel2').value.trim(),
+        correo:        document.getElementById('correo').value.trim(),
+        dpi:           document.getElementById('dpi').value.replace(/\s/g,'').trim(),
+        edad:          document.getElementById('edad').value,
+        zona:          document.getElementById('zona').value,
+        departamento:  document.getElementById('departamento').value,
+        municipio:     document.getElementById('municipio').value,
+        ultimo_trabajo:document.getElementById('ultimo_trabajo').value.trim(),
+        motivo_salida: document.getElementById('motivo_salida').value.trim(),
+      };
+
+      try {
+        const res = await fetch(SCRIPT_URL, {
+          method: 'POST',
+          body: JSON.stringify(datos)
+        });
+        const json = await res.json();
+
+        if (json.result === 'ok') {
+          msg.className = 'form-msg success';
+          msg.textContent = '✅ ¡Postulación enviada exitosamente! Gracias por tu interés en Corporación ARC S.A. Nos pondremos en contacto contigo pronto.';
+          document.querySelector('.postulacion-form form') && document.querySelector('.postulacion-form form').reset();
+          btn.textContent = 'Postulación Enviada';
+        } else if (json.result === 'duplicate') {
+          const field = json.field === 'correo' ? 'correo' : 'dpi';
+          showError(field, true);
+          msg.className = 'form-msg error';
+          msg.textContent = json.message || 'Este registro ya existe.';
+          btn.disabled = false;
+          btn.textContent = 'Enviar mi Postulación';
+        } else {
+          throw new Error(json.message || 'Error');
+        }
+      } catch(e) {
+        msg.className = 'form-msg error';
+        msg.textContent = 'Ocurrió un error al enviar. Intenta de nuevo o contáctanos por WhatsApp.';
+        btn.disabled = false;
+        btn.textContent = 'Enviar mi Postulación';
+      }
+    }
+  </script>
+
+</body>
+</html>
