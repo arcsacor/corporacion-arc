@@ -111,25 +111,24 @@
 
   /* Hero */
   .hero {
-    height: auto;
-    min-height: 100svh;
+    height: 100vh;
+    min-height: 100vh;
   }
 
   .hero__content {
-    padding-top: 24px;
-    padding-bottom: 72px;
+    padding-top: 0;
+    padding-bottom: 80px;
   }
 
   .hero__scroll {
     position: absolute;
-    bottom: 16px;
+    bottom: 24px;
     left: 50%;
     transform: translateX(-50%);
-    animation: none;
   }
 
   .hero__scroll::before {
-    height: 24px;
+    height: 32px;
   }
 
   /* Cards */
