@@ -1432,3 +1432,153 @@ a.contact-card__value:hover {
     grid-template-columns: 1fr;
   }
 }
+
+
+/* ═══════════════════════════════════════════════════════════
+   ANIMACIÓN COTIZACIÓN — Typewriter + Fondo Respira + Shimmer
+   ═══════════════════════════════════════════════════════════ */
+
+/* Fondo que respira */
+.section--cotizacion {
+  position: relative;
+  overflow: hidden;
+  padding: var(--section-pad);
+  color: var(--color-white);
+}
+
+.section--cotizacion__bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #0A1628, #1B3A6B, #0d2244, #1B3A6B);
+  background-size: 400% 400%;
+  animation: cotizacionBreathe 8s ease infinite;
+  z-index: 0;
+}
+
+@keyframes cotizacionBreathe {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Header con typewriter */
+.cotizacion-header {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.cotizacion-title {
+  color: var(--color-white) !important;
+  margin-bottom: 0;
+}
+
+.cotizacion-typewriter {
+  border-right: 3px solid currentColor;
+  animation: cursorBlink 0.75s step-end infinite;
+  white-space: nowrap;
+}
+
+@keyframes cursorBlink {
+  0%, 100% { border-color: currentColor; }
+  50%       { border-color: transparent; }
+}
+
+/* Beneficios */
+.cotizacion-benefits {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+
+.cotizacion-benefit {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.75);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+.cotizacion-check {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(0,212,255,0.12);
+  border: 1px solid rgba(0,212,255,0.35);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  color: var(--color-accent);
+  flex-shrink: 0;
+}
+
+/* Shimmer en botones CTA */
+.btn--shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn--shimmer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 55%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.28), transparent);
+  transform: skewX(-20deg);
+  animation: btnShimmer 2.8s ease infinite;
+  pointer-events: none;
+}
+
+@keyframes btnShimmer {
+  0%   { left: -100%; }
+  55%  { left: 130%; }
+  100% { left: 130%; }
+}
+
+/* Dropdown fix — hover en desktop, clic en móvil */
+@media (min-width: 901px) {
+  .navbar__dropdown-wrap:hover .navbar__dropdown {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+/* Carrusel — deslizamiento real */
+.carousel-track-wrap {
+  overflow: hidden;
+  width: 100%;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.carousel-track .service-card {
+  flex: 0 0 33.333%;
+  max-width: 33.333%;
+  box-sizing: border-box;
+  padding: 0 12px;
+}
+
+@media (max-width: 900px) {
+  .carousel-track .service-card {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+
+@media (max-width: 540px) {
+  .carousel-track .service-card {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
