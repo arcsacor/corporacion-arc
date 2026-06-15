@@ -12,15 +12,10 @@
   <link rel="icon" href="assets/images/favicon.png">
   <title>Corporación ARC S.A. — Soluciones Empresariales</title>
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-  <!-- AOS -->
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
-
-  <!-- Estilos -->
   <link rel="stylesheet" href="assets/css/main.css">
   <link rel="stylesheet" href="assets/css/responsive.css">
 </head>
@@ -53,12 +48,24 @@
     </a>
 
     <ul class="navbar__menu" id="navMenu" role="list">
-      <li><a href="acr-automotriz.html" class="navbar__link" data-i18n="nav_automotriz" data-curtain>Automotriz</a></li>
-      <li><a href="acr-print.html"      class="navbar__link" data-i18n="nav_print"      data-curtain>Sublimación</a></li>
-      <li><a href="acr-logistics.html"  class="navbar__link" data-i18n="nav_logistics"  data-curtain>Logística</a></li>
-      <li><a href="acr-talent.html"     class="navbar__link" data-i18n="nav_talent"     data-curtain>Outsorcing</a></li>
-      <li><a href="#nosotros"           class="navbar__link" data-i18n="nav_nosotros">Nosotros</a></li>
-      <li><a href="#contacto"           class="navbar__link" data-i18n="nav_contacto">Contacto</a></li>
+
+      <!-- DROPDOWN SERVICIOS -->
+      <li class="navbar__dropdown-wrap">
+        <button class="navbar__link navbar__dropdown-btn" aria-expanded="false" aria-haspopup="true">
+          Servicios <span class="navbar__arrow">▾</span>
+        </button>
+        <ul class="navbar__dropdown" role="menu">
+          <li><a href="acr-automotriz.html" class="navbar__dropdown-link" data-curtain>Taller D&D</a></li>
+          <li><a href="acr-print.html"      class="navbar__dropdown-link" data-curtain>Sublipix</a></li>
+          <li><a href="acr-logistics.html"  class="navbar__dropdown-link" data-curtain>Transporte y Logística</a></li>
+          <li><a href="acr-talent.html"     class="navbar__dropdown-link" data-curtain>Grupo Conecta</a></li>
+          <li><a href="el-legado.html"      class="navbar__dropdown-link" data-curtain>El Legado</a></li>
+          <li><a href="floresca.html"       class="navbar__dropdown-link" data-curtain>Floresca</a></li>
+        </ul>
+      </li>
+
+      <li><a href="#nosotros"        class="navbar__link" data-i18n="nav_nosotros">Nosotros</a></li>
+      <li><a href="#info-contacto"   class="navbar__link" data-i18n="nav_contacto">Contacto</a></li>
 
       <li><a href="postulacion.html" class="navbar__join">Únete al equipo</a></li>
       <li class="navbar__lang" role="group" aria-label="Seleccionar idioma">
@@ -84,7 +91,7 @@
       <p class="hero__subtitle" data-i18n="hero_subtitle">Multiples servicios. Un solo aliado estratégico para tu empresa.</p>
       <div class="hero__cta">
         <a href="#servicios" class="btn btn--primary magnetic" data-i18n="hero_cta1">Conoce nuestros servicios</a>
-        <a href="#contacto"  class="btn btn--outline magnetic" data-i18n="hero_cta2">Solicitar cotización</a>
+        <a href="#cotizacion"  class="btn btn--outline magnetic" data-i18n="hero_cta2">Solicitar cotización</a>
       </div>
     </div>
 
@@ -93,83 +100,106 @@
     </div>
   </section>
 
-  <!-- ══ SERVICIOS — CARDS CON LOGO + EFECTO #1 ════════════ -->
+  <!-- ══ SERVICIOS — CARRUSEL DE CARDS ══════════════════════ -->
   <section class="section" id="servicios" aria-label="Nuestras divisiones">
     <div class="container">
 
-      <!-- Logo corporativo sobre los servicios -->
       <div class="services-brand" data-aos="fade-up">
         <img src="assets/images/logo-arc.png" alt="Corporación ARC S.A." class="services-brand__logo">
         <p class="services-brand__tagline" data-i18n="services_subtitle">Soluciones especializadas para cada necesidad de tu negocio.</p>
       </div>
 
-      <div class="cards-grid">
+      <!-- CARRUSEL WRAPPER -->
+      <div class="carousel-wrapper">
+        <div class="cards-grid" id="cardsCarousel">
 
-        <!-- Card 1 — Taller D&D -->
-        <article class="service-card" data-aos="fade-up" data-aos-delay="0" onclick="window.location='acr-automotriz.html'" style="cursor:pointer">
-          <div class="card__logo-wrap">
-            <img src="assets/images/logo-taller-dd.png" alt="Taller D&D" class="card__logo-img card__logo-color">
-            <img src="assets/images/logo-taller-dd-blanco.png" alt="Taller D&D" class="card__logo-img card__logo-white">
-          </div>
-          <h3 class="card__title" data-i18n="card1_title">Taller D&D</h3>
-          <p class="card__text" data-i18n="card1_text">
-            Taller mecánico especializado con diagnóstico, mantenimiento preventivo y correctivo para flotas y vehículos particulares.
-          </p>
-          <a href="acr-automotriz.html" class="card__link" data-i18n="card1_link" data-curtain>
-            Ver servicios →
-          </a>
-        </article>
+          <!-- Card 1 — Taller D&D -->
+          <article class="service-card" onclick="window.location='acr-automotriz.html'" style="cursor:pointer">
+            <div class="card__logo-wrap">
+              <img src="assets/images/logo-taller-dd.png" alt="Taller D&D" class="card__logo-img card__logo-color">
+              <img src="assets/images/logo-taller-dd-blanco.png" alt="Taller D&D" class="card__logo-img card__logo-white">
+            </div>
+            <h3 class="card__title" data-i18n="card1_title">Taller D&D</h3>
+            <p class="card__text" data-i18n="card1_text">
+              Taller mecánico especializado con diagnóstico, mantenimiento preventivo y correctivo para flotas y vehículos particulares.
+            </p>
+            <a href="acr-automotriz.html" class="card__link" data-i18n="card1_link" data-curtain>Ver servicios →</a>
+          </article>
 
-        <!-- Card 2 — Sublipix -->
-        <article class="service-card" data-aos="fade-up" data-aos-delay="100" onclick="window.location='acr-print.html'" style="cursor:pointer">
-          <div class="card__logo-wrap">
-            <img src="assets/images/logo-sublipix.png" alt="Sublipix" class="card__logo-img card__logo-color">
-            <img src="assets/images/logo-sublipix-blanco.png" alt="Sublipix" class="card__logo-img card__logo-white">
-          </div>
-          <h3 class="card__title" data-i18n="card2_title">Sublipix</h3>
-          <p class="card__text" data-i18n="card2_text">
-            Impresión y sublimado de alta calidad en textiles, materiales promocionales y señalización corporativa.
-          </p>
-          <a href="acr-print.html" class="card__link" data-i18n="card2_link" data-curtain>
-            Ver servicios →
-          </a>
-        </article>
+          <!-- Card 2 — Sublipix -->
+          <article class="service-card" onclick="window.location='acr-print.html'" style="cursor:pointer">
+            <div class="card__logo-wrap">
+              <img src="assets/images/logo-sublipix.png" alt="Sublipix" class="card__logo-img card__logo-color">
+              <img src="assets/images/logo-sublipix-blanco.png" alt="Sublipix" class="card__logo-img card__logo-white">
+            </div>
+            <h3 class="card__title" data-i18n="card2_title">Sublipix</h3>
+            <p class="card__text" data-i18n="card2_text">
+              Impresión y sublimado de alta calidad en textiles, materiales promocionales y señalización corporativa.
+            </p>
+            <a href="acr-print.html" class="card__link" data-i18n="card2_link" data-curtain>Ver servicios →</a>
+          </article>
 
-        <!-- Card 3 — ARC Logistics (logo pendiente) -->
-        <article class="service-card" data-aos="fade-up" data-aos-delay="200" onclick="window.location='acr-logistics.html'" style="cursor:pointer">
-          <div class="card__logo-wrap card__logo-wrap--icon">
-            <svg class="card__icon-svg" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-              <rect x="2" y="20" width="40" height="24" rx="3" fill="none" stroke="currentColor" stroke-width="3"/>
-              <path d="M42 28h12l8 10v6H42V28z" fill="none" stroke="currentColor" stroke-width="3"/>
-              <circle cx="14" cy="46" r="5" fill="none" stroke="currentColor" stroke-width="3"/>
-              <circle cx="50" cy="46" r="5" fill="none" stroke="currentColor" stroke-width="3"/>
-            </svg>
-          </div>
-          <h3 class="card__title" data-i18n="card3_title">ARC Logistics</h3>
-          <p class="card__text" data-i18n="card3_text">
-            Soluciones de transporte para carga local y nacional. Flota moderna con seguimiento en tiempo real.
-          </p>
-          <a href="acr-logistics.html" class="card__link" data-i18n="card3_link" data-curtain>
-            Ver servicios →
-          </a>
-        </article>
+          <!-- Card 3 — Transporte y Logística -->
+          <article class="service-card" onclick="window.location='acr-logistics.html'" style="cursor:pointer">
+            <div class="card__logo-wrap">
+              <img src="assets/images/transporte-logistica.png" alt="Transporte y Logística ARC" class="card__logo-img card__logo-color">
+              <img src="assets/images/transporte-logistica-blanco.png" alt="Transporte y Logística ARC" class="card__logo-img card__logo-white">
+            </div>
+            <h3 class="card__title" data-i18n="card3_title">Transporte y Logística</h3>
+            <p class="card__text" data-i18n="card3_text">
+              Soluciones de transporte para carga local y nacional. Flota moderna con seguimiento en tiempo real.
+            </p>
+            <a href="acr-logistics.html" class="card__link" data-i18n="card3_link" data-curtain>Ver servicios →</a>
+          </article>
 
-        <!-- Card 4 — Grupo Conecta -->
-        <article class="service-card" data-aos="fade-up" data-aos-delay="300" onclick="window.location='acr-talent.html'" style="cursor:pointer">
-          <div class="card__logo-wrap">
-            <img src="assets/images/logo-grupo-conecta.png" alt="Grupo Conecta" class="card__logo-img card__logo-color">
-            <img src="assets/images/logo-grupo-conecta-blanco.png" alt="Grupo Conecta" class="card__logo-img card__logo-white">
-          </div>
-          <h3 class="card__title" data-i18n="card4_title">Grupo Conecta</h3>
-          <p class="card__text" data-i18n="card4_text">
-            Outsourcing de recursos humanos y reclutamiento especializado. Encontramos el talento que tu empresa necesita.
-          </p>
-          <a href="acr-talent.html" class="card__link" data-i18n="card4_link" data-curtain>
-            Ver servicios →
-          </a>
-        </article>
+          <!-- Card 4 — Grupo Conecta -->
+          <article class="service-card" onclick="window.location='acr-talent.html'" style="cursor:pointer">
+            <div class="card__logo-wrap">
+              <img src="assets/images/logo-grupo-conecta.png" alt="Grupo Conecta" class="card__logo-img card__logo-color">
+              <img src="assets/images/logo-grupo-conecta-blanco.png" alt="Grupo Conecta" class="card__logo-img card__logo-white">
+            </div>
+            <h3 class="card__title" data-i18n="card4_title">Grupo Conecta</h3>
+            <p class="card__text" data-i18n="card4_text">
+              Outsourcing de recursos humanos y reclutamiento especializado. Encontramos el talento que tu empresa necesita.
+            </p>
+            <a href="acr-talent.html" class="card__link" data-i18n="card4_link" data-curtain>Ver servicios →</a>
+          </article>
 
-      </div>
+          <!-- Card 5 — El Legado -->
+          <article class="service-card" onclick="window.location='el-legado.html'" style="cursor:pointer">
+            <div class="card__logo-wrap card__logo-wrap--icon">
+              <img src="assets/images/logo-el-legado.png" alt="El Legado" class="card__logo-img card__logo-color">
+              <img src="assets/images/logo-el-legado-blanco.png" alt="El Legado" class="card__logo-img card__logo-white">
+            </div>
+            <h3 class="card__title">El Legado</h3>
+            <p class="card__text">
+              Vidrería especializada en puertas y ventanas de PVC y aluminio. Instalación profesional y garantía en cada proyecto.
+            </p>
+            <a href="el-legado.html" class="card__link" data-curtain>Ver servicios →</a>
+          </article>
+
+          <!-- Card 6 — Floresca -->
+          <article class="service-card" onclick="window.location='floresca.html'" style="cursor:pointer">
+            <div class="card__logo-wrap card__logo-wrap--icon">
+              <img src="assets/images/logo-floresca.png" alt="Floresca" class="card__logo-img card__logo-color">
+              <img src="assets/images/logo-floresca-blanco.png" alt="Floresca" class="card__logo-img card__logo-white">
+            </div>
+            <h3 class="card__title">Floresca</h3>
+            <p class="card__text">
+              Vivero con amplia variedad de plantas, flores y servicios de entrega. Explora nuestro catálogo y pide lo que necesitas.
+            </p>
+            <a href="floresca.html" class="card__link" data-curtain>Ver servicios →</a>
+          </article>
+
+        </div><!-- /cards-grid -->
+
+        <!-- Indicadores del carrusel -->
+        <div class="carousel-dots" aria-label="Navegación del carrusel">
+          <button class="carousel-dot active" data-index="0" aria-label="Grupo 1"></button>
+          <button class="carousel-dot" data-index="1" aria-label="Grupo 2"></button>
+        </div>
+
+      </div><!-- /carousel-wrapper -->
     </div>
   </section>
 
@@ -181,10 +211,7 @@
         Una corporación con historia, visión y compromiso con Guatemala.
       </p>
 
-
-      <!-- ══ MISIÓN Y VISIÓN ══════════════════════════════════ -->
       <div class="mv-grid">
-
         <div class="mv-card" data-aos="fade-right">
           <span class="mv-card__label">Nuestra Misión</span>
           <h3 class="mv-card__title" data-i18n="mision_title">Misión</h3>
@@ -192,7 +219,6 @@
             Somos una Corporación que se dedica a proporcionar una amplia variedad de servicios a empresas, comercios y personas individuales.
           </p>
         </div>
-
         <div class="mv-card" data-aos="fade-left">
           <span class="mv-card__label">Nuestra Visión</span>
           <h3 class="mv-card__title" data-i18n="vision_title">Visión</h3>
@@ -200,7 +226,6 @@
             Ser la Corporación de Servicios líder en el mercado nacional, implementando la mejora continua en nuestros procesos y contando con personal altamente calificado para brindar un servicio de excelencia a nuestros clientes.
           </p>
         </div>
-
       </div>
 
       <div class="timeline">
@@ -248,24 +273,14 @@
         <div class="timeline__item" data-aos="fade-right">
           <div class="timeline__dot"></div>
           <div class="timeline__content">
-            <div class="timeline__year" data-i18n="timeline5_year">XXXX</div>
-            <p class="timeline__text" data-i18n="timeline5_text">
-              Lanzamiento de Información vidrería (pendiente).
+            <div class="timeline__year">2025</div>
+            <p class="timeline__text">
+              Apertura de El Legado, especialistas en vidrería PVC y aluminio, y Floresca, nuestro vivero con servicio de entrega.
             </p>
           </div>
         </div>
 
         <div class="timeline__item" data-aos="fade-left">
-          <div class="timeline__dot"></div>
-          <div class="timeline__content">
-            <div class="timeline__year" data-i18n="timeline6_year">XXXX</div>
-            <p class="timeline__text" data-i18n="timeline6_text">
-              Lanzamiento de Información Floresta (pendiente).
-            </p>
-          </div>
-        </div>
-
-        <div class="timeline__item" data-aos="fade-right">
           <div class="timeline__dot"></div>
           <div class="timeline__content">
             <div class="timeline__year" data-i18n="timeline7_year">Hoy</div>
@@ -279,7 +294,6 @@
     </div>
   </section>
 
-
   <!-- ══ BANNER ÚNETE AL EQUIPO ════════════════════════════ -->
   <section class="join-banner" aria-label="Únete al equipo">
     <div class="join-banner__inner">
@@ -288,18 +302,66 @@
         <span class="join-banner__eyebrow">Grupo Conecta — Corporación ARC S.A.</span>
         <h2 class="join-banner__title">¿Quieres formar parte<br>de nuestro equipo?</h2>
         <p class="join-banner__text">
-          Buscamos personas comprometidas y con talento para unirse a nuestras divisiones. 
+          Buscamos personas comprometidas y con talento para unirse a nuestras divisiones.
           Regístrate, comparte tu experiencia y te contactamos cuando tengamos una oportunidad para ti.
         </p>
-        <a href="postulacion.html" class="join-banner__btn">
-          👤 Quiero postularme
-        </a>
+        <a href="postulacion.html" class="join-banner__btn">👤 Quiero postularme</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ SECCIÓN CONTACTO — DATOS DE LA EMPRESA ════════════ -->
+  <section class="section section--contact-info" id="info-contacto" aria-label="Información de contacto">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">Contáctanos</h2>
+      <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+        Estamos listos para atenderte. Visítanos, llámanos o escríbenos.
+      </p>
+
+      <div class="contact-grid" data-aos="fade-up" data-aos-delay="200">
+
+        <div class="contact-card">
+          <div class="contact-card__icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.532 5.858L.057 23.571a.75.75 0 00.921.921l5.713-1.475A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.705 9.705 0 01-4.95-1.355l-.355-.211-3.688.951.972-3.585-.232-.369A9.718 9.718 0 012.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
+          </div>
+          <h3 class="contact-card__title">WhatsApp</h3>
+          <a href="https://wa.me/50254760773" target="_blank" rel="noopener" class="contact-card__value">+502 5476-0773</a>
+          <p class="contact-card__note">Respuesta inmediata</p>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-card__icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+          </div>
+          <h3 class="contact-card__title">Teléfono</h3>
+          <a href="tel:+50222380241" class="contact-card__value">+502 2238-0241</a>
+          <p class="contact-card__note">Línea directa oficina</p>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-card__icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          </div>
+          <h3 class="contact-card__title">Dirección</h3>
+          <p class="contact-card__value">6 Av 9-80 Zona 1</p>
+          <p class="contact-card__note">Edi. Plaza Vivar 4to Nivel, Oficina 4-4</p>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-card__icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>
+          </div>
+          <h3 class="contact-card__title">Horario de Atención</h3>
+          <p class="contact-card__value">Lun – Vie: 08:00 – 17:00</p>
+          <p class="contact-card__note">Sábado: 08:00 – 13:00</p>
+        </div>
+
       </div>
     </div>
   </section>
 
   <!-- ══ FORMULARIO DE LEADS ════════════════════════════════ -->
-  <section class="section section--mid" id="contacto" aria-label="Formulario de contacto">
+  <section class="section section--mid" id="cotizacion" aria-label="Formulario de contacto">
     <div class="container">
       <h2 class="section-title" data-aos="fade-up" data-i18n="form_title">Solicita tu Cotización</h2>
       <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100" data-i18n="form_subtitle">
@@ -342,10 +404,12 @@
               <label for="division" data-i18n="label_division">División de interés</label>
               <select id="division" name="division" required>
                 <option value="" data-i18n="option_select">Selecciona una división</option>
-                <option value="automotriz" data-i18n="option_auto">Taller D&D — Taller Mecánico</option>
-                <option value="print"      data-i18n="option_print">Sublipix — Impresión y Sublimado</option>
-                <option value="logistics"  data-i18n="option_logistics">ARC Logistics — Transporte y Camiones</option>
-                <option value="talent"     data-i18n="option_talent">Grupo Conecta — Outsourcing RH</option>
+                <option value="automotriz">Taller D&D — Taller Mecánico</option>
+                <option value="print">Sublipix — Impresión y Sublimado</option>
+                <option value="logistics">Transporte y Logística ARC</option>
+                <option value="talent">Grupo Conecta — Outsourcing RH</option>
+                <option value="legado">El Legado — Vidrería PVC</option>
+                <option value="floresca">Floresca — Vivero</option>
               </select>
             </div>
 
@@ -385,8 +449,10 @@
         <ul class="footer__links">
           <li><a href="acr-automotriz.html" data-curtain>Taller D&D</a></li>
           <li><a href="acr-print.html"      data-curtain>Sublipix</a></li>
-          <li><a href="acr-logistics.html"  data-curtain>ARC Logistics</a></li>
+          <li><a href="acr-logistics.html"  data-curtain>Transporte y Logística</a></li>
           <li><a href="acr-talent.html"     data-curtain>Grupo Conecta</a></li>
+          <li><a href="el-legado.html"      data-curtain>El Legado</a></li>
+          <li><a href="floresca.html"       data-curtain>Floresca</a></li>
         </ul>
       </div>
 
@@ -394,7 +460,7 @@
         <h4 class="footer__heading" data-i18n="footer_empresa">Empresa</h4>
         <ul class="footer__links">
           <li><a href="#nosotros" data-i18n="footer_nosotros">Nosotros</a></li>
-          <li><a href="#contacto" data-i18n="footer_contacto">Contacto</a></li>
+          <li><a href="#info-contacto" data-i18n="footer_contacto">Contacto</a></li>
           <li><a href="privacidad.html" data-i18n="footer_privacidad">Privacidad</a></li>
         </ul>
       </div>
@@ -405,7 +471,7 @@
           <li><a href="https://wa.me/50254760773" target="_blank" rel="noopener">WhatsApp: +502 5476-0773</a></li>
           <li><a href="tel:+50222380241">Tel: +502 2238-0241</a></li>
           <li><a href="mailto:contacto@corporacionarc.com">contacto@corporacionarc.com</a></li>
-          <li><a href="#" aria-label="Ubicación">Guatemala, C.A.</a></li>
+          <li>6 Av 9-80 Zona 1, Plaza Vivar 4to Nivel</li>
         </ul>
 
         <h4 class="footer__heading footer__heading--horarios">Horarios de Atención</h4>
@@ -427,7 +493,7 @@
     </div>
   </footer>
 
-  <!-- ══ REGISTRO FORMULARIOS NETLIFY ══════════════════════ -->
+  <!-- Formularios ocultos para registro Netlify -->
   <div style="display:none" aria-hidden="true">
     <form name="leads-automotriz" data-netlify="true" netlify-honeypot="bot-field">
       <input type="text" name="bot-field">
@@ -475,6 +541,25 @@
       <select name="plazas"><option>-</option></select>
       <select name="modalidad"><option>-</option></select>
       <select name="urgencia"><option>-</option></select>
+      <textarea name="mensaje"></textarea>
+    </form>
+    <form name="leads-legado" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="text" name="bot-field">
+      <input type="hidden" name="division">
+      <input type="text" name="nombre">
+      <input type="email" name="correo">
+      <input type="tel" name="telefono">
+      <select name="producto"><option>-</option></select>
+      <select name="material"><option>-</option></select>
+      <textarea name="mensaje"></textarea>
+    </form>
+    <form name="leads-floresca" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="text" name="bot-field">
+      <input type="hidden" name="division">
+      <input type="text" name="nombre">
+      <input type="email" name="correo">
+      <input type="tel" name="telefono">
+      <input type="text" name="direccion">
       <textarea name="mensaje"></textarea>
     </form>
   </div>
