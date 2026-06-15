@@ -90,16 +90,26 @@
         <div class="detail-card" data-aos="fade-up" data-aos-delay="100"><span class="detail-card__icon">🪟</span><h3 class="detail-card__title">Ventanas de PVC</h3><p class="detail-card__text">Ventanas corredizas, abatibles y fijas en PVC de alta densidad. Doble vidrio disponible para mayor aislamiento y seguridad.</p></div>
         <div class="detail-card" data-aos="fade-up" data-aos-delay="200"><span class="detail-card__icon">🔧</span><h3 class="detail-card__title">Aluminio Arquitectónico</h3><p class="detail-card__text">Marcos, divisiones, fachadas y estructuras en aluminio anodizado y lacado. Acabados elegantes para proyectos residenciales y comerciales.</p></div>
         <div class="detail-card" data-aos="fade-up" data-aos-delay="300"><span class="detail-card__icon">🏢</span><h3 class="detail-card__title">Divisiones de Oficina</h3><p class="detail-card__text">Divisiones modulares en vidrio y aluminio para oficinas. Diseños modernos que optimizan el espacio sin perder luminosidad.</p></div>
-        <div class="detail-card" data-aos="fade-up" data-aos-delay="400"><span class="detail-card__icon">🛡️</span><h3 class="detail-card__title">Vidrio de Seguridad</h3><p class="detail-card__text">Vidrio templado, laminado y antibalas para comercios y residencias. Mayor protección sin comprometer la estética del espacio.</p></div>
+
         <div class="detail-card" data-aos="fade-up" data-aos-delay="500"><span class="detail-card__icon">📐</span><h3 class="detail-card__title">Medida y Fabricación</h3><p class="detail-card__text">Visita técnica gratuita para tomar medidas exactas. Fabricamos a la medida de cada proyecto con tiempos de entrega precisos.</p></div>
       </div>
     </div>
   </section>
 
   <!-- FORMULARIO -->
-  <section class="section section--mid" id="contacto">
+  <section class="section section--cotizacion" id="contacto">
+    <div class="section--cotizacion__bg" aria-hidden="true"></div>
     <div class="container">
-      <h2 class="section-title" data-aos="fade-up">Solicita tu <span class="division-accent">Cotización</span></h2>
+      <div class="cotizacion-header" data-aos="fade-up">
+        <h2 class="section-title cotizacion-title" style="color:#fff;">
+          Solicita <span class="cotizacion-typewriter division-accent" id="cotizacionTypewriter">tu Cotización</span>
+        </h2>
+        <div class="cotizacion-benefits">
+          <span class="cotizacion-benefit"><span class="cotizacion-check" style="color:#FFA500;">✓</span> Sin Costo</span>
+          <span class="cotizacion-benefit"><span class="cotizacion-check" style="color:#FFA500;">✓</span> Sin Compromiso</span>
+          <span class="cotizacion-benefit"><span class="cotizacion-check" style="color:#FFA500;">✓</span> Respuesta en 24 Horas Laborales</span>
+        </div>
+      </div>
       <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Cuéntanos tu proyecto y te visitamos para tomar medidas y darte precio exacto.</p>
       <div data-aos="fade-up" data-aos-delay="200">
         <form class="leads-form leads-form-el leads-form--division" name="leads-legado" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
@@ -114,7 +124,7 @@
             <div class="form-group"><label for="uso">Uso</label><select id="uso" name="uso" required><option value="">Selecciona el uso</option><option value="residencial">Residencial</option><option value="comercial">Comercial</option><option value="industrial">Industrial</option><option value="oficina">Oficina</option></select></div>
             <div class="form-group form-group--full"><label for="mensaje">Descripción del proyecto</label><textarea id="mensaje" name="mensaje" placeholder="Descríbenos tu proyecto: cantidad de puertas/ventanas, tamaños aproximados, ubicación y cualquier detalle relevante..." required maxlength="1000" rows="4"></textarea></div>
           </div>
-          <button type="submit" class="btn btn--division form-submit magnetic">Solicitar Cotización</button>
+          <button type="submit" class="btn btn--division form-submit magnetic btn--shimmer">Solicitar Cotización</button>
           <div class="form-message" role="alert" aria-live="polite"></div>
         </form>
       </div>
