@@ -225,11 +225,11 @@
               <tr>
                 <th>#</th><th>Fecha</th><th>Nombre</th><th>Tel. 1</th><th>Tel. 2</th>
                 <th>Correo</th><th>DPI</th><th>Edad</th><th>Zona</th>
-                <th>Depto.</th><th>Municipio</th><th>Último Trabajo</th><th>Motivo Salida</th><th>Acciones</th>
+                <th>Depto.</th><th>Municipio</th><th>Último Trabajo</th><th>Motivo Salida</th><th>CV</th><th>Acciones</th>
               </tr>
             </thead>
             <tbody id="tbodyPost">
-              <tr><td colspan="14"><div class="loading"><div class="loading__spinner"></div>Cargando postulaciones...</div></td></tr>
+              <tr><td colspan="15"><div class="loading"><div class="loading__spinner"></div>Cargando postulaciones...</div></td></tr>
             </tbody>
           </table>
         </div>
@@ -365,14 +365,14 @@
         }
       } catch(e) {
         document.getElementById('tbodyPost').innerHTML =
-          '<tr><td colspan="14"><div class="empty">No se pudieron cargar las postulaciones.</div></td></tr>';
+          '<tr><td colspan="15"><div class="empty">No se pudieron cargar las postulaciones.</div></td></tr>';
       }
     }
 
     function renderPostulaciones(posts) {
       const tbody = document.getElementById('tbodyPost');
       if (!posts || posts.length === 0) {
-        tbody.innerHTML = '<tr><td colspan="14"><div class="empty">No hay postulaciones aún.</div></td></tr>';
+        tbody.innerHTML = '<tr><td colspan="15"><div class="empty">No hay postulaciones aún.</div></td></tr>';
         return;
       }
       const reversed = [...posts].reverse();
@@ -395,9 +395,12 @@
           <td style="max-width:180px;font-size:0.82rem;color:#555">${row[10]||''}</td>
           <td style="max-width:180px;font-size:0.82rem;color:#555">${row[11]||''}</td>
           <td>
+            ${row[12] ? `<a href="${row[12]}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:4px;padding:6px 10px;background:rgba(255,80,80,0.1);color:#cc0000;border-radius:6px;font-size:0.75rem;font-weight:600;text-decoration:none;transition:background 0.2s;" onmouseover="this.style.background='#ff5050';this.style.color='#fff'" onmouseout="this.style.background='rgba(255,80,80,0.1)';this.style.color='#cc0000'">📄 Ver CV</a>` : '<span style="color:#ccc;font-size:0.78rem;">Sin CV</span>'}
+          </td>
+          <td>
             <div class="action-btns">
               ${tel1 ? `<button class="btn-action btn-wa" title="Abrir WhatsApp" onclick="abrirWA('${tel1}')">💬 WA</button>` : ''}
-              ${correo ? `<button class="btn-action btn-mail" title="Enviar correo" onclick="abrirMail('${correo}', '${(row[1]||'').replace(/'/g,'')}')" >✉️ Mail</button>` : ''}
+              ${correo ? `<button class="btn-action btn-mail" title="Enviar correo" onclick="abrirMail('${correo}', '${(row[1]||'').replace(/'/g,'')}')">✉️ Mail</button>` : ''}
               ${tel1 ? `<button class="btn-action btn-copy" title="Copiar Tel. 1" onclick="copiar(this, '${tel1}')">📋 Tel1</button>` : ''}
               ${tel2 ? `<button class="btn-action btn-copy2" title="Copiar Tel. 2" onclick="copiar(this, '${tel2}')">📋 Tel2</button>` : ''}
             </div>
