@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Floresca — Vivero con amplia variedad de plantas y flores en Guatemala. Catálogo en Facebook y servicio de entrega a domicilio.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Floresca — Corporación ARC S.A.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#0A1628">
+  <link rel="icon" href="assets/images/favicon.png">
+  <title>Floresca — Corporación ARC S.A.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+  <style>
+    .hero--division { background: linear-gradient(135deg, #0A1628 0%, #1a1200 60%, #2a1e00 100%); }
+    .hero--division .hero__bg::after { background: radial-gradient(ellipse at 60% 50%, rgba(255,160,0,0.12) 0%, transparent 60%); }
+    .division-accent { color: #FFA500; }
+    .btn--division { background-color: #FFA500; color: #0A1628; }
+    .btn--division:hover { background-color: #ffbe45; transform: translateY(-2px); box-shadow: 0 8px 40px rgba(255,165,0,0.25); }
+    .service-detail { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 48px; }
+    .detail-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,165,0,0.15); border-radius: 8px; padding: 32px 28px; transition: border-color 0.3s ease, transform 0.3s ease; }
+    .detail-card:hover { border-color: #FFA500; transform: translateY(-4px); }
+    .detail-card__icon { font-size: 2rem; margin-bottom: 16px; display: block; }
+    .detail-card__title { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 0.04em; color: #fff; margin-bottom: 10px; }
+    .detail-card__text { font-size: 0.88rem; color: rgba(255,255,255,0.6); line-height: 1.7; }
+    .leads-form--division { background: linear-gradient(135deg, #0A1628 0%, #1a1200 100%); border-color: rgba(255,165,0,0.2); }
+    .leads-form--division input:focus, .leads-form--division select:focus, .leads-form--division textarea:focus { border-color: #FFA500; box-shadow: 0 0 0 3px rgba(255,165,0,0.12); }
+    .back-link { display: inline-flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.5); font-size: 0.85rem; margin-bottom: 32px; transition: color 0.3s ease; }
+    .back-link:hover { color: #FFA500; }
+    .hero__division-logo { height: 160px; width: auto; max-width: 360px; object-fit: contain; margin-bottom: 20px; display: block; filter: drop-shadow(0 2px 12px rgba(0,0,0,0.4)); }
+
+    /* ── SECCIÓN CATÁLOGO FACEBOOK ─────────────────────── */
+    .catalogo-section {
+      padding: 80px 24px;
+      background: linear-gradient(135deg, #0d1f0d 0%, #1a2a0a 100%);
+      text-align: center;
+    }
+    .catalogo-inner {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .catalogo-badge {
+      display: inline-block;
+      background: rgba(255,165,0,0.12);
+      border: 1px solid rgba(255,165,0,0.3);
+      color: #FFA500;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 999px;
+      margin-bottom: 24px;
+    }
+    .catalogo-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      letter-spacing: 0.05em;
+      color: #fff;
+      margin-bottom: 16px;
+      line-height: 1.1;
+    }
+    .catalogo-text {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.7;
+      margin-bottom: 40px;
+    }
+    .catalogo-preview {
+      background: rgba(255,255,255,0.04);
+      border: 2px dashed rgba(255,165,0,0.3);
+      border-radius: 16px;
+      padding: 60px 40px;
+      margin-bottom: 32px;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.3s ease, background 0.3s ease;
+      cursor: pointer;
+    }
+    .catalogo-preview:hover {
+      border-color: #FFA500;
+      background: rgba(255,165,0,0.05);
+    }
+    .catalogo-preview__icon {
+      font-size: 4rem;
+      margin-bottom: 16px;
+      display: block;
+      animation: float 3s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-8px); }
+    }
+    .catalogo-preview__title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.8rem;
+      letter-spacing: 0.05em;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .catalogo-preview__sub {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.5);
+    }
+    .btn--facebook {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: #1877F2;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 16px 32px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .btn--facebook:hover {
+      background: #1464d8;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(24,119,242,0.35);
+    }
+    .btn--facebook svg { width: 22px; height: 22px; fill: currentColor; }
+    .catalogo-note {
+      margin-top: 16px;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.35);
+    }
+  </style>
+</head>
+<body>
+  <div class="curtain" aria-hidden="true"></div>
+  <div class="topbar">
+    <a href="tel:+50222380241" class="topbar__link"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg><span>Tel: +502 2238-0241</span></a>
+    <a href="https://wa.me/50254760773" target="_blank" rel="noopener" class="topbar__link"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.532 5.858L.057 23.571a.75.75 0 00.921.921l5.713-1.475A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.705 9.705 0 01-4.95-1.355l-.355-.211-3.688.951.972-3.585-.232-.369A9.718 9.718 0 012.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg><span>WhatsApp: +502 5476-0773</span></a>
+  </div>
+  <nav class="navbar" role="navigation" aria-label="Navegación principal">
+    <a href="index.html" class="navbar__logo" data-curtain><img src="assets/images/logo-arc.png" alt="Corporación ARC S.A." class="navbar__logo-img"></a>
+    <ul class="navbar__menu" id="navMenu" role="list">
+      <li class="navbar__dropdown-wrap">
+        <button class="navbar__link navbar__dropdown-btn active" aria-expanded="false" aria-haspopup="true">Servicios <span class="navbar__arrow">▾</span></button>
+        <ul class="navbar__dropdown" role="menu">
+          <li><a href="acr-automotriz.html" class="navbar__dropdown-link" data-curtain>Taller D&D</a></li>
+          <li><a href="acr-print.html"      class="navbar__dropdown-link" data-curtain>Sublipix</a></li>
+          <li><a href="acr-logistics.html"  class="navbar__dropdown-link" data-curtain>Transporte y Logística</a></li>
+          <li><a href="acr-talent.html"     class="navbar__dropdown-link" data-curtain>Grupo Conecta</a></li>
+          <li><a href="el-legado.html"      class="navbar__dropdown-link" data-curtain>El Legado</a></li>
+          <li><a href="floresca.html"       class="navbar__dropdown-link active">Floresca</a></li>
+        </ul>
+      </li>
+      <li><a href="index.html#nosotros" class="navbar__link" data-curtain>Nosotros</a></li>
+      <li><a href="#contacto"           class="navbar__link">Contacto</a></li>
+      <li><a href="postulacion.html" class="navbar__join">Únete al equipo</a></li>
+      <li class="navbar__lang" role="group"><button data-lang="es" class="active">ES</button><button data-lang="en">EN</button></li>
+    </ul>
+    <button class="navbar__hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="navMenu"><span></span><span></span><span></span></button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero hero--division" aria-label="Floresca Vivero">
+    <div class="hero__bg"></div>
+    <div class="hero__content">
+      <img src="assets/images/logo-floresca.png" alt="Floresca" class="hero__division-logo">
+      <p class="hero__eyebrow division-accent">Floresca — Corporación ARC S.A.</p>
+      <h1 class="hero__title">Naturaleza que<br>llega a tu puerta</h1>
+      <p class="hero__subtitle">Vivero con amplia variedad de plantas, flores y follaje. Explora nuestro catálogo en Facebook y pide lo que necesitas con entrega a domicilio.</p>
+      <div class="hero__cta">
+        <a href="#catalogo" class="btn btn--division magnetic">Ver catálogo</a>
+        <a href="#contacto" class="btn btn--outline magnetic">Hacer pedido</a>
+      </div>
+    </div>
+    <div class="hero__scroll" aria-hidden="true"><span>Scroll</span></div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section class="section section--dark" id="servicios">
+    <div class="container">
+      <a href="index.html" class="back-link" data-curtain>← Corporación ARC S.A.</a>
+      <h2 class="section-title" data-aos="fade-up">Lo que <span class="division-accent">Ofrecemos</span></h2>
+      <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Plantas de todo tipo, frescas y cuidadas, directo del vivero a tu hogar o empresa.</p>
+      <div class="service-detail">
+        <div class="detail-card" data-aos="fade-up" data-aos-delay="0"><span class="detail-card__icon">🌿</span><h3 class="detail-card__title">Plantas de Interior</h3><p class="detail-card__text">Pothos, helechos, suculentas, cactus y más. Perfectas para decorar oficinas, salas y espacios con poca luz natural.</p></div>
+        <div class="detail-card" data-aos="fade-up" data-aos-delay="100"><span class="detail-card__icon">🌸</span><h3 class="detail-card__title">Flores y Ornamentales</h3><p class="detail-card__text">Rosas, crisantemos, anturios, heliconias y plantas de temporada. Color y vida para jardines, eventos y regalos especiales.</p></div>
+        <div class="detail-card" data-aos="fade-up" data-aos-delay="200"><span class="detail-card__icon">🌳</span><h3 class="detail-card__title">Árboles y Arbustos</h3><p class="detail-card__text">Frutales, ornamentales y de sombra para jardines y áreas verdes. Plantas de tamaño adulto disponibles para proyectos de paisajismo.</p></div>
+        <div class="detail-card" data-aos="fade-up" data-aos-delay="300"><span class="detail-card__icon">🪴</span><h3 class="detail-card__title">Macetas y Sustratos</h3><p class="detail-card__text">Macetas plásticas, cerámica y barro en todos los tamaños. Tierra preparada, abonos y sustratos especiales para cada tipo de planta.</p></div>
+        <div class="detail-card" data-aos="fade-up" data-aos-delay="400"><span class="detail-card__icon">🚚</span><h3 class="detail-card__title">Entrega a Domicilio</h3><p class="detail-card__text">Llevamos tu pedido hasta tu puerta. Cobertura en área metropolitana de Guatemala. Entrega cuidadosa con embalaje protector.</p></div>
+        <div class="detail-card" data-aos="fade-up" data-aos-delay="500"><span class="detail-card__icon">💼</span><h3 class="detail-card__title">Proyectos Corporativos</h3><p class="detail-card__text">Decoración de oficinas, hoteles, restaurantes y eventos. Mantenimiento periódico de áreas verdes disponible por contrato mensual.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATÁLOGO FACEBOOK -->
+  <section class="catalogo-section" id="catalogo" aria-label="Catálogo en Facebook">
+    <div class="catalogo-inner" data-aos="fade-up">
+      <span class="catalogo-badge">📸 Catálogo actualizado</span>
+      <h2 class="catalogo-title">Mira todo lo que<br>tenemos para ti</h2>
+      <p class="catalogo-text">
+        Nuestro catálogo completo con fotos, precios y disponibilidad lo encontrarás en nuestra página de Facebook.
+        Se actualiza constantemente con las plantas nuevas que llegan al vivero.
+      </p>
+
+      <div class="catalogo-preview" onclick="window.open('https://www.facebook.com', '_blank')" role="button" tabindex="0" aria-label="Ver catálogo en Facebook">
+        <span class="catalogo-preview__icon">🌱</span>
+        <p class="catalogo-preview__title">Ver catálogo completo</p>
+        <p class="catalogo-preview__sub">Haz clic para ir a nuestra página de Facebook</p>
+      </div>
+
+      <a href="https://www.facebook.com" target="_blank" rel="noopener" class="btn--facebook">
+        <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        Ver en Facebook — Floresca
+      </a>
+      <p class="catalogo-note">Página de Facebook — Enlace disponible pronto</p>
+    </div>
+  </section>
+
+  <!-- FORMULARIO -->
+  <section class="section section--mid" id="contacto">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">Hacer <span class="division-accent">Pedido</span></h2>
+      <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Dinos qué plantas quieres y coordinaremos la entrega a tu domicilio.</p>
+      <div data-aos="fade-up" data-aos-delay="200">
+        <form class="leads-form leads-form-el leads-form--division" name="leads-floresca" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+          <input type="hidden" name="form-name" value="leads-floresca">
+          <input type="hidden" name="division" value="Floresca">
+          <div class="form-honeypot" aria-hidden="true"><input type="text" name="bot-field" tabindex="-1" autocomplete="off"></div>
+          <div class="form-grid">
+            <div class="form-group"><label for="nombre">Nombre completo</label><input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required autocomplete="name" maxlength="100"></div>
+            <div class="form-group"><label for="correo">Correo electrónico</label><input type="email" id="correo" name="correo" placeholder="correo@empresa.com" required autocomplete="email" maxlength="150"></div>
+            <div class="form-group"><label for="telefono">Teléfono / WhatsApp</label><input type="tel" id="telefono" name="telefono" placeholder="+502 0000-0000" required autocomplete="tel" maxlength="20"></div>
+            <div class="form-group form-group--full"><label for="direccion">Dirección de entrega</label><input type="text" id="direccion" name="direccion" placeholder="Dirección exacta para la entrega, zona, municipio..." required maxlength="200"></div>
+            <div class="form-group form-group--full"><label for="mensaje">¿Qué plantas necesitas?</label><textarea id="mensaje" name="mensaje" placeholder="Descríbenos qué plantas, flores o productos te interesan. Si viste algo en Facebook, menciónalo aquí." required maxlength="1000" rows="5"></textarea></div>
+          </div>
+          <button type="submit" class="btn btn--division form-submit magnetic">Enviar Pedido</button>
+          <div class="form-message" role="alert" aria-live="polite"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer" role="contentinfo">
+    <div class="footer__grid">
+      <div><div class="footer__brand-logo"><img src="assets/images/logo-arc.png" alt="Corporación ARC S.A." class="footer__logo-img"></div><p class="footer__brand-text">Soluciones empresariales integrales con más de una década de experiencia en Guatemala.</p></div>
+      <div><h4 class="footer__heading">Servicios</h4><ul class="footer__links"><li><a href="acr-automotriz.html" data-curtain>Taller D&D</a></li><li><a href="acr-print.html" data-curtain>Sublipix</a></li><li><a href="acr-logistics.html" data-curtain>Transporte y Logística</a></li><li><a href="acr-talent.html" data-curtain>Grupo Conecta</a></li><li><a href="el-legado.html" data-curtain>El Legado</a></li><li><a href="floresca.html">Floresca</a></li></ul></div>
+      <div><h4 class="footer__heading">Empresa</h4><ul class="footer__links"><li><a href="index.html#nosotros" data-curtain>Nosotros</a></li><li><a href="index.html#info-contacto">Contacto</a></li><li><a href="privacidad.html">Privacidad</a></li></ul></div>
+      <div><h4 class="footer__heading">Contacto</h4><ul class="footer__links"><li><a href="https://wa.me/50254760773" target="_blank" rel="noopener">WhatsApp: +502 5476-0773</a></li><li><a href="tel:+50222380241">Tel: +502 2238-0241</a></li><li><a href="mailto:contacto@corporacionarc.com">contacto@corporacionarc.com</a></li><li>6 Av 9-80 Zona 1, Plaza Vivar 4to Nivel</li></ul><h4 class="footer__heading footer__heading--horarios">Horarios</h4><ul class="footer__links footer__horarios"><li>Lunes a Viernes: 08:00 – 17:00</li><li>Sábado: 08:00 – 13:00</li></ul></div>
+    </div>
+    <div class="footer__bottom"><span>© 2026 Corporación ARC S.A. Todos los derechos reservados.</span><div class="footer__social"><a href="#" aria-label="Facebook" rel="noopener">f</a><a href="#" aria-label="Instagram" rel="noopener">ig</a><a href="#" aria-label="LinkedIn" rel="noopener">in</a></div></div>
+  </footer>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/leads.js"></script>
+  <a href="https://wa.me/50254760773" target="_blank" rel="noopener" class="whatsapp-float" aria-label="WhatsApp"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.532 5.858L.057 23.571a.75.75 0 00.921.921l5.713-1.475A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.705 9.705 0 01-4.95-1.355l-.355-.211-3.688.951.972-3.585-.232-.369A9.718 9.718 0 012.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg></a>
+</body>
+</html>
