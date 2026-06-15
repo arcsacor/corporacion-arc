@@ -559,21 +559,19 @@
       const cvFile = document.getElementById('cv').files[0];
 
       btn.disabled = true;
-      btn.textContent = 'Convirtiendo CV...';
       msg.className = 'form-msg';
-
-      // Mostrar barra de progreso
       prog.style.display = 'block';
       status.style.display = 'block';
-      status.textContent = 'Preparando tu CV...';
-      bar.style.width = '20%';
+
+      // ── PASO 1: Convertir PDF a Base64 ──────────────────
+      btn.textContent = 'Preparando CV...';
+      status.textContent = 'Paso 1 de 2: Preparando tu CV...';
+      bar.style.width = '10%';
 
       let cvBase64 = '';
       try {
         cvBase64 = await fileToBase64(cvFile);
-        bar.style.width = '50%';
-        status.textContent = 'Enviando postulación...';
-        btn.textContent = 'Enviando...';
+        bar.style.width = '25%';
       } catch(e) {
         msg.className = 'form-msg error';
         msg.textContent = 'No se pudo leer el archivo PDF. Intenta de nuevo.';
@@ -583,6 +581,45 @@
         status.style.display = 'none';
         return;
       }
+
+      // ── PASO 2: Subir CV a Google Drive ─────────────────
+      btn.textContent = 'Subiendo CV...';
+      status.textContent = 'Paso 1 de 2: Subiendo CV a Google Drive...';
+      bar.style.width = '40%';
+
+      let cvUrl = '';
+      try {
+        const resCv = await fetch(SCRIPT_URL, {
+          method: 'POST',
+          redirect: 'follow',
+          body: JSON.stringify({
+            action:    'subirCV',
+            cv_base64: cvBase64,
+            cv_nombre: cvFile.name,
+            nombre:    document.getElementById('nombre').value.trim(),
+          })
+        });
+        const jsonCv = await resCv.json();
+        if (jsonCv.result === 'ok' && jsonCv.cv_url) {
+          cvUrl = jsonCv.cv_url;
+          bar.style.width = '65%';
+          status.textContent = 'Paso 2 de 2: Enviando datos de postulación...';
+        } else {
+          throw new Error('No se pudo subir el CV.');
+        }
+      } catch(e) {
+        msg.className = 'form-msg error';
+        msg.textContent = 'Error al subir el CV. Verifica tu conexión e intenta de nuevo.';
+        btn.disabled = false;
+        btn.textContent = 'Enviar mi Postulación';
+        prog.style.display = 'none';
+        status.style.display = 'none';
+        return;
+      }
+
+      // ── PASO 3: Enviar datos del formulario + cv_url ────
+      btn.textContent = 'Enviando datos...';
+      bar.style.width = '80%';
 
       const datos = {
         action:         'postulacion',
@@ -597,12 +634,10 @@
         municipio:      document.getElementById('municipio').value,
         ultimo_trabajo: document.getElementById('ultimo_trabajo').value.trim(),
         motivo_salida:  document.getElementById('motivo_salida').value.trim(),
-        cv_base64:      cvBase64,
-        cv_nombre:      cvFile.name,
+        cv_url:         cvUrl,
       };
 
       try {
-        bar.style.width = '75%';
         const res  = await fetch(SCRIPT_URL, {
           method: 'POST',
           redirect: 'follow',
@@ -612,11 +647,11 @@
         bar.style.width = '100%';
 
         if (json.result === 'ok') {
-          status.textContent = '¡CV guardado en Google Drive!';
+          status.textContent = '✓ CV guardado en Google Drive';
           msg.className = 'form-msg success';
           msg.textContent = '✅ ¡Postulación enviada exitosamente! Tu CV fue guardado de forma segura. Gracias por tu interés en Corporación ARC S.A. Nos pondremos en contacto contigo pronto.';
           btn.textContent = '✓ Postulación Enviada';
-          setTimeout(() => { prog.style.display = 'none'; status.style.display = 'none'; }, 3000);
+          setTimeout(() => { prog.style.display = 'none'; status.style.display = 'none'; }, 4000);
         } else if (json.result === 'duplicate') {
           const field = json.field === 'correo' ? 'correo' : 'dpi';
           showError(field, true);
@@ -631,7 +666,7 @@
         }
       } catch(e) {
         msg.className = 'form-msg error';
-        msg.textContent = 'Ocurrió un error al enviar. Intenta de nuevo o contáctanos por WhatsApp.';
+        msg.textContent = 'Error al enviar los datos. Tu CV ya fue guardado. Contáctanos por WhatsApp indicando tu nombre.';
         btn.disabled = false;
         btn.textContent = 'Enviar mi Postulación';
         prog.style.display = 'none';
