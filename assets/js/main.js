@@ -282,138 +282,114 @@
   });
 })();
 
-
 /* ── DROPDOWN SERVICIOS — hover PC + clic móvil ─────────── */
 (function initDropdown() {
-  const wraps = document.querySelectorAll('.navbar__dropdown-wrap');
-  wraps.forEach(wrap => {
+  document.querySelectorAll('.navbar__dropdown-wrap').forEach(wrap => {
     const btn  = wrap.querySelector('.navbar__dropdown-btn');
     const menu = wrap.querySelector('.navbar__dropdown');
     if (!btn || !menu) return;
-
     const isMobile = () => window.innerWidth <= 900;
 
-    // Clic — funciona en ambos
-    btn.addEventListener('click', (e) => {
+    btn.addEventListener('click', e => {
       e.stopPropagation();
       if (isMobile()) {
-        const isOpen = menu.classList.toggle('open');
-        btn.setAttribute('aria-expanded', isOpen);
+        const open = menu.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open);
       }
     });
-
-    // Hover — solo desktop
     wrap.addEventListener('mouseenter', () => {
-      if (!isMobile()) {
-        menu.classList.add('open');
-        btn.setAttribute('aria-expanded', true);
-      }
+      if (!isMobile()) { menu.classList.add('open'); btn.setAttribute('aria-expanded', true); }
     });
     wrap.addEventListener('mouseleave', () => {
-      if (!isMobile()) {
-        menu.classList.remove('open');
-        btn.setAttribute('aria-expanded', false);
-      }
+      if (!isMobile()) { menu.classList.remove('open'); btn.setAttribute('aria-expanded', false); }
     });
-
-    // Cerrar al hacer clic fuera
     document.addEventListener('click', () => {
-      menu.classList.remove('open');
-      btn.setAttribute('aria-expanded', false);
+      menu.classList.remove('open'); btn.setAttribute('aria-expanded', false);
     });
-
-    // Mantener abierto mientras el mouse está en el menú
-    menu.addEventListener('click', (e) => e.stopPropagation());
+    menu.addEventListener('click', e => e.stopPropagation());
   });
 })();
 
 
-/* ── CARRUSEL — deslizamiento real ──────────────────────── */
+/* ── CARRUSEL FLUIDO — deslizamiento real ───────────────── */
 (function initCarousel() {
   const wrapper = document.querySelector('.carousel-wrapper');
   if (!wrapper) return;
+  const grid = document.getElementById('cardsCarousel');
+  const dotsContainer = wrapper.querySelector('.carousel-dots');
+  if (!grid) return;
 
-  const grid  = document.getElementById('cardsCarousel');
-  const dots  = document.querySelectorAll('.carousel-dot');
-  if (!grid || !dots.length) return;
-
-  // Convertir cards-grid a carousel-track
   const cards = Array.from(grid.querySelectorAll('.service-card'));
   if (!cards.length) return;
 
-  // Crear estructura de track
+  /* Construir estructura de track */
   const trackWrap = document.createElement('div');
   trackWrap.className = 'carousel-track-wrap';
   const track = document.createElement('div');
   track.className = 'carousel-track';
-  cards.forEach(card => {
-    grid.removeChild(card);
-    track.appendChild(card);
-  });
+  cards.forEach(c => track.appendChild(c));
   trackWrap.appendChild(track);
   grid.parentNode.insertBefore(trackWrap, grid);
   grid.parentNode.removeChild(grid);
+  if (dotsContainer) trackWrap.parentNode.insertBefore(dotsContainer, trackWrap.nextSibling);
 
-  let current  = 0;
-  let autoTimer = null;
+  let current = 0, timer = null;
 
-  function getPerPage() {
+  function perPage() {
     if (window.innerWidth <= 540) return 1;
     if (window.innerWidth <= 900) return 2;
     return 3;
   }
+  function totalGroups() { return Math.ceil(cards.length / perPage()); }
 
-  function getTotal() {
-    return Math.ceil(cards.length / getPerPage());
+  function setWidths() {
+    const pp = perPage();
+    cards.forEach(c => {
+      c.style.flex = '0 0 ' + (100 / pp) + '%';
+      c.style.maxWidth = (100 / pp) + '%';
+      c.style.boxSizing = 'border-box';
+    });
   }
 
   function goTo(idx) {
-    const perPage = getPerPage();
-    const total   = getTotal();
-    current = ((idx % total) + total) % total;
-    const offset = current * (100 / perPage) * perPage;
-    track.style.transform = `translateX(-${current * 100}%)`;
+    const pp = perPage();
+    const tg = totalGroups();
+    current = ((idx % tg) + tg) % tg;
+    setWidths();
+    /* Cada grupo ocupa pp tarjetas × (100/pp)% = 100% del ancho del track visible */
+    track.style.transform = 'translateX(-' + (current * 100) + '%)';
+    if (dotsContainer) {
+      dotsContainer.querySelectorAll('.carousel-dot').forEach((d, i) => {
+        d.classList.toggle('active', i === current);
+        d.style.display = i < tg ? '' : 'none';
+      });
+    }
+  }
 
-    // Actualizar card widths
-    cards.forEach(card => {
-      card.style.flex    = `0 0 ${100 / perPage}%`;
-      card.style.maxWidth = `${100 / perPage}%`;
+  function start() { stop(); timer = setInterval(() => goTo(current + 1), 4500); }
+  function stop()  { clearInterval(timer); }
+
+  if (dotsContainer) {
+    dotsContainer.querySelectorAll('.carousel-dot').forEach((d, i) => {
+      d.addEventListener('click', () => { goTo(i); stop(); start(); });
     });
-
-    // Dots
-    dots.forEach((dot, i) => {
-      dot.classList.toggle('active', i === current);
-      dot.style.display = i < total ? '' : 'none';
-    });
   }
 
-  function startAuto() {
-    stopAuto();
-    autoTimer = setInterval(() => goTo(current + 1), 4500);
-  }
-  function stopAuto() {
-    if (autoTimer) clearInterval(autoTimer);
-  }
+  trackWrap.addEventListener('mouseenter', stop);
+  trackWrap.addEventListener('mouseleave', start);
 
-  dots.forEach((dot, i) => {
-    dot.addEventListener('click', () => { goTo(i); stopAuto(); startAuto(); });
-  });
-
-  trackWrap.addEventListener('mouseenter', stopAuto);
-  trackWrap.addEventListener('mouseleave', startAuto);
-
-  // Touch swipe
-  let touchStartX = 0;
-  trackWrap.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+  /* Swipe móvil */
+  let tx = 0;
+  trackWrap.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, { passive: true });
   trackWrap.addEventListener('touchend', e => {
-    const diff = touchStartX - e.changedTouches[0].clientX;
-    if (Math.abs(diff) > 50) { goTo(current + (diff > 0 ? 1 : -1)); stopAuto(); startAuto(); }
+    const d = tx - e.changedTouches[0].clientX;
+    if (Math.abs(d) > 50) { goTo(current + (d > 0 ? 1 : -1)); stop(); start(); }
   }, { passive: true });
 
-  window.addEventListener('resize', () => goTo(current), { passive: true });
+  window.addEventListener('resize', () => { setWidths(); goTo(current); }, { passive: true });
 
   goTo(0);
-  startAuto();
+  start();
 })();
 
 
@@ -421,34 +397,21 @@
 (function initCotizacionTypewriter() {
   const el = document.getElementById('cotizacionTypewriter');
   if (!el) return;
+  const base   = el.textContent.trim();
+  const phrases = [base, 'Sin Costo', 'Sin Compromiso', 'en 24 Horas Laborales'];
+  let pi = 0, ci = base.length, del = false, paused = false;
 
-  const baseText   = el.textContent.trim();
-  const phrases    = [baseText, 'Sin Costo', 'Sin Compromiso', 'en 24 Horas Laborales'];
-  let pi = 0, ci = phrases[0].length, deleting = false, paused = false;
-
-  function type() {
+  function tick() {
     if (paused) return;
-    const word = phrases[pi];
-    if (!deleting) {
-      ci++;
-      el.textContent = word.slice(0, ci);
-      if (ci >= word.length) {
-        deleting = true;
-        paused = true;
-        setTimeout(() => { paused = false; type(); }, 2000);
-        return;
-      }
+    const w = phrases[pi];
+    if (!del) {
+      el.textContent = w.slice(0, ++ci);
+      if (ci >= w.length) { del = true; paused = true; setTimeout(() => { paused = false; tick(); }, 2000); return; }
     } else {
-      ci--;
-      el.textContent = word.slice(0, ci);
-      if (ci === 0) {
-        deleting = false;
-        pi = (pi + 1) % phrases.length;
-      }
+      el.textContent = w.slice(0, --ci);
+      if (ci === 0) { del = false; pi = (pi + 1) % phrases.length; }
     }
-    setTimeout(type, deleting ? 40 : 75);
+    setTimeout(tick, del ? 40 : 75);
   }
-
-  // Iniciar después de 1.5s para que el usuario vea el texto primero
-  setTimeout(type, 1500);
+  setTimeout(tick, 1500);
 })();
