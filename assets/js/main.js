@@ -27,8 +27,16 @@
       hamburger.setAttribute('aria-expanded', isOpen);
     });
 
-    // Cerrar al hacer clic en un link
-    menu.querySelectorAll('.navbar__link').forEach(link => {
+    // Cerrar al hacer clic en un link (excepto el botón dropdown)
+    menu.querySelectorAll('.navbar__link:not(.navbar__dropdown-btn)').forEach(link => {
+      link.addEventListener('click', () => {
+        menu.classList.remove('open');
+        hamburger.classList.remove('active');
+        hamburger.setAttribute('aria-expanded', false);
+      });
+    });
+    // Cerrar al seleccionar un item del dropdown en móvil
+    menu.querySelectorAll('.navbar__dropdown-link').forEach(link => {
       link.addEventListener('click', () => {
         menu.classList.remove('open');
         hamburger.classList.remove('active');
@@ -293,20 +301,38 @@
     btn.addEventListener('click', e => {
       e.stopPropagation();
       if (isMobile()) {
-        const open = menu.classList.toggle('open');
-        btn.setAttribute('aria-expanded', open);
+        const isOpen = menu.classList.toggle('open');
+        btn.setAttribute('aria-expanded', isOpen);
+        // En móvil: si se abre el dropdown, evitar que el navbar lo cierre
+        if (isOpen) {
+          e.nativeEvent && e.nativeEvent.stopImmediatePropagation();
+        }
       }
     });
+
+    // Hover solo en desktop
     wrap.addEventListener('mouseenter', () => {
       if (!isMobile()) { menu.classList.add('open'); btn.setAttribute('aria-expanded', true); }
     });
     wrap.addEventListener('mouseleave', () => {
       if (!isMobile()) { menu.classList.remove('open'); btn.setAttribute('aria-expanded', false); }
     });
-    document.addEventListener('click', () => {
-      menu.classList.remove('open'); btn.setAttribute('aria-expanded', false);
+
+    // Cerrar al hacer clic fuera — solo en desktop
+    document.addEventListener('click', (e) => {
+      if (!wrap.contains(e.target)) {
+        menu.classList.remove('open');
+        btn.setAttribute('aria-expanded', false);
+      }
     });
-    menu.addEventListener('click', e => e.stopPropagation());
+
+    // Cerrar dropdown al seleccionar un link (móvil y desktop)
+    menu.querySelectorAll('.navbar__dropdown-link').forEach(link => {
+      link.addEventListener('click', () => {
+        menu.classList.remove('open');
+        btn.setAttribute('aria-expanded', false);
+      });
+    });
   });
 })();
 
