@@ -46,7 +46,7 @@ const TRANSLATIONS = {
     timeline2_year: '2020',
     timeline2_text: 'Expansión con el servicio Sublipix, atendiendo la demanda de productos corporativos en la región.',
     timeline3_year: '2022',
-    timeline3_text: 'Lanzamiento de ARC Logistics con una flota inicial de 10 unidades para transporte de carga.',
+    timeline3_text: 'Lanzamiento de Transporte y Logística con una flota inicial de 10 unidades para transporte de carga.',
     timeline4_year: '2024',
     timeline4_text: 'Consolidación con Grupo Conecta, completando el ecosistema de servicios empresariales.',
     timeline5_year: 'XXXX',
