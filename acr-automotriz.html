@@ -200,9 +200,19 @@
   </section>
 
   <!-- FORMULARIO DE LEADS -->
-  <section class="section section--mid" id="contacto" aria-label="Solicitar cita Taller D&D">
+  <section class="section section--cotizacion" id="contacto" aria-label="Solicitar cita Taller D&D">
+    <div class="section--cotizacion__bg" aria-hidden="true"></div>
     <div class="container">
-      <h2 class="section-title" data-aos="fade-up">Solicita tu <span class="division-accent">Cita</span></h2>
+      <div class="cotizacion-header" data-aos="fade-up">
+        <h2 class="section-title cotizacion-title" style="color:#fff;">
+          Solicita <span class="cotizacion-typewriter division-accent" id="cotizacionTypewriter">tu Cita</span>
+        </h2>
+        <div class="cotizacion-benefits">
+          <span class="cotizacion-benefit"><span class="cotizacion-check" style="color:#FFA500;">✓</span> Sin Costo</span>
+          <span class="cotizacion-benefit"><span class="cotizacion-check" style="color:#FFA500;">✓</span> Sin Compromiso</span>
+          <span class="cotizacion-benefit"><span class="cotizacion-check" style="color:#FFA500;">✓</span> Respuesta en 24 Horas Laborales</span>
+        </div>
+      </div>
       <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
         Completa el formulario y te confirmamos disponibilidad en menos de 24 horas laborales.
       </p>
@@ -264,7 +274,7 @@
               <textarea id="mensaje" name="mensaje" placeholder="Descríbenos el problema o síntoma que presenta tu vehículo..." required maxlength="1000" rows="4"></textarea>
             </div>
           </div>
-          <button type="submit" class="btn btn--division form-submit magnetic">Solicitar Cotización</button>
+          <button type="submit" class="btn btn--division form-submit magnetic btn--shimmer">Solicitar Cotización</button>
           <div class="form-message" role="alert" aria-live="polite"></div>
         </form>
       </div>
