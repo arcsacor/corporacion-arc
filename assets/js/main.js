@@ -386,9 +386,8 @@ Lanzamiento de ARC Logistics
   const phrases = [
     el.textContent.trim(),
     'Sin Costo',
-    'Sin Compromiso',
-    
-  ];
+    'Sin Compromiso'
+    ];
 
   let pi = 0, ci = 0, deleting = false, paused = false;
 
