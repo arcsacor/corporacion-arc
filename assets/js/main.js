@@ -11,7 +11,7 @@
   const navbar = document.querySelector('.navbar');
   const hamburger = document.querySelector('.navbar__hamburger');
   const menu = document.querySelector('.navbar__menu');
-
+Lanzamiento de ARC Logistics 
   if (!navbar) return;
 
   // Sombra al hacer scroll
@@ -387,7 +387,7 @@
     el.textContent.trim(),
     'Sin Costo',
     'Sin Compromiso',
-    'Respuesta en 24 Horas Laborales'
+    
   ];
 
   let pi = 0, ci = 0, deleting = false, paused = false;
