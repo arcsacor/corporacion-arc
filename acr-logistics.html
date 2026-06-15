@@ -91,9 +91,19 @@
       </div>
     </div>
   </section>
-  <section class="section section--mid" id="contacto">
+  <section class="section section--cotizacion" id="contacto">
+    <div class="section--cotizacion__bg" aria-hidden="true"></div>
     <div class="container">
-      <h2 class="section-title" data-aos="fade-up">Solicita tu <span class="division-accent">Transporte</span></h2>
+      <div class="cotizacion-header" data-aos="fade-up">
+        <h2 class="section-title cotizacion-title" style="color:#fff;">
+          Solicita <span class="cotizacion-typewriter division-accent" id="cotizacionTypewriter">tu Transporte</span>
+        </h2>
+        <div class="cotizacion-benefits">
+          <span class="cotizacion-benefit"><span class="cotizacion-check" style="color:#FFA500;">✓</span> Sin Costo</span>
+          <span class="cotizacion-benefit"><span class="cotizacion-check" style="color:#FFA500;">✓</span> Sin Compromiso</span>
+          <span class="cotizacion-benefit"><span class="cotizacion-check" style="color:#FFA500;">✓</span> Respuesta en 24 Horas Laborales</span>
+        </div>
+      </div>
       <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Completa el formulario y te confirmamos disponibilidad y precio en menos de 24 horas laborales.</p>
       <div data-aos="fade-up" data-aos-delay="200">
         <form class="leads-form leads-form-el leads-form--division" name="leads-logistics" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
@@ -111,7 +121,7 @@
             <div class="form-group"><label for="tonelaje">Tonelaje aproximado</label><select id="tonelaje" name="tonelaje" required><option value="">Selecciona tonelaje</option><option value="0-2">Menos de 2 toneladas</option><option value="2-5">2 a 5 toneladas</option><option value="5-10">5 a 10 toneladas</option><option value="10-20">10 a 20 toneladas</option><option value="20+">Más de 20 toneladas</option></select></div>
             <div class="form-group form-group--full"><label for="mensaje">Detalles adicionales</label><textarea id="mensaje" name="mensaje" placeholder="Describe tu carga, condiciones especiales, horarios u otros detalles importantes..." required maxlength="1000" rows="4"></textarea></div>
           </div>
-          <button type="submit" class="btn btn--division form-submit magnetic">Solicitar Cotización</button>
+          <button type="submit" class="btn btn--division form-submit magnetic btn--shimmer">Solicitar Cotización</button>
           <div class="form-message" role="alert" aria-live="polite"></div>
         </form>
       </div>
