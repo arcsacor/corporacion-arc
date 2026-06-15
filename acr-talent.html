@@ -19,21 +19,21 @@
   <link rel="stylesheet" href="assets/css/responsive.css">
 
   <style>
-    .hero--talent {
-      background: linear-gradient(135deg, #0A1628 0%, #0a1a28 60%, #0a2028 100%);
+    .hero--division {
+      background: linear-gradient(135deg, #0A1628 0%, #1a1200 60%, #1a1200 100%);
     }
-    .hero--talent .hero__bg::after {
-      background: radial-gradient(ellipse at 60% 50%, rgba(0,180,220,0.12) 0%, transparent 60%);
+    .hero--division .hero__bg::after {
+      background: radial-gradient(ellipse at 60% 50%, rgba(255,160,0,0.12) 0%, transparent 60%);
     }
-    .division-accent { color: #00D4FF; }
+    .division-accent { color: #FFA500; }
     .btn--division {
-      background-color: #00D4FF;
+      background-color: #FFA500;
       color: #0A1628;
     }
     .btn--division:hover {
-      background-color: #45e3ff;
+      background-color: #ffbe45;
       transform: translateY(-2px);
-      box-shadow: 0 8px 40px rgba(0,212,255,0.25);
+      box-shadow: 0 8px 40px rgba(255,165,0,0.25);
     }
     .service-detail {
       display: grid;
@@ -43,13 +43,13 @@
     }
     .detail-card {
       background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(0,212,255,0.15);
+      border: 1px solid rgba(255,165,0,0.15);
       border-radius: 8px;
       padding: 32px 28px;
       transition: border-color 0.3s ease, transform 0.3s ease;
     }
     .detail-card:hover {
-      border-color: #00D4FF;
+      border-color: #FFA500;
       transform: translateY(-4px);
     }
     .detail-card__icon {
@@ -70,14 +70,14 @@
       line-height: 1.7;
     }
     .leads-form--division {
-      background: linear-gradient(135deg, #0A1628 0%, #0a2028 100%);
-      border-color: rgba(0,212,255,0.2);
+      background: linear-gradient(135deg, #0A1628 0%, #1a1200 100%);
+      border-color: rgba(255,165,0,0.2);
     }
     .leads-form--division input:focus,
     .leads-form--division select:focus,
     .leads-form--division textarea:focus {
-      border-color: #00D4FF;
-      box-shadow: 0 0 0 3px rgba(0,212,255,0.12);
+      border-color: #FFA500;
+      box-shadow: 0 0 0 3px rgba(255,165,0,0.12);
     }
     .back-link {
       display: inline-flex;
@@ -88,16 +88,16 @@
       margin-bottom: 32px;
       transition: color 0.3s ease;
     }
-    .back-link:hover { color: #00D4FF; }
+    .back-link:hover { color: #FFA500; }
 
     .hero__division-logo {
-      height: 100px;
+      height: 160px;
       width: auto;
-      max-width: 280px;
+      max-width: 360px;
       object-fit: contain;
       margin-bottom: 20px;
       display: block;
-      filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3));
+      filter: drop-shadow(0 2px 12px rgba(0,0,0,0.3));
     }
   </style>
 </head>
@@ -128,12 +128,19 @@
       <img src="assets/images/logo-arc.png" alt="Corporación ARC S.A." class="navbar__logo-img">
     </a>
     <ul class="navbar__menu" id="navMenu" role="list">
-      <li><a href="acr-automotriz.html" class="navbar__link" data-i18n="nav_automotriz" data-curtain>Automotriz</a></li>
-      <li><a href="acr-print.html"      class="navbar__link" data-i18n="nav_print" data-curtain>Impresión</a></li>
-      <li><a href="acr-logistics.html"  class="navbar__link" data-i18n="nav_logistics" data-curtain>Logística</a></li>
-      <li><a href="acr-talent.html"     class="navbar__link active" data-i18n="nav_talent">Talento</a></li>
-      <li><a href="index.html#nosotros" class="navbar__link" data-i18n="nav_nosotros" data-curtain>Nosotros</a></li>
-      <li><a href="#contacto"           class="navbar__link" data-i18n="nav_contacto">Contacto</a></li>
+      <li class="navbar__dropdown-wrap">
+        <button class="navbar__link navbar__dropdown-btn active" aria-expanded="false" aria-haspopup="true">Servicios <span class="navbar__arrow">▾</span></button>
+        <ul class="navbar__dropdown" role="menu">
+          <li><a href="acr-automotriz.html" class="navbar__dropdown-link" data-curtain>Taller D&D</a></li>
+          <li><a href="acr-print.html"      class="navbar__dropdown-link" data-curtain>Sublipix</a></li>
+          <li><a href="acr-logistics.html"  class="navbar__dropdown-link" data-curtain>Transporte y Logística</a></li>
+          <li><a href="acr-talent.html"     class="navbar__dropdown-link active">Grupo Conecta</a></li>
+          <li><a href="el-legado.html"      class="navbar__dropdown-link" data-curtain>El Legado</a></li>
+          <li><a href="floresca.html"       class="navbar__dropdown-link" data-curtain>Floresca</a></li>
+        </ul>
+      </li>
+      <li><a href="index.html#nosotros" class="navbar__link" data-curtain>Nosotros</a></li>
+      <li><a href="#contacto"           class="navbar__link">Contacto</a></li>
       <li><a href="postulacion.html" class="navbar__join">Únete al equipo</a></li>
       <li class="navbar__lang" role="group" aria-label="Idioma">
         <button data-lang="es" class="active">ES</button>
@@ -146,10 +153,10 @@
   </nav>
 
   <!-- HERO -->
-  <section class="hero hero--talent" aria-label="Grupo Conecta">
+  <section class="hero hero--division" aria-label="Grupo Conecta">
     <div class="hero__bg"></div>
     <div class="hero__content">
-      <img src="assets/images/logo-grupo-conecta-blanco.png" alt="Grupo Conecta" class="hero__division-logo">
+      <img src="assets/images/logo-grupo-conecta-linea.png" alt="Grupo Conecta" class="hero__division-logo">
       <p class="hero__eyebrow division-accent">Grupo Conecta — Corporación ARC S.A.</p>
       <h1 class="hero__title">El talento correcto<br>para tu empresa</h1>
       <p class="hero__subtitle">Outsourcing de recursos humanos y reclutamiento especializado. Encontramos, seleccionamos y gestionamos el talento que tu negocio necesita.</p>
@@ -216,7 +223,7 @@
   <!-- ══ BANNER ÚNETE AL EQUIPO ════════════════════════════ -->
   <section class="join-banner" aria-label="Únete al equipo">
     <div class="join-banner__inner">
-      <img src="assets/images/logo-grupo-conecta-blanco.png" alt="Grupo Conecta" class="join-banner__logo">
+      <img src="assets/images/logo-grupo-conecta-linea.png" alt="Grupo Conecta" class="join-banner__logo">
       <div class="join-banner__content">
         <span class="join-banner__eyebrow">Grupo Conecta — Corporación ARC S.A.</span>
         <h2 class="join-banner__title">¿Quieres formar parte<br>de nuestro equipo?</h2>
@@ -348,8 +355,10 @@
         <ul class="footer__links">
           <li><a href="acr-automotriz.html" data-curtain>Taller D&D</a></li>
           <li><a href="acr-print.html" data-curtain>Sublipix</a></li>
-          <li><a href="acr-logistics.html" data-curtain>ARC Logistics</a></li>
+          <li><a href="acr-logistics.html" data-curtain>Transporte y Logística</a></li>
           <li><a href="acr-talent.html">Grupo Conecta</a></li>
+          <li><a href="el-legado.html" data-curtain>El Legado</a></li>
+          <li><a href="floresca.html" data-curtain>Floresca</a></li>
         </ul>
       </div>
 
@@ -357,7 +366,7 @@
         <h4 class="footer__heading" data-i18n="footer_empresa">Empresa</h4>
         <ul class="footer__links">
           <li><a href="index.html#nosotros" data-curtain data-i18n="footer_nosotros">Nosotros</a></li>
-          <li><a href="#contacto" data-i18n="footer_contacto">Contacto</a></li>
+          <li><a href="index.html#info-contacto">Contacto</a></li>
           <li><a href="privacidad.html" data-i18n="footer_privacidad">Privacidad</a></li>
         </ul>
       </div>
