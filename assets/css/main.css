@@ -1582,3 +1582,33 @@ a.contact-card__value:hover {
     max-width: 100%;
   }
 }
+
+
+/* ── COTIZACIÓN — centrado del contenido ─────────────────── */
+.section--cotizacion .container {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.section--cotizacion .section-subtitle {
+  text-align: center;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section--cotizacion .leads-form {
+  text-align: left;
+}
+
+.section--cotizacion .leads-form label {
+  text-align: left;
+}
+
+/* ── FOOTER — tamaño uniforme en li de texto plano ──────── */
+.footer__links li {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.6;
+}
