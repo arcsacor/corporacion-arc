@@ -283,18 +283,37 @@
 })();
 
 
-/* ── DROPDOWN SERVICIOS ──────────────────────────────────── */
+/* ── DROPDOWN SERVICIOS — hover PC + clic móvil ─────────── */
 (function initDropdown() {
   const wraps = document.querySelectorAll('.navbar__dropdown-wrap');
   wraps.forEach(wrap => {
-    const btn = wrap.querySelector('.navbar__dropdown-btn');
+    const btn  = wrap.querySelector('.navbar__dropdown-btn');
     const menu = wrap.querySelector('.navbar__dropdown');
     if (!btn || !menu) return;
 
+    const isMobile = () => window.innerWidth <= 900;
+
+    // Clic — funciona en ambos
     btn.addEventListener('click', (e) => {
       e.stopPropagation();
-      const isOpen = menu.classList.toggle('open');
-      btn.setAttribute('aria-expanded', isOpen);
+      if (isMobile()) {
+        const isOpen = menu.classList.toggle('open');
+        btn.setAttribute('aria-expanded', isOpen);
+      }
+    });
+
+    // Hover — solo desktop
+    wrap.addEventListener('mouseenter', () => {
+      if (!isMobile()) {
+        menu.classList.add('open');
+        btn.setAttribute('aria-expanded', true);
+      }
+    });
+    wrap.addEventListener('mouseleave', () => {
+      if (!isMobile()) {
+        menu.classList.remove('open');
+        btn.setAttribute('aria-expanded', false);
+      }
     });
 
     // Cerrar al hacer clic fuera
@@ -303,83 +322,133 @@
       btn.setAttribute('aria-expanded', false);
     });
 
-    // Cerrar al elegir una opción
-    menu.querySelectorAll('.navbar__dropdown-link').forEach(link => {
-      link.addEventListener('click', () => {
-        menu.classList.remove('open');
-        btn.setAttribute('aria-expanded', false);
-      });
-    });
+    // Mantener abierto mientras el mouse está en el menú
+    menu.addEventListener('click', (e) => e.stopPropagation());
   });
 })();
 
 
-/* ── CARRUSEL DE CARDS ───────────────────────────────────── */
+/* ── CARRUSEL — deslizamiento real ──────────────────────── */
 (function initCarousel() {
-  const grid   = document.getElementById('cardsCarousel');
-  const dots   = document.querySelectorAll('.carousel-dot');
+  const wrapper = document.querySelector('.carousel-wrapper');
+  if (!wrapper) return;
+
+  const grid  = document.getElementById('cardsCarousel');
+  const dots  = document.querySelectorAll('.carousel-dot');
   if (!grid || !dots.length) return;
 
-  const cards       = grid.querySelectorAll('.service-card');
-  const totalCards  = cards.length;    // 6
-  let currentGroup  = 0;
-  let autoTimer     = null;
+  // Convertir cards-grid a carousel-track
+  const cards = Array.from(grid.querySelectorAll('.service-card'));
+  if (!cards.length) return;
 
-  // Detectar cuántas columnas hay visible según CSS
-  function getVisible() {
-    if (window.innerWidth <= 540)  return 1;
-    if (window.innerWidth <= 900)  return 2;
+  // Crear estructura de track
+  const trackWrap = document.createElement('div');
+  trackWrap.className = 'carousel-track-wrap';
+  const track = document.createElement('div');
+  track.className = 'carousel-track';
+  cards.forEach(card => {
+    grid.removeChild(card);
+    track.appendChild(card);
+  });
+  trackWrap.appendChild(track);
+  grid.parentNode.insertBefore(trackWrap, grid);
+  grid.parentNode.removeChild(grid);
+
+  let current  = 0;
+  let autoTimer = null;
+
+  function getPerPage() {
+    if (window.innerWidth <= 540) return 1;
+    if (window.innerWidth <= 900) return 2;
     return 3;
   }
 
-  function totalGroups() {
-    return Math.ceil(totalCards / getVisible());
+  function getTotal() {
+    return Math.ceil(cards.length / getPerPage());
   }
 
-  function goTo(index) {
-    const visible = getVisible();
-    const groups  = totalGroups();
-    currentGroup  = (index + groups) % groups;
+  function goTo(idx) {
+    const perPage = getPerPage();
+    const total   = getTotal();
+    current = ((idx % total) + total) % total;
+    const offset = current * (100 / perPage) * perPage;
+    track.style.transform = `translateX(-${current * 100}%)`;
 
-    // Ocultar / mostrar cards
-    cards.forEach((card, i) => {
-      const inGroup = Math.floor(i / visible) === currentGroup;
-      card.style.display = inGroup ? '' : 'none';
+    // Actualizar card widths
+    cards.forEach(card => {
+      card.style.flex    = `0 0 ${100 / perPage}%`;
+      card.style.maxWidth = `${100 / perPage}%`;
     });
 
-    // Sincronizar dots (solo mostramos dots si hay más de un grupo)
+    // Dots
     dots.forEach((dot, i) => {
-      dot.classList.toggle('active', i === currentGroup);
-      dot.style.display = i < groups ? '' : 'none';
+      dot.classList.toggle('active', i === current);
+      dot.style.display = i < total ? '' : 'none';
     });
   }
 
   function startAuto() {
     stopAuto();
-    autoTimer = setInterval(() => goTo(currentGroup + 1), 4500);
+    autoTimer = setInterval(() => goTo(current + 1), 4500);
   }
-
   function stopAuto() {
     if (autoTimer) clearInterval(autoTimer);
   }
 
-  // Dots click
   dots.forEach((dot, i) => {
-    dot.addEventListener('click', () => {
-      goTo(i);
-      stopAuto();
-      startAuto();
-    });
+    dot.addEventListener('click', () => { goTo(i); stopAuto(); startAuto(); });
   });
 
-  // Parar al hover
-  grid.addEventListener('mouseenter', stopAuto);
-  grid.addEventListener('mouseleave', startAuto);
+  trackWrap.addEventListener('mouseenter', stopAuto);
+  trackWrap.addEventListener('mouseleave', startAuto);
 
-  // Init
+  // Touch swipe
+  let touchStartX = 0;
+  trackWrap.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+  trackWrap.addEventListener('touchend', e => {
+    const diff = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) { goTo(current + (diff > 0 ? 1 : -1)); stopAuto(); startAuto(); }
+  }, { passive: true });
+
+  window.addEventListener('resize', () => goTo(current), { passive: true });
+
   goTo(0);
   startAuto();
+})();
 
-  // Re-init al cambiar tamaño
-  window.addEventListener('resize', () => goTo(currentGroup), { passive: true });
+
+/* ── TYPEWRITER COTIZACIÓN ───────────────────────────────── */
+(function initCotizacionTypewriter() {
+  const el = document.getElementById('cotizacionTypewriter');
+  if (!el) return;
+
+  const baseText   = el.textContent.trim();
+  const phrases    = [baseText, 'Sin Costo', 'Sin Compromiso', 'en 24 Horas Laborales'];
+  let pi = 0, ci = phrases[0].length, deleting = false, paused = false;
+
+  function type() {
+    if (paused) return;
+    const word = phrases[pi];
+    if (!deleting) {
+      ci++;
+      el.textContent = word.slice(0, ci);
+      if (ci >= word.length) {
+        deleting = true;
+        paused = true;
+        setTimeout(() => { paused = false; type(); }, 2000);
+        return;
+      }
+    } else {
+      ci--;
+      el.textContent = word.slice(0, ci);
+      if (ci === 0) {
+        deleting = false;
+        pi = (pi + 1) % phrases.length;
+      }
+    }
+    setTimeout(type, deleting ? 40 : 75);
+  }
+
+  // Iniciar después de 1.5s para que el usuario vea el texto primero
+  setTimeout(type, 1500);
 })();
