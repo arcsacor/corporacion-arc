@@ -11,7 +11,7 @@
   const navbar = document.querySelector('.navbar');
   const hamburger = document.querySelector('.navbar__hamburger');
   const menu = document.querySelector('.navbar__menu');
-Lanzamiento de ARC Logistics 
+
   if (!navbar) return;
 
   // Sombra al hacer scroll
@@ -289,33 +289,46 @@ Lanzamiento de ARC Logistics
     const menu = wrap.querySelector('.navbar__dropdown');
     if (!btn || !menu) return;
     const isMobile = () => window.innerWidth <= 900;
+
     btn.addEventListener('click', e => {
       e.stopPropagation();
-      if (isMobile()) { const o = menu.classList.toggle('open'); btn.setAttribute('aria-expanded', o); }
+      if (isMobile()) {
+        const open = menu.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open);
+      }
     });
-    wrap.addEventListener('mouseenter', () => { if (!isMobile()) { menu.classList.add('open'); btn.setAttribute('aria-expanded', true); } });
-    wrap.addEventListener('mouseleave', () => { if (!isMobile()) { menu.classList.remove('open'); btn.setAttribute('aria-expanded', false); } });
-    document.addEventListener('click', () => { menu.classList.remove('open'); btn.setAttribute('aria-expanded', false); });
+    wrap.addEventListener('mouseenter', () => {
+      if (!isMobile()) { menu.classList.add('open'); btn.setAttribute('aria-expanded', true); }
+    });
+    wrap.addEventListener('mouseleave', () => {
+      if (!isMobile()) { menu.classList.remove('open'); btn.setAttribute('aria-expanded', false); }
+    });
+    document.addEventListener('click', () => {
+      menu.classList.remove('open'); btn.setAttribute('aria-expanded', false);
+    });
     menu.addEventListener('click', e => e.stopPropagation());
   });
 })();
 
 
-/* ── CARRUSEL FLUIDO ─────────────────────────────────────── */
+/* ── CARRUSEL FLUIDO — deslizamiento real por grupos ───────── */
 (function initCarousel() {
   const wrapper = document.querySelector('.carousel-wrapper');
   if (!wrapper) return;
   const grid = document.getElementById('cardsCarousel');
   if (!grid) return;
+
   const cards = Array.from(grid.querySelectorAll('.service-card'));
   if (!cards.length) return;
+
   const dotsContainer = wrapper.querySelector('.carousel-dots');
 
+  /* Crear estructura track */
   const trackWrap = document.createElement('div');
   trackWrap.className = 'carousel-track-wrap';
   const track = document.createElement('div');
   track.className = 'carousel-track';
-  cards.forEach(c => track.appendChild(c));
+  cards.forEach(card => track.appendChild(card));
   trackWrap.appendChild(track);
   grid.parentNode.insertBefore(trackWrap, grid);
   grid.parentNode.removeChild(grid);
@@ -332,13 +345,14 @@ Lanzamiento de ARC Logistics
 
   function layout() {
     const n = pp();
-    track.style.display = 'flex';
-    track.style.width = (cards.length * (100 / n)) + '%';
-    cards.forEach(c => {
-      c.style.flex = '0 0 ' + (100 / cards.length) + '%';
-      c.style.maxWidth = (100 / cards.length) + '%';
-      c.style.boxSizing = 'border-box';
-      c.style.padding = '0 12px';
+    /* Ancho del track = total de cards × ancho individual */
+    track.style.width = (cards.length / n * 100) + '%';
+    cards.forEach(card => {
+      card.style.flex     = '0 0 ' + (100 / cards.length * n / n) + '%';
+      card.style.width    = (100 / cards.length) + '%';
+      card.style.maxWidth = 'none';
+      card.style.boxSizing = 'border-box';
+      card.style.padding  = '0 12px';
     });
   }
 
@@ -346,8 +360,10 @@ Lanzamiento de ARC Logistics
     const g = groups();
     current = ((idx % g) + g) % g;
     layout();
+    /* Mover el porcentaje equivalente a un grupo de cards */
     const pct = current * (100 / cards.length) * pp();
     track.style.transform = 'translateX(-' + pct + '%)';
+
     if (dotsContainer) {
       dotsContainer.querySelectorAll('.carousel-dot').forEach((d, i) => {
         d.classList.toggle('active', i === current);
@@ -364,34 +380,36 @@ Lanzamiento de ARC Logistics
       d.addEventListener('click', () => { goTo(i); stop(); start(); });
     });
   }
+
   trackWrap.addEventListener('mouseenter', stop);
   trackWrap.addEventListener('mouseleave', start);
+
   let tx = 0;
   trackWrap.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, { passive: true });
   trackWrap.addEventListener('touchend', e => {
-    const d = tx - e.changedTouches[0].clientX;
-    if (Math.abs(d) > 50) { goTo(current + (d > 0 ? 1 : -1)); stop(); start(); }
+    const diff = tx - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) { goTo(current + (diff > 0 ? 1 : -1)); stop(); start(); }
   }, { passive: true });
-  window.addEventListener('resize', () => { layout(); goTo(current); }, { passive: true });
-  goTo(0); start();
-})();
 
+  window.addEventListener('resize', () => { layout(); goTo(current); }, { passive: true });
+
+  goTo(0);
+  start();
+})();
 
 /* ── TYPEWRITER COTIZACIÓN ───────────────────────────────── */
 (function initCotizacionTypewriter() {
   const el = document.getElementById('cotizacionTypewriter');
   if (!el) return;
 
-  /* Frases completas — cada una se escribe desde cero y se borra completa */
   const phrases = [
     el.textContent.trim(),
     'Sin Costo',
     'Sin Compromiso'
-    ];
+  ];
 
   let pi = 0, ci = 0, deleting = false, paused = false;
 
-  /* Empezar borrando el texto inicial que ya está en el HTML */
   el.textContent = phrases[0];
   ci = phrases[0].length;
   deleting = true;
