@@ -281,3 +281,105 @@
     img.setAttribute('draggable', 'false');
   });
 })();
+
+
+/* ── DROPDOWN SERVICIOS ──────────────────────────────────── */
+(function initDropdown() {
+  const wraps = document.querySelectorAll('.navbar__dropdown-wrap');
+  wraps.forEach(wrap => {
+    const btn = wrap.querySelector('.navbar__dropdown-btn');
+    const menu = wrap.querySelector('.navbar__dropdown');
+    if (!btn || !menu) return;
+
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = menu.classList.toggle('open');
+      btn.setAttribute('aria-expanded', isOpen);
+    });
+
+    // Cerrar al hacer clic fuera
+    document.addEventListener('click', () => {
+      menu.classList.remove('open');
+      btn.setAttribute('aria-expanded', false);
+    });
+
+    // Cerrar al elegir una opción
+    menu.querySelectorAll('.navbar__dropdown-link').forEach(link => {
+      link.addEventListener('click', () => {
+        menu.classList.remove('open');
+        btn.setAttribute('aria-expanded', false);
+      });
+    });
+  });
+})();
+
+
+/* ── CARRUSEL DE CARDS ───────────────────────────────────── */
+(function initCarousel() {
+  const grid   = document.getElementById('cardsCarousel');
+  const dots   = document.querySelectorAll('.carousel-dot');
+  if (!grid || !dots.length) return;
+
+  const cards       = grid.querySelectorAll('.service-card');
+  const totalCards  = cards.length;    // 6
+  let currentGroup  = 0;
+  let autoTimer     = null;
+
+  // Detectar cuántas columnas hay visible según CSS
+  function getVisible() {
+    if (window.innerWidth <= 540)  return 1;
+    if (window.innerWidth <= 900)  return 2;
+    return 3;
+  }
+
+  function totalGroups() {
+    return Math.ceil(totalCards / getVisible());
+  }
+
+  function goTo(index) {
+    const visible = getVisible();
+    const groups  = totalGroups();
+    currentGroup  = (index + groups) % groups;
+
+    // Ocultar / mostrar cards
+    cards.forEach((card, i) => {
+      const inGroup = Math.floor(i / visible) === currentGroup;
+      card.style.display = inGroup ? '' : 'none';
+    });
+
+    // Sincronizar dots (solo mostramos dots si hay más de un grupo)
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === currentGroup);
+      dot.style.display = i < groups ? '' : 'none';
+    });
+  }
+
+  function startAuto() {
+    stopAuto();
+    autoTimer = setInterval(() => goTo(currentGroup + 1), 4500);
+  }
+
+  function stopAuto() {
+    if (autoTimer) clearInterval(autoTimer);
+  }
+
+  // Dots click
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => {
+      goTo(i);
+      stopAuto();
+      startAuto();
+    });
+  });
+
+  // Parar al hover
+  grid.addEventListener('mouseenter', stopAuto);
+  grid.addEventListener('mouseleave', startAuto);
+
+  // Init
+  goTo(0);
+  startAuto();
+
+  // Re-init al cambiar tamaño
+  window.addEventListener('resize', () => goTo(currentGroup), { passive: true });
+})();
