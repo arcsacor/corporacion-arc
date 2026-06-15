@@ -1394,6 +1394,21 @@ a.contact-card__value:hover {
 
 /* ── RESPONSIVE DROPDOWN MÓVIL ───────────────────────────── */
 @media (max-width: 900px) {
+  .navbar__dropdown-wrap {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .navbar__dropdown-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 12px 0;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: rgba(255,255,255,0.85);
+  }
   .navbar__dropdown {
     position: static;
     transform: none;
@@ -1401,20 +1416,32 @@ a.contact-card__value:hover {
     pointer-events: auto;
     box-shadow: none;
     border: none;
-    background: rgba(0,212,255,0.05);
-    border-left: 2px solid var(--color-accent);
-    border-radius: 0;
-    padding: 4px 0 4px 12px;
-    margin-top: 4px;
+    border-top: 1px solid rgba(0,212,255,0.15);
+    border-bottom: 1px solid rgba(0,212,255,0.15);
+    background: rgba(0,212,255,0.04);
+    border-radius: 8px;
+    padding: 8px 0;
+    margin: 4px 0 8px;
     display: none;
+    width: 100%;
+    min-width: unset;
+    left: unset;
   }
   .navbar__dropdown.open {
     display: block;
     transform: none;
   }
   .navbar__dropdown-link {
-    padding: 8px 12px;
-    font-size: 0.82rem;
+    padding: 10px 24px;
+    font-size: 0.88rem;
+    text-align: center;
+    color: rgba(255,255,255,0.75);
+  }
+  .navbar__dropdown-link:hover,
+  .navbar__dropdown-link.active {
+    padding-left: 24px;
+    color: var(--color-accent);
+    background: rgba(0,212,255,0.08);
   }
   .contact-grid {
     grid-template-columns: 1fr 1fr;
