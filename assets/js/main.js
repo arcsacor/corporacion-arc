@@ -311,57 +311,63 @@
 })();
 
 
-/* ── CARRUSEL FLUIDO — deslizamiento real ───────────────── */
+/* ── CARRUSEL FLUIDO — deslizamiento real por grupos ───────── */
 (function initCarousel() {
   const wrapper = document.querySelector('.carousel-wrapper');
   if (!wrapper) return;
   const grid = document.getElementById('cardsCarousel');
-  const dotsContainer = wrapper.querySelector('.carousel-dots');
   if (!grid) return;
 
   const cards = Array.from(grid.querySelectorAll('.service-card'));
   if (!cards.length) return;
 
-  /* Construir estructura de track */
+  const dotsContainer = wrapper.querySelector('.carousel-dots');
+
+  /* Crear estructura track */
   const trackWrap = document.createElement('div');
   trackWrap.className = 'carousel-track-wrap';
   const track = document.createElement('div');
   track.className = 'carousel-track';
-  cards.forEach(c => track.appendChild(c));
+  cards.forEach(card => track.appendChild(card));
   trackWrap.appendChild(track);
   grid.parentNode.insertBefore(trackWrap, grid);
   grid.parentNode.removeChild(grid);
-  if (dotsContainer) trackWrap.parentNode.insertBefore(dotsContainer, trackWrap.nextSibling);
+  if (dotsContainer) wrapper.appendChild(dotsContainer);
 
   let current = 0, timer = null;
 
-  function perPage() {
+  function pp() {
     if (window.innerWidth <= 540) return 1;
     if (window.innerWidth <= 900) return 2;
     return 3;
   }
-  function totalGroups() { return Math.ceil(cards.length / perPage()); }
+  function groups() { return Math.ceil(cards.length / pp()); }
 
-  function setWidths() {
-    const pp = perPage();
-    cards.forEach(c => {
-      c.style.flex = '0 0 ' + (100 / pp) + '%';
-      c.style.maxWidth = (100 / pp) + '%';
-      c.style.boxSizing = 'border-box';
+  function layout() {
+    const n = pp();
+    /* Ancho del track = total de cards × ancho individual */
+    track.style.width = (cards.length / n * 100) + '%';
+    cards.forEach(card => {
+      card.style.flex     = '0 0 ' + (100 / cards.length * n / n) + '%';
+      card.style.width    = (100 / cards.length) + '%';
+      card.style.maxWidth = 'none';
+      card.style.boxSizing = 'border-box';
+      card.style.padding  = '0 12px';
     });
   }
 
   function goTo(idx) {
-    const pp = perPage();
-    const tg = totalGroups();
-    current = ((idx % tg) + tg) % tg;
-    setWidths();
-    /* Cada grupo ocupa pp tarjetas × (100/pp)% = 100% del ancho del track visible */
-    track.style.transform = 'translateX(-' + (current * 100) + '%)';
+    const g = groups();
+    current = ((idx % g) + g) % g;
+    layout();
+    /* Mover el porcentaje equivalente a un grupo de cards */
+    const pct = current * (100 / cards.length) * pp();
+    track.style.transform = 'translateX(-' + pct + '%)';
+
     if (dotsContainer) {
       dotsContainer.querySelectorAll('.carousel-dot').forEach((d, i) => {
         d.classList.toggle('active', i === current);
-        d.style.display = i < tg ? '' : 'none';
+        d.style.display = i < g ? '' : 'none';
       });
     }
   }
@@ -378,15 +384,14 @@
   trackWrap.addEventListener('mouseenter', stop);
   trackWrap.addEventListener('mouseleave', start);
 
-  /* Swipe móvil */
   let tx = 0;
   trackWrap.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, { passive: true });
   trackWrap.addEventListener('touchend', e => {
-    const d = tx - e.changedTouches[0].clientX;
-    if (Math.abs(d) > 50) { goTo(current + (d > 0 ? 1 : -1)); stop(); start(); }
+    const diff = tx - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) { goTo(current + (diff > 0 ? 1 : -1)); stop(); start(); }
   }, { passive: true });
 
-  window.addEventListener('resize', () => { setWidths(); goTo(current); }, { passive: true });
+  window.addEventListener('resize', () => { layout(); goTo(current); }, { passive: true });
 
   goTo(0);
   start();
@@ -397,7 +402,7 @@
 (function initCotizacionTypewriter() {
   const el = document.getElementById('cotizacionTypewriter');
   if (!el) return;
-  const base   = el.textContent.trim();
+  const base    = el.textContent.trim();
   const phrases = [base, 'Sin Costo', 'Sin Compromiso', 'en 24 Horas Laborales'];
   let pi = 0, ci = base.length, del = false, paused = false;
 
